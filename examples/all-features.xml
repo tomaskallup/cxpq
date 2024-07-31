@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE bookstore [
+<!ELEMENT bookstore (book+)>
+<!ELEMENT book (title, price)>
+<!ATTLIST book category CDATA "Literature">
+<!ELEMENT title (#PCDATA)>
+<!ELEMENT price (#PCDATA)>
+]>
+
+<namespace:bookstore>
+  <!-- books are sorted by price -->
+  <namespace:book namespace:category="COOKING">
+    <title>Everyday Italian</title>
+    <price>30.00</price>
+  </book>
+</bookstore>

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<bookstore>
+  Hellno
+
+  <book>
+    <title lang="en">Harry Potter</title>
+    <price currency="eur">29.99</price>
+    <price currency="usd">25.99</price>
+  </book>
+
+  Hello
+
+  <book>
+    <title lang="en">Learning XML</title>
+    <price currency="eur">39.95</price>
+    <price currency="eur" discount="10%">36.95</price>
+    <price currency="usd">32.99</price>
+  </book>
+
+</bookstore>

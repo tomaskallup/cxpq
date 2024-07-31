@@ -1,0 +1,4 @@
+.ccls-cache
+.direnv
+compile_commands.json
+flake.lock
