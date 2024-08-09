@@ -5,14 +5,6 @@
 
 #include "util.h"
 
-#define DEBUG
-
-#ifdef DEBUG
-#define DEBUG_PRINT(...) printf(__VA_ARGS__)
-#else
-#define DEBUG_PRINT(...)
-#endif
-
 bool isWhitespace(const char input) {
   return (input == ' ' || input == '\t' || input == '\n');
 }
@@ -74,7 +66,7 @@ void printCurrentLineMarked(FILE *file) {
 
   char *offendingLine = calloc(column, sizeof(char));
 
-  /* DEBUG_PRINT("Start %lu end %lu column %lu rewind %lu lineLength %lu\n",
+  /* PRINT_DEBUG("Start %lu end %lu column %lu rewind %lu lineLength %lu\n",
      start, end, column, offset, lineLength); */
 
   fseek(file, -offset, SEEK_CUR);
@@ -91,17 +83,57 @@ void printCurrentLineMarked(FILE *file) {
   fprintf(stderr, "^\n");
 }
 
-XMLNode *initNode() {
-  XMLNode *node = malloc(sizeof(XMLNode));
+XMLNode *initNode(enum XMLNodeType type) {
+  XMLNode *node = NULL;
 
-  node->content = stringCreateEmpty();
-  node->attributes = NULL;
-  node->attributesSize = 0;
-  node->tag = stringCreateEmpty();
-  node->closeTag = stringCreateEmpty();
-  node->child = NULL;
+  switch (type) {
+  case ELEMENT:
+    node = malloc(sizeof(XMLElementNode));
+    break;
+  case COMMENT:
+    node = malloc(sizeof(XMLCommentNode));
+    break;
+  case TEXT:
+    node = malloc(sizeof(XMLTextNode));
+    break;
+  case PROCESSING_INSTRUCTION:
+    node = malloc(sizeof(XMLProcessingInstructionNode));
+    break;
+  case DTD:
+    node = malloc(sizeof(XMLDTDNode));
+    break;
+  default:
+    node = malloc(sizeof(XMLNode));
+  }
+
+  node->type = type;
   node->sibling = NULL;
   node->parent = NULL;
+
+  if (type == ELEMENT) {
+    XMLElementNode *elementNode = (XMLElementNode *)node;
+    elementNode->tag = stringCreateEmpty();
+    elementNode->closeTag = stringCreateEmpty();
+    elementNode->attributes = NULL;
+    elementNode->attributesSize = 0;
+    elementNode->child = NULL;
+  } else if (type == COMMENT) {
+    XMLCommentNode *commentNode = (XMLCommentNode *)node;
+    commentNode->content = stringCreateEmpty();
+  } else if (type == TEXT) {
+    XMLTextNode *textNode = (XMLTextNode *)node;
+    textNode->content = stringCreateEmpty();
+    textNode->isCDATA = false;
+  } else if (type == PROCESSING_INSTRUCTION) {
+    XMLProcessingInstructionNode *processingInstructionNode =
+        (XMLProcessingInstructionNode *)node;
+    processingInstructionNode->tag = stringCreateEmpty();
+    processingInstructionNode->attributes = NULL;
+    processingInstructionNode->attributesSize = 0;
+  } else if (type == DTD) {
+    XMLDTDNode *dtdNode = (XMLDTDNode *)node;
+    dtdNode->content = stringCreateEmpty();
+  }
 
   return node;
 }
@@ -109,8 +141,9 @@ XMLNode *initNode() {
 Attribute *initAttribute() {
   Attribute *attribute = malloc(sizeof(Attribute));
 
-  attribute->name[0] = '\0';
+  attribute->name = stringCreateEmpty();
   attribute->content = stringCreateEmpty();
+  attribute->hasNamespace = false;
 
   return attribute;
 }
@@ -124,37 +157,142 @@ void freeString(String *str) {
 }
 
 void freeAttribute(Attribute *attribute) {
+  if (attribute->name != NULL)
+    freeString(attribute->name);
+
   if (attribute->content != NULL)
     freeString(attribute->content);
 }
 
 void freeXMLTree(XMLNode *node) {
-  if (node->child != NULL) {
-    // DEBUG_PRINT("Free child %s of %s\n", node->child->tag, node->tag);
-    freeXMLTree(node->child);
+  if (node == NULL)
+    return;
+
+  if (node->type == ELEMENT) {
+    XMLElementNode *elementNode = (XMLElementNode *)node;
+    if (elementNode->child != NULL) {
+      freeXMLTree(elementNode->child);
+    }
+
+    freeString(elementNode->tag);
+    freeString(elementNode->closeTag);
+
+    if (elementNode->attributesSize > 0) {
+      for (int a = 0; a < elementNode->attributesSize; a++) {
+        freeAttribute(elementNode->attributes[a]);
+        free(elementNode->attributes[a]);
+      }
+
+      free(elementNode->attributes);
+    }
+  } else if (node->type == COMMENT) {
+    XMLCommentNode *commentNode = (XMLCommentNode *)node;
+    freeString(commentNode->content);
+  } else if (node->type == TEXT) {
+    XMLTextNode *textNode = (XMLTextNode *)node;
+    freeString(textNode->content);
+  } else if (node->type == PROCESSING_INSTRUCTION) {
+    XMLProcessingInstructionNode *processingInstructionNode =
+        (XMLProcessingInstructionNode *)node;
+    freeString(processingInstructionNode->tag);
+    if (processingInstructionNode->attributesSize > 0) {
+      for (int a = 0; a < processingInstructionNode->attributesSize; a++) {
+        freeAttribute(processingInstructionNode->attributes[a]);
+        free(processingInstructionNode->attributes[a]);
+      }
+
+      free(processingInstructionNode->attributes);
+    }
+  } else if (node->type == DTD) {
+    XMLDTDNode *dtdNode = (XMLDTDNode *)node;
+    freeString(dtdNode->content);
   }
 
   if (node->sibling != NULL) {
-    // DEBUG_PRINT("Free sibling %s of %s\n", node->sibling->tag, node->tag);
     freeXMLTree(node->sibling);
   }
 
-  if (node->content != NULL) {
-    // DEBUG_PRINT("Free content \"%s\" of %s\n", node->content, node->tag);
-    freeString(node->content);
+  free(node);
+}
+
+void freeXMLDocument(XMLDocument *document) {
+  if (document->root != NULL)
+    freeXMLTree((XMLNode *)document->root);
+
+  if (document->metaSize > 0) {
+    for (int i = 0; i < document->metaSize; i++) {
+      freeXMLTree(document->meta[i]);
+    }
   }
 
-  freeString(node->tag);
-  freeString(node->closeTag);
+  free(document->meta);
 
-  if (node->attributesSize > 0) {
-    for (int a = 0; a < node->attributesSize; a++) {
-      freeAttribute(node->attributes[a]);
-      free(node->attributes[a]);
+  free(document);
+}
+
+void printXMLTree(XMLNode *root, int depth) {
+  for (int i = 0; i < depth; i++)
+    printf("  ");
+
+  switch (root->type) {
+  case ELEMENT: {
+    XMLElementNode *elementNode = (XMLElementNode *)root;
+    printf("<%s", elementNode->tag->value);
+
+    for (int a = 0; a < elementNode->attributesSize; a++) {
+      struct Attribute *attribute = elementNode->attributes[a];
+      printf(" %s=\"%s\"", attribute->name->value, attribute->content->value);
     }
 
-    free(node->attributes);
+    printf(">\n");
+
+    if (elementNode->child != NULL)
+      printXMLTree(elementNode->child, depth + 1);
+
+    for (int i = 0; i < depth; i++)
+      printf("  ");
+    printf("</%s>\n", elementNode->tag->value);
+    break;
+  }
+  case COMMENT: {
+    XMLCommentNode *commentNode = (XMLCommentNode *)root;
+    printf("<!--%s-->\n", commentNode->content->value);
+
+    break;
+  }
+  case TEXT: {
+    XMLTextNode *textNode = (XMLTextNode *)root;
+    if (textNode->isCDATA)
+      printf("<![CDATA[");
+    printf("%s", textNode->content->value);
+    if (textNode->isCDATA)
+      printf("]]>");
+
+    printf("\n");
+
+    break;
+  }
+  case DTD: {
+    XMLDTDNode *dtdNode = (XMLDTDNode *)root;
+    printf("<!DOCTYPE %s>\n", dtdNode->content->value);
+
+    break;
+  }
+  case PROCESSING_INSTRUCTION: {
+    XMLProcessingInstructionNode *processingInstructionNode =
+        (XMLProcessingInstructionNode *)root;
+    printf("<?%s", processingInstructionNode->tag->value);
+
+    for (int a = 0; a < processingInstructionNode->attributesSize; a++) {
+      struct Attribute *attribute = processingInstructionNode->attributes[a];
+      printf(" %s=%s", attribute->name->value, attribute->content->value);
+    }
+
+    printf("?>\n");
+    break;
+  }
   }
 
-  free(node);
+  if (root->sibling != NULL)
+    printXMLTree(root->sibling, depth);
 }

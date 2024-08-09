@@ -8,7 +8,7 @@
     systems,
     nixpkgs,
     ...
-  } @ inputs: let
+  }: let
     eachSystem = f:
       nixpkgs.lib.genAttrs (import systems) (
         system:
@@ -18,13 +18,16 @@
     devShells = eachSystem (pkgs: {
       default = pkgs.mkShell {
         buildInputs = with pkgs; [
-          cmake
           gnumake
-          pkg-config
           gdb
+          bear
+          clang
+          libllvm
         ];
 
         shellHook = ''
+          export CC=${pkgs.clang}/bin/clang
+          export ASAN_SYMBOLIZER_PATH=${pkgs.libllvm}/bin/llvm-symbolizer
         '';
       };
     });

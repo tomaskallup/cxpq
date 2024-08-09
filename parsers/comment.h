@@ -1,4 +1,6 @@
 #include <stdio.h>
 #include <stdbool.h>
 
-bool parseComment(FILE *file);
+#include "../types.h"
+
+XMLCommentNode *parseComment(FILE *file);

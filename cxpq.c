@@ -18,20 +18,21 @@ int main(int argc, char *argv[]) {
     return 1;
   }
 
-  XMLNode *root = parseXML(file);
+  XMLDocument *document = parseXML(file);
+  XMLElementNode *root = document->root;
 
   fclose(file);
 
   if (root == NULL) {
+    freeXMLDocument(document);
     PRINT_ERROR("Failed to parse provided XML file\n");
     return 2;
   } else {
-    printf("Root node %s, content: %s\n", root->tag->value,
-           root->content->value);
+    printf("Root node %s\n", root->tag->value);
 
-    printXMLTree(root, 0);
+    printXMLTree((XMLNode *)root, 0);
 
-    freeXMLTree(root);
+    freeXMLDocument(document);
   }
 
   return 0;

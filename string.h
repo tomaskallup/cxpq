@@ -4,8 +4,11 @@
 
 #define XML_STRING_H
 
+#define STRING_BUFFER_SIZE 10
+
 typedef struct String {
   char *value;
+  int allocated;
   int length;
 } String;
 
@@ -14,6 +17,7 @@ String *stringCreateEmpty();
 String *stringCreateFromChars(char *chars);
 
 void stringAppendChar(String *str, char charToAdd);
+void stringAppend(String *str, String *strToAdd);
 
 bool stringEqual(String *str, String *cmp);
 bool stringEqualChars(String *str, char *cmp);

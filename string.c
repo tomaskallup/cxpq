@@ -13,6 +13,7 @@ String *stringCreateEmpty() {
   }
 
   str->value = NULL;
+  str->allocated = 0;
   str->length = 0;
 
   return str;
@@ -22,15 +23,31 @@ String *stringCreateFromChars(char *chars) {
   String *str = stringCreateEmpty();
   str->value = chars;
   str->length = strlen(chars);
+  str->allocated = str->length;
 
   return str;
 }
 
 void stringAppendChar(String *str, char charToAdd) {
   str->length++;
-  str->value = realloc(str->value, (1 + str->length) * sizeof(char));
+
+  if (str->allocated <= str->length) {
+    str->allocated += STRING_BUFFER_SIZE;
+    str->value = realloc(str->value, (1 + str->allocated) * sizeof(char));
+  }
+
   str->value[str->length - 1] = charToAdd;
   str->value[str->length] = '\0';
+}
+
+void stringAppend(String *str, String *strToAdd) {
+  str->length += strToAdd->length;
+  str->allocated += strToAdd->allocated;
+  str->value = realloc(str->value, (1 + str->allocated) * sizeof(char));
+
+  for (int i = 0; i < strToAdd->length; i++) {
+    str->value[str->length - 1 - i] = strToAdd->value[i];
+  }
 }
 
 bool stringEqual(String *str, String *cmp) {
@@ -44,7 +61,8 @@ bool stringEqualChars(String *str, char *cmp) {
 }
 
 void stringTrim(String *str) {
-  if (str->value == NULL) return;
+  if (str->value == NULL)
+    return;
   int start = 0;
 
   while (isWhitespace(str->value[start]) && start < str->length)
@@ -65,6 +83,7 @@ void stringTrim(String *str) {
   const int length = 1 + end - start;
   char *result = calloc(length + 1, sizeof(char));
 
+  str->allocated = length;
   strncpy(result, &str->value[start], length);
 
   free(str->value);
@@ -78,16 +97,16 @@ String *stringSubstring(String *str, int start, int end) {
   if (end < 0)
     end = str->length + end + 1;
   if (start > end || start < 0 || end > str->length) {
-    PRINT_ERROR("Invalid substring range %i-%i, string length %i\n", start, end, str->length);
+    PRINT_ERROR("Invalid substring range %i-%i, string length %i\n", start, end,
+                str->length);
   }
 
   const int length = end - start;
   String *result = stringCreateEmpty();
   result->length = length;
   result->value = calloc(length + 1, sizeof(char));
+  str->allocated = length;
   strncpy(result->value, &str->value[start], length);
 
   return result;
 }
- 
-         

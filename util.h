@@ -11,17 +11,25 @@
 
 #define PRINT_ERROR(...) fprintf(stderr, __VA_ARGS__)
 
+#ifdef DEBUG
+#define PRINT_DEBUG(...) printf(__VA_ARGS__)
+#else
+#define PRINT_DEBUG(...)
+#endif
+
+
 bool isWhitespace(const char input);
 bool isValidNameChar(const char input);
 void skipWhitespaces(FILE *file);
 void printCurrentLineMarked(FILE *file);
 
-XMLNode *initNode();
+XMLNode *initNode(enum XMLNodeType type);
 Attribute *initAttribute();
 void freeAttribute(Attribute *attribute);
 
-void printXMLTree(XMLNode *root, int depth);
 void freeXMLTree(XMLNode *root);
 void freeString(String *str);
+void freeXMLDocument(XMLDocument *document);
+void printXMLTree(XMLNode *root, int depth);
 
 #endif

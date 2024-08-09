@@ -9,9 +9,14 @@
 ]>
 
 <namespace:bookstore>
+  <![CDATA[<greeting>Hello, world!</greeting>]]> 
   <!-- books are sorted by price -->
   <namespace:book namespace:category="COOKING">
     <title>Everyday Italian</title>
     <price>30.00</price>
-  </book>
-</bookstore>
+  </namespace:book>
+  <namespace:book namespace:category="COOKING">
+    <title>Everyday Spanish</title>
+    <price>35.00</price>
+  </namespace:book>
+</namespace:bookstore>
