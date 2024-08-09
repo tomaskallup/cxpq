@@ -2,6 +2,5 @@
 
 #include "types.h"
 
-XMLNode *parseRootNode(FILE *file);
-XMLNode *parseXML(FILE *file);
+XMLDocument *parseXML(FILE *file);
 void printXMLTree(XMLNode *root, int depth);

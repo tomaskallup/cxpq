@@ -2,7 +2,8 @@
 
 #include "../util.h"
 
-bool parseComment(FILE *file) {
+XMLCommentNode *parseComment(FILE *file) {
+  XMLCommentNode *commentNode = (XMLCommentNode *)initNode(COMMENT);
   char firstChar = fgetc(file);
 
   if (firstChar == '-') {
@@ -11,28 +12,38 @@ bool parseComment(FILE *file) {
     return false;
   }
 
-  String *content = stringCreateEmpty();
-  stringAppendChar(content, firstChar);
+  stringAppendChar(commentNode->content, firstChar);
+
+  String *end = stringCreateEmpty();
 
   char currentChar;
   while ((currentChar = fgetc(file))) {
-    stringAppendChar(content, currentChar);
 
-    if (currentChar == '>') {
-      String *end = stringSubstring(content, -3, -1);
+    if (currentChar == '-' || currentChar == '>') {
+      stringAppendChar(end, currentChar);
+
       if (stringEqualChars(end, "-->")) {
+        freeString(end);
+        return commentNode;
+      }
+    } else {
+      if (end->length > 0) {
+        stringAppend(commentNode->content, end);
 
         freeString(end);
-        freeString(content);
-        return true;
+
+        end = stringCreateEmpty();
       }
 
-      freeString(end);
+      stringAppendChar(commentNode->content, currentChar);
     }
   }
 
   printCurrentLineMarked(file);
   PRINT_ERROR("Missing closing tag for comment\n");
-  freeString(content);
-  return false;
+
+  freeString(end);
+  freeXMLTree((XMLNode *)commentNode);
+
+  return NULL;
 }

@@ -6,28 +6,88 @@
 
 #define TYPES_H
 
-#define CHUNK_SIZE 1024
+enum XMLNodeType {
+  ELEMENT,
+  COMMENT,
+  TEXT,
+  PROCESSING_INSTRUCTION,
+  DTD,
+};
 
 typedef struct Attribute {
-  char name[CHUNK_SIZE];
+  String *name;
   String *content;
   bool hasNamespace;
 } Attribute;
 
 typedef struct XMLNode {
+  enum XMLNodeType type;
+  struct XMLNode *parent;
+  struct XMLNode *sibling;
+} XMLNode;
+
+typedef struct XMLElementNode {
+  /* Generic attributes */
+  enum XMLNodeType type;
+  struct XMLNode *parent;
+  struct XMLNode *sibling;
+
+  /* Specific attributes */
   String *tag;
   String *closeTag;
-  String *content;
-  struct XMLNode *sibling;
   struct XMLNode *child;
-  struct XMLNode *parent;
   struct Attribute **attributes;
   int attributesSize;
   bool hasNamespace;
-} XMLNode;
+} XMLElementNode;
 
-typedef struct Comment {
+typedef struct XMLCommentNode {
+  /* Generic attributes */
+  enum XMLNodeType type;
+  struct XMLNode *parent;
+  struct XMLNode *sibling;
+
+  /* Specific attributes */
   String *content;
-} Comment;
+} XMLCommentNode;
+
+typedef struct XMLTextNode {
+  /* Generic attributes */
+  enum XMLNodeType type;
+  struct XMLNode *parent;
+  struct XMLNode *sibling;
+
+  /* Specific attributes */
+  String *content;
+  bool isCDATA;
+} XMLTextNode;
+
+typedef struct XMLProcessingInstructionNode {
+  /* Generic attributes */
+  enum XMLNodeType type;
+  struct XMLNode *parent;
+  struct XMLNode *sibling;
+
+  /* Specific attributes */
+  String *tag;
+  struct Attribute **attributes;
+  int attributesSize;
+} XMLProcessingInstructionNode;
+
+typedef struct XMLDTDNode {
+  /* Generic attributes */
+  enum XMLNodeType type;
+  struct XMLNode *parent;
+  struct XMLNode *sibling;
+
+  /* Specific attributes */
+  String *content;
+} XMLDTDNode;
+
+typedef struct XMLDocument {
+  XMLElementNode *root;
+  XMLNode **meta;
+  int metaSize;
+} XMLDocument;
 
 #endif

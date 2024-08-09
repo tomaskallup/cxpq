@@ -13,41 +13,36 @@ A simple `nix develop` should probably just work, or just use [direnv](https://d
 
 ### Others
 
-Having CMake & gcc should be enough.
+Having GNU Make and a C compiler (clang, gcc ..., make sure $CC is set) should be enough.
+If you use clang, make sure to set `ASAN_SYMBOLIZER_PATH` to `which llvm-symbolizer` (it needs to be installed - usually via `libllvm`).
 
 ## Building
 
 ### Debug
 
-`-DCMAKE_EXPORT_COMPILE_COMMANDS=YES` is optional, but it enables usage of CCLS for developing.
-
 ```shell
-$ cd debug
-$ cmake -DCMAKE_BUILD_TYPE=Debug -DCMAKE_EXPORT_COMPILE_COMMANDS=YES ..
-$ cmake --build .
-$ ./cxpq_debug ../examples/bookstore.xml
+$ make debug
+$ ./debug/cxpq_debug ./examples/bookstore.xml
 ```
 
 ### Release
 
 ```shell
-$ cd release
-$ cmake ..
-$ cmake --build .
-$ ./cxpq ../examples/bookstore.xml
+$ make realease
+$ ./release/cxpq ../examples/bookstore.xml
 ```
 
 ## Features
  - [ ] Parsing
-   - [x] Prolog (currently it gets skipped)
-   - [ ] DTD
+   - [x] Prolog (attributes get skipped)
+   - [x] DTD (content is just skipped)
    - [x] \(Root\) Node
      - [x] Attributes
      - [x] Namespaces
      - [x] Content
-     - [ ] CDATA (planned to be just included in content)
+     - [x] CDATA (parsed as text content, with a flag)
    - [x] Comments (currently get skipped)
-   - [ ] Processing Instructions
+   - [x] Processing Instructions
  - [ ] Validation
    - [ ] Valid file (no unclosed tags, comments, etc.)
    - [ ] Valid Prolog

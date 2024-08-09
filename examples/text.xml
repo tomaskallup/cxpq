@@ -1,0 +1,3069 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CenoveUdaje bez_mj="n" mesic="2" rok="2021" katuze_kod_cu="755541" xmlns="http://services.cuzk.cz/xsd/cenoveUdaje/1.0" xsi:schemaLocation="http://services.cuzk.cz/xsd/cenoveUdaje/1.0 http://services.cuzk.cz/xsd/cenoveUdaje/1.0/cenoveUdaje.xsd" xmlns:gml="http://www.opengis.net/gml/3.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <Rizeni id="79890644010">
+    <cisloRizeni>V-1101/2021-101</cisloRizeni>
+    <datumPodani>2021-01-07T11:31:19</datumPodani>
+    <datumZplatneni>2021-02-03T15:59:08</datumZplatneni>
+    <praresKod>101</praresKod>
+    <listiny>
+      <Listina id="63794191010">
+        <cena>5600000</cena>
+        <mena>CZK</mena>
+        <listinaTyp>Smlouva kupní</listinaTyp>
+      </Listina>
+    </listiny>
+    <nemovitosti>
+      <Nemovitost id="1049717101" typ="JED">
+        <katuzeKod>755541</katuzeKod>
+        <text>č.p. 2491</text>
+        <popis>jednotka č. 24870004, byt v budově č.p. 2491, 2486, 2487, 2488, 2489, 2490, část obce Stodůlky, na parcele 2780/2 Stodůlky (součástí je stavba č.p. 2491, 2486, 2487, 2488, 2489, 2490, čst obce Stodůlky), 2780/3 Stodůlky, 2780/4 Stodůlky, 2780/5 Stodůlky, 2780/6 Stodůlky, 2780/7 Stodůlky, podl na společnch čstech domu a pozemku 7602/789244</popis>
+        <bod>
+          <gml:Point gml:id="P.79890644010.JED.1049717101" srsName="EPSG:5514">
+            <gml:pos>1046222.09 749050.14</gml:pos>
+          </gml:Point>
+        </bod>
+        <teleso id="2221908101">
+          <cislo>6404</cislo>
+        </teleso>
+      </Nemovitost>
+      <Nemovitost id="2320436101" typ="PAR">
+        <katuzeKod>755541</katuzeKod>
+        <text>2780/2</text>
+        <popis>č. 2780/2 Stodůlky (součástí je stavba č.p. 2491, 2486, 2487, 2488, 2489, 2490, čst obce Stodůlky)</popis>
+        <bod>
+          <gml:Point gml:id="P.79890644010.PAR.2320436101" srsName="EPSG:5514">
+            <gml:pos>1046224.61 749049.68</gml:pos>
+          </gml:Point>
+        </bod>
+        <teleso id="2505777101">
+          <cislo>9817</cislo>
+        </teleso>
+      </Nemovitost>
+      <Nemovitost id="2320437101" typ="PAR">
+        <katuzeKod>755541</katuzeKod>
+        <text>2780/3</text>
+        <popis>č. 2780/3 Stodůlky</popis>
+        <bod>
+          <gml:Point gml:id="P.79890644010.PAR.2320437101" srsName="EPSG:5514">
+            <gml:pos>1046225.11 749032.66</gml:pos>
+          </gml:Point>
+        </bod>
+        <teleso id="2505777101">
+          <cislo>9817</cislo>
+        </teleso>
+      </Nemovitost>
+      <Nemovitost id="2320438101" typ="PAR">
+        <katuzeKod>755541</katuzeKod>
+        <text>2780/4</text>
+        <popis>č. 2780/4 Stodůlky</popis>
+        <bod>
+          <gml:Point gml:id="P.79890644010.PAR.2320438101" srsName="EPSG:5514">
+            <gml:pos>1046225.43 749020.66</gml:pos>
+          </gml:Point>
+        </bod>
+        <teleso id="2505777101">
+          <cislo>9817</cislo>
+        </teleso>
+      </Nemovitost>
+      <Nemovitost id="2320439101" typ="PAR">
+        <katuzeKod>755541</katuzeKod>
+        <text>2780/5</text>
+        <popis>č. 2780/5 Stodůlky</popis>
+        <bod>
+          <gml:Point gml:id="P.79890644010.PAR.2320439101" srsName="EPSG:5514">
+            <gml:pos>1046225.03 749009.08</gml:pos>
+          </gml:Point>
+        </bod>
+        <teleso id="2505777101">
+          <cislo>9817</cislo>
+        </teleso>
+      </Nemovitost>
+      <Nemovitost id="2320440101" typ="PAR">
+        <katuzeKod>755541</katuzeKod>
+        <text>2780/6</text>
+        <popis>č. 2780/6 Stodůlky</popis>
+        <bod>
+          <gml:Point gml:id="P.79890644010.PAR.2320440101" srsName="EPSG:5514">
+            <gml:pos>1046225.17 748996.85</gml:pos>
+          </gml:Point>
+        </bod>
+        <teleso id="2505777101">
+          <cislo>9817</cislo>
+        </teleso>
+      </Nemovitost>
+      <Nemovitost id="2320441101" typ="PAR">
+        <katuzeKod>755541</katuzeKod>
+        <text>2780/7</text>
+        <popis>č. 2780/7 Stodůlky</popis>
+        <bod>
+          <gml:Point gml:id="P.79890644010.PAR.2320441101" srsName="EPSG:5514">
+            <gml:pos>1046225.48 748984.36</gml:pos>
+          </gml:Point>
+        </bod>
+        <teleso id="2505777101">
+          <cislo>9817</cislo>
+        </teleso>
+      </Nemovitost>
+      <Nemovitost id="2320474101" typ="PAR">
+        <katuzeKod>755541</katuzeKod>
+        <text>2780/42</text>
+        <popis>č. 2780/42 Stodůlky</popis>
+        <bod>
+          <gml:Point gml:id="P.79890644010.PAR.2320474101" srsName="EPSG:5514">
+            <gml:pos>1046208.51 749040.79</gml:pos>
+          </gml:Point>
+        </bod>
+        <teleso id="2576792101">
+          <cislo>12031</cislo>
+        </teleso>
+      </Nemovitost>
+    </nemovitosti>
+  </Rizeni>
+  <Rizeni id="80004995010">
+    <cisloRizeni>V-2642/2021-101</cisloRizeni>
+    <datumPodani>2021-01-13T14:42:13</datumPodani>
+    <datumZplatneni>2021-02-05T11:37:13</datumZplatneni>
+    <praresKod>101</praresKod>
+    <listiny>
+      <Listina id="63897724010">
+        <cena>4200000</cena>
+        <mena>CZK</mena>
+        <listinaTyp>Smlouva kupní</listinaTyp>
+      </Listina>
+    </listiny>
+    <nemovitosti>
+      <Nemovitost id="1812543101" typ="JED">
+        <katuzeKod>755541</katuzeKod>
+        <text>č.p. 1839</text>
+        <popis>jednotka č. 18390012, byt v budově č.p. 1839, část obce Stodůlky, na parcele 2160/85 Stodůlky (součástí je stavba č.p. 1839, čst obce Stodůlky), podl na společnch čstech domu a pozemku 4621/219928</popis>
+        <bod>
+          <gml:Point gml:id="P.80004995010.JED.1812543101" srsName="EPSG:5514">
+            <gml:pos>1046828.49 750532.49</gml:pos>
+          </gml:Point>
+        </bod>
+        <teleso id="2661041101">
+          <cislo>14669</cislo>
+        </teleso>
+      </Nemovitost>
+    </nemovitosti>
+  </Rizeni>
+  <Rizeni id="80099475010">
+    <cisloRizeni>V-4404/2021-101</cisloRizeni>
+    <datumPodani>2021-01-20T10:27:30</datumPodani>
+    <datumZplatneni>2021-02-11T10:37:12</datumZplatneni>
+    <praresKod>101</praresKod>
+    <listiny>
+      <Listina id="64028569010">
+        <cena>583942</cena>
+        <mena>CZK</mena>
+        <listinaTyp>Smlouva kupní</listinaTyp>
+      </Listina>
+    </listiny>
+    <nemovitosti>
+      <Nemovitost id="14740426010" typ="JED">
+        <katuzeKod>755541</katuzeKod>
+        <text>č.p. 1826</text>
+        <popis>jednotka č. 18240023, byt v budově č.p. 1826, 1824, 1825, část obce Stodůlky, na parcele 2160/48 Stodůlky (součástí je stavba č.p. 1826, 1824, 1825, čst obce Stodůlky), podl na společnch čstech domu a pozemku 8233/623760</popis>
+        <bod>
+          <gml:Point gml:id="P.80099475010.JED.14740426010" srsName="EPSG:5514">
+            <gml:pos>1046961.15 750304.44</gml:pos>
+          </gml:Point>
+        </bod>
+        <teleso id="43358224010">
+          <cislo>27855</cislo>
+        </teleso>
+      </Nemovitost>
+    </nemovitosti>
+  </Rizeni>
+  <Rizeni id="80168958010">
+    <cisloRizeni>V-5455/2021-101</cisloRizeni>
+    <datumPodani>2021-01-25T10:55:23</datumPodani>
+    <datumZplatneni>2021-02-18T15:27:20</datumZplatneni>
+    <praresKod>101</praresKod>
+    <listiny>
+      <Listina id="64075430010">
+        <cena>3200000</cena>
+        <mena>CZK</mena>
+        <listinaTyp>Smlouva kupní</listinaTyp>
+      </Listina>
+    </listiny>
+    <nemovitosti>
+      <Nemovitost id="1861830101" typ="JED">
+        <katuzeKod>755541</katuzeKod>
+        <text>č.p. 2652</text>
+        <popis>jednotka č. 26520023, byt v budově č.p. 2652, část obce Stodůlky, na parcele 1236/184 Stodůlky (součástí je stavba č.p. 2652, čst obce Stodůlky), podl na společnch čstech domu a pozemku 4764/284602</popis>
+        <bod>
+          <gml:Point gml:id="P.80168958010.JED.1861830101" srsName="EPSG:5514">
+            <gml:pos>1045279.84 749752.34</gml:pos>
+          </gml:Point>
+        </bod>
+        <teleso id="2682928101">
+          <cislo>15766</cislo>
+        </teleso>
+      </Nemovitost>
+    </nemovitosti>
+  </Rizeni>
+  <Rizeni id="80181576010">
+    <cisloRizeni>V-5922/2021-101</cisloRizeni>
+    <datumPodani>2021-01-25T15:54:25</datumPodani>
+    <datumZplatneni>2021-02-18T15:19:18</datumZplatneni>
+    <praresKod>101</praresKod>
+    <listiny>
+      <Listina id="64100787010">
+        <cena>450225</cena>
+        <mena>CZK</mena>
+        <listinaTyp>Smlouva kupní</listinaTyp>
+      </Listina>
+    </listiny>
+    <nemovitosti>
+      <Nemovitost id="14233303010" typ="JED">
+        <katuzeKod>755541</katuzeKod>
+        <text>č.p. 2057</text>
+        <popis>jednotka č. 20550014, byt v budově č.p. 2057, 2054, 2055, 2056, část obce Stodůlky, na parcele 2131/26 Stodůlky, 2131/27 Stodůlky, 2131/28 Stodůlky (součástí je stavba č.p. 2057, 2054, 2055, 2056, čst obce Stodůlky), 2131/29 Stodůlky, podl na společnch čstech domu a pozemku 5036/839119</popis>
+        <bod>
+          <gml:Point gml:id="P.80181576010.JED.14233303010" srsName="EPSG:5514">
+            <gml:pos>1046440 750500.06</gml:pos>
+          </gml:Point>
+        </bod>
+        <teleso id="43255195010">
+          <cislo>27853</cislo>
+        </teleso>
+      </Nemovitost>
+    </nemovitosti>
+  </Rizeni>
+  <Rizeni id="80181644010">
+    <cisloRizeni>V-5932/2021-101</cisloRizeni>
+    <datumPodani>2021-01-25T16:00:39</datumPodani>
+    <datumZplatneni>2021-02-17T15:06:07</datumZplatneni>
+    <praresKod>101</praresKod>
+    <listiny>
+      <Listina id="64096021010">
+        <cena>649679</cena>
+        <mena>CZK</mena>
+        <listinaTyp>Smlouva kupní</listinaTyp>
+      </Listina>
+    </listiny>
+    <nemovitosti>
+      <Nemovitost id="14233374010" typ="JED">
+        <katuzeKod>755541</katuzeKod>
+        <text>č.p. 2057</text>
+        <popis>jednotka č. 20570021, byt v budově č.p. 2057, 2054, 2055, 2056, část obce Stodůlky, na parcele 2131/26 Stodůlky, 2131/27 Stodůlky, 2131/28 Stodůlky (součástí je stavba č.p. 2057, 2054, 2055, 2056, čst obce Stodůlky), 2131/29 Stodůlky, podl na společnch čstech domu a pozemku 7267/839119</popis>
+        <bod>
+          <gml:Point gml:id="P.80181644010.JED.14233374010" srsName="EPSG:5514">
+            <gml:pos>1046440 750500.06</gml:pos>
+          </gml:Point>
+        </bod>
+        <teleso id="43586194010">
+          <cislo>27861</cislo>
+        </teleso>
+      </Nemovitost>
+    </nemovitosti>
+  </Rizeni>
+  <Rizeni id="80276858010">
+    <cisloRizeni>V-7712/2021-101</cisloRizeni>
+    <datumPodani>2021-02-01T12:41:12</datumPodani>
+    <datumZplatneni>2021-02-24T15:00:18</datumZplatneni>
+    <praresKod>101</praresKod>
+    <listiny>
+      <Listina id="64195131010">
+        <cena>15000000</cena>
+        <mena>CZK</mena>
+        <listinaTyp>Smlouva kupní</listinaTyp>
+      </Listina>
+    </listiny>
+    <nemovitosti>
+      <Nemovitost id="2317423101" typ="PAR">
+        <katuzeKod>755541</katuzeKod>
+        <text>1569/8</text>
+        <popis>č. 1569/8 Stodůlky</popis>
+        <bod>
+          <gml:Point gml:id="P.80276858010.PAR.2317423101" srsName="EPSG:5514">
+            <gml:pos>1046009.93 749905.26</gml:pos>
+          </gml:Point>
+        </bod>
+        <teleso id="2634342101">
+          <cislo>13508</cislo>
+        </teleso>
+      </Nemovitost>
+      <Nemovitost id="2317459101" typ="PAR">
+        <katuzeKod>755541</katuzeKod>
+        <text>1588/1</text>
+        <popis>č. 1588/1 Stodůlky</popis>
+        <bod>
+          <gml:Point gml:id="P.80276858010.PAR.2317459101" srsName="EPSG:5514">
+            <gml:pos>1046011.06 749913.99</gml:pos>
+          </gml:Point>
+        </bod>
+        <teleso id="2634342101">
+          <cislo>13508</cislo>
+        </teleso>
+      </Nemovitost>
+      <Nemovitost id="2317460101" typ="PAR">
+        <katuzeKod>755541</katuzeKod>
+        <text>1588/2</text>
+        <popis>č. 1588/2 Stodůlky (součástí je stavba č.p. 923, čst obce Stodůlky)</popis>
+        <bod>
+          <gml:Point gml:id="P.80276858010.PAR.2317460101" srsName="EPSG:5514">
+            <gml:pos>1046000.33 749913.54</gml:pos>
+          </gml:Point>
+        </bod>
+        <teleso id="2634342101">
+          <cislo>13508</cislo>
+        </teleso>
+      </Nemovitost>
+      <Nemovitost id="3268796101" typ="PAR">
+        <katuzeKod>755541</katuzeKod>
+        <text>1584/4</text>
+        <popis>č. 1584/4 Stodůlky</popis>
+        <bod>
+          <gml:Point gml:id="P.80276858010.PAR.3268796101" srsName="EPSG:5514">
+            <gml:pos>1046016.17 749915.76</gml:pos>
+          </gml:Point>
+        </bod>
+        <teleso id="2634342101">
+          <cislo>13508</cislo>
+        </teleso>
+      </Nemovitost>
+    </nemovitosti>
+  </Rizeni>
+  <Rizeni id="80283542010">
+    <cisloRizeni>V-7962/2021-101</cisloRizeni>
+    <datumPodani>2021-02-01T15:53:41</datumPodani>
+    <datumZplatneni>2021-02-23T12:39:54</datumZplatneni>
+    <praresKod>101</praresKod>
+    <listiny>
+      <Listina id="64202995010">
+        <cena>5560123</cena>
+        <mena>CZK</mena>
+        <listinaTyp>Smlouva kupní</listinaTyp>
+      </Listina>
+    </listiny>
+    <nemovitosti>
+      <Nemovitost id="25780839010" typ="JED">
+        <katuzeKod>755541</katuzeKod>
+        <text>č.p. 2934</text>
+        <popis>jednotka č. 29340001, garáž v budově č.p. 2934, část obce Stodůlky, na parcele 2166/70 Stodůlky (součástí je stavba č.p. 2934, čst obce Stodůlky), podl na společnch čstech domu a pozemku 49850/274820</popis>
+        <bod>
+          <gml:Point gml:id="P.80283542010.JED.25780839010" srsName="EPSG:5514">
+            <gml:pos>1047196.61 750158.53</gml:pos>
+          </gml:Point>
+        </bod>
+        <teleso id="22091638010">
+          <cislo>26260</cislo>
+        </teleso>
+      </Nemovitost>
+      <Nemovitost id="25780840010" typ="JED">
+        <katuzeKod>755541</katuzeKod>
+        <text>č.p. 2934</text>
+        <popis>jednotka č. 29340002, jiný nebytový prostor v budově č.p. 2934, část obce Stodůlky, na parcele 2166/70 Stodůlky (součástí je stavba č.p. 2934, čst obce Stodůlky), podl na společnch čstech domu a pozemku 1470/274820</popis>
+        <bod>
+          <gml:Point gml:id="P.80283542010.JED.25780840010" srsName="EPSG:5514">
+            <gml:pos>1047196.61 750158.53</gml:pos>
+          </gml:Point>
+        </bod>
+        <teleso id="22091639010">
+          <cislo>26261</cislo>
+        </teleso>
+      </Nemovitost>
+      <Nemovitost id="25780899010" typ="JED">
+        <katuzeKod>755541</katuzeKod>
+        <text>č.p. 2934</text>
+        <popis>jednotka č. 29340234, byt v budově č.p. 2934, část obce Stodůlky, na parcele 2166/70 Stodůlky (součástí je stavba č.p. 2934, čst obce Stodůlky), podl na společnch čstech domu a pozemku 5770/274820</popis>
+        <bod>
+          <gml:Point gml:id="P.80283542010.JED.25780899010" srsName="EPSG:5514">
+            <gml:pos>1047196.61 750158.53</gml:pos>
+          </gml:Point>
+        </bod>
+        <teleso id="24607814010">
+          <cislo>26398</cislo>
+        </teleso>
+      </Nemovitost>
+    </nemovitosti>
+  </Rizeni>
+  <Rizeni id="79994303010">
+    <cisloRizeni>V-2355/2021-101</cisloRizeni>
+    <datumPodani>2021-01-13T10:52:52</datumPodani>
+    <datumZplatneni>2021-02-05T11:02:10</datumZplatneni>
+    <praresKod>101</praresKod>
+    <listiny>
+      <Listina id="63887901010">
+        <cena>5687000</cena>
+        <mena>CZK</mena>
+        <listinaTyp>Smlouva kupní</listinaTyp>
+      </Listina>
+    </listiny>
+    <nemovitosti>
+      <Nemovitost id="22825269010" typ="JED">
+        <katuzeKod>755541</katuzeKod>
+        <text>č.p. 2818</text>
+        <popis>jednotka č. 28180118, byt v budově č.p. 2818, část obce Stodůlky, na parcele 160/423 Stodůlky (součástí je stavba č.p. 2818, čst obce Stodůlky), podl na společnch čstech domu a pozemku 517/119926</popis>
+        <bod>
+          <gml:Point gml:id="P.79994303010.JED.22825269010" srsName="EPSG:5514">
+            <gml:pos>1046300.39 751891.06</gml:pos>
+          </gml:Point>
+        </bod>
+        <teleso id="42985195010">
+          <cislo>27847</cislo>
+        </teleso>
+      </Nemovitost>
+      <Nemovitost id="46447314010" typ="PAR">
+        <katuzeKod>755541</katuzeKod>
+        <text>160/515</text>
+        <popis>č. 160/515 Stodůlky</popis>
+        <bod>
+          <gml:Point gml:id="P.79994303010.PAR.46447314010" srsName="EPSG:5514">
+            <gml:pos>1046283.99 751865.1</gml:pos>
+          </gml:Point>
+        </bod>
+        <teleso id="17883457010">
+          <cislo>23940</cislo>
+        </teleso>
+      </Nemovitost>
+      <Nemovitost id="46447315010" typ="PAR">
+        <katuzeKod>755541</katuzeKod>
+        <text>160/516</text>
+        <popis>č. 160/516 Stodůlky</popis>
+        <bod>
+          <gml:Point gml:id="P.79994303010.PAR.46447315010" srsName="EPSG:5514">
+            <gml:pos>1046279.86 751864.99</gml:pos>
+          </gml:Point>
+        </bod>
+        <teleso id="17883457010">
+          <cislo>23940</cislo>
+        </teleso>
+      </Nemovitost>
+      <Nemovitost id="46447316010" typ="PAR">
+        <katuzeKod>755541</katuzeKod>
+        <text>160/519</text>
+        <popis>č. 160/519 Stodůlky</popis>
+        <bod>
+          <gml:Point gml:id="P.79994303010.PAR.46447316010" srsName="EPSG:5514">
+            <gml:pos>1046279.75 751876.99</gml:pos>
+          </gml:Point>
+        </bod>
+        <teleso id="17883457010">
+          <cislo>23940</cislo>
+        </teleso>
+      </Nemovitost>
+      <Nemovitost id="46447322010" typ="PAR">
+        <katuzeKod>755541</katuzeKod>
+        <text>160/518</text>
+        <popis>č. 160/518 Stodůlky</popis>
+        <bod>
+          <gml:Point gml:id="P.79994303010.PAR.46447322010" srsName="EPSG:5514">
+            <gml:pos>1046283.12 751877.76</gml:pos>
+          </gml:Point>
+        </bod>
+        <teleso id="17883457010">
+          <cislo>23940</cislo>
+        </teleso>
+      </Nemovitost>
+    </nemovitosti>
+  </Rizeni>
+  <Rizeni id="80000370010">
+    <cisloRizeni>V-2470/2021-101</cisloRizeni>
+    <datumPodani>2021-01-13T12:50:07</datumPodani>
+    <datumZplatneni>2021-02-04T13:14:50</datumZplatneni>
+    <praresKod>101</praresKod>
+    <listiny>
+      <Listina id="63893228010">
+        <cena>6149000</cena>
+        <mena>CZK</mena>
+        <listinaTyp>Smlouva kupní</listinaTyp>
+      </Listina>
+    </listiny>
+    <nemovitosti>
+      <Nemovitost id="1558611101" typ="JED">
+        <katuzeKod>755541</katuzeKod>
+        <text>č.p. 2583</text>
+        <popis>jednotka č. 25830023, byt v budově č.p. 2583, část obce Stodůlky, na parcele 2860/192 Stodůlky (součástí je stavba č.p. 2583, čst obce Stodůlky), podl na společnch čstech domu a pozemku 9590/3019910</popis>
+        <bod>
+          <gml:Point gml:id="P.80000370010.JED.1558611101" srsName="EPSG:5514">
+            <gml:pos>1046323.45 748752.58</gml:pos>
+          </gml:Point>
+        </bod>
+        <teleso id="2618770101">
+          <cislo>13103</cislo>
+        </teleso>
+      </Nemovitost>
+    </nemovitosti>
+  </Rizeni>
+  <Rizeni id="80036312010">
+    <cisloRizeni>V-3005/2021-101</cisloRizeni>
+    <datumPodani>2021-01-15T09:39:53</datumPodani>
+    <datumZplatneni>2021-02-12T15:48:24</datumZplatneni>
+    <praresKod>101</praresKod>
+    <listiny>
+      <Listina id="63933417010">
+        <cena>1308000</cena>
+        <mena>CZK</mena>
+        <listinaTyp>Smlouva kupní</listinaTyp>
+      </Listina>
+    </listiny>
+    <nemovitosti>
+      <Nemovitost id="2315974101" typ="PAR">
+        <katuzeKod>755541</katuzeKod>
+        <text>1050/6</text>
+        <popis>č. 1050/6 Stodůlky (součástí je stavba č.p. 1433, čst obce Stodůlky)</popis>
+        <bod>
+          <gml:Point gml:id="P.80036312010.PAR.2315974101" srsName="EPSG:5514">
+            <gml:pos>1045292.7 750392.54</gml:pos>
+          </gml:Point>
+        </bod>
+        <teleso id="2520904101">
+          <cislo>10407</cislo>
+        </teleso>
+      </Nemovitost>
+    </nemovitosti>
+  </Rizeni>
+  <Rizeni id="80072759010">
+    <cisloRizeni>V-3829/2021-101</cisloRizeni>
+    <datumPodani>2021-01-18T15:22:23</datumPodani>
+    <datumZplatneni>2021-02-10T13:12:31</datumZplatneni>
+    <praresKod>101</praresKod>
+    <listiny>
+      <Listina id="63972410010">
+        <cena>4025000</cena>
+        <mena>CZK</mena>
+        <listinaTyp>Smlouva kupní</listinaTyp>
+      </Listina>
+    </listiny>
+    <nemovitosti>
+      <Nemovitost id="25405823010" typ="JED">
+        <katuzeKod>755541</katuzeKod>
+        <text>č.p. 1776</text>
+        <popis>jednotka č. 17760004, byt v budově č.p. 1776, 1772, 1773, 1774, 1775, část obce Stodůlky, na parcele 2160/12 Stodůlky (součástí je stavba č.p. 1776, 1772, 1773, 1774, 1775, čst obce Stodůlky), podl na společnch čstech domu a pozemku 447/106609</popis>
+        <bod>
+          <gml:Point gml:id="P.80072759010.JED.25405823010" srsName="EPSG:5514">
+            <gml:pos>1046594.52 750719.59</gml:pos>
+          </gml:Point>
+        </bod>
+        <teleso id="24607831010">
+          <cislo>26400</cislo>
+        </teleso>
+      </Nemovitost>
+    </nemovitosti>
+  </Rizeni>
+  <Rizeni id="80096279010">
+    <cisloRizeni>V-4195/2021-101</cisloRizeni>
+    <datumPodani>2021-01-20T08:42:32</datumPodani>
+    <datumZplatneni>2021-02-12T11:51:07</datumZplatneni>
+    <praresKod>101</praresKod>
+    <listiny>
+      <Listina id="64016435010">
+        <cena>6530211</cena>
+        <mena>CZK</mena>
+        <listinaTyp>Smlouva kupní</listinaTyp>
+      </Listina>
+    </listiny>
+    <nemovitosti>
+      <Nemovitost id="29239256010" typ="JED">
+        <katuzeKod>755541</katuzeKod>
+        <text>č.p. 2958</text>
+        <popis>jednotka č. 29580052, byt v budově č.p. 2958, část obce Stodůlky, na parcele 2339/98 Stodůlky (součástí je stavba č.p. 2958, čst obce Stodůlky), 2339/306 Stodůlky, 2339/307 Stodůlky, 2339/308 Stodůlky, 2339/309 Stodůlky, 2339/310 Stodůlky, 2339/311 Stodůlky, 2342/803 Stodůlky, podl na společnch čstech domu a pozemku 701/41078</popis>
+        <bod>
+          <gml:Point gml:id="P.80096279010.JED.29239256010" srsName="EPSG:5514">
+            <gml:pos>1047818.21 749096.14</gml:pos>
+          </gml:Point>
+        </bod>
+        <teleso id="24883819010">
+          <cislo>26608</cislo>
+        </teleso>
+      </Nemovitost>
+    </nemovitosti>
+  </Rizeni>
+  <Rizeni id="80181621010">
+    <cisloRizeni>V-5929/2021-101</cisloRizeni>
+    <datumPodani>2021-01-25T15:58:46</datumPodani>
+    <datumZplatneni>2021-02-16T14:04:22</datumZplatneni>
+    <praresKod>101</praresKod>
+    <listiny>
+      <Listina id="64095973010">
+        <cena>738276</cena>
+        <mena>CZK</mena>
+        <listinaTyp>Smlouva kupní</listinaTyp>
+      </Listina>
+    </listiny>
+    <nemovitosti>
+      <Nemovitost id="14233348010" typ="JED">
+        <katuzeKod>755541</katuzeKod>
+        <text>č.p. 2057</text>
+        <popis>jednotka č. 20560020, byt v budově č.p. 2057, 2054, 2055, 2056, část obce Stodůlky, na parcele 2131/26 Stodůlky, 2131/27 Stodůlky, 2131/28 Stodůlky (součástí je stavba č.p. 2057, 2054, 2055, 2056, čst obce Stodůlky), 2131/29 Stodůlky, podl na společnch čstech domu a pozemku 8258/839119</popis>
+        <bod>
+          <gml:Point gml:id="P.80181621010.JED.14233348010" srsName="EPSG:5514">
+            <gml:pos>1046440 750500.06</gml:pos>
+          </gml:Point>
+        </bod>
+        <teleso id="43400197010">
+          <cislo>27856</cislo>
+        </teleso>
+      </Nemovitost>
+    </nemovitosti>
+  </Rizeni>
+  <Rizeni id="80207296010">
+    <cisloRizeni>V-6412/2021-101</cisloRizeni>
+    <datumPodani>2021-01-27T10:28:47</datumPodani>
+    <datumZplatneni>2021-02-22T12:22:55</datumZplatneni>
+    <praresKod>101</praresKod>
+    <listiny>
+      <Listina id="64119141010">
+        <cena>3850000</cena>
+        <mena>CZK</mena>
+        <listinaTyp>Smlouva kupní</listinaTyp>
+      </Listina>
+    </listiny>
+    <nemovitosti>
+      <Nemovitost id="1941808101" typ="JED">
+        <katuzeKod>755541</katuzeKod>
+        <text>č.p. 2695</text>
+        <popis>jednotka č. 26950029, byt v budově č.p. 2695, část obce Stodůlky, na parcele 2315/189 Stodůlky (součástí je stavba č.p. 2695, čst obce Stodůlky), podl na společnch čstech domu a pozemku 2980/322006</popis>
+        <bod>
+          <gml:Point gml:id="P.80207296010.JED.1941808101" srsName="EPSG:5514">
+            <gml:pos>1047690.5 750168.55</gml:pos>
+          </gml:Point>
+        </bod>
+        <teleso id="2720738101">
+          <cislo>17344</cislo>
+        </teleso>
+      </Nemovitost>
+      <Nemovitost id="1941881101" typ="JED">
+        <katuzeKod>755541</katuzeKod>
+        <text>č.p. 2695</text>
+        <popis>jednotka č. 26950075, garáž v budově č.p. 2695, část obce Stodůlky, na parcele 2315/189 Stodůlky (součástí je stavba č.p. 2695, čst obce Stodůlky), podl na společnch čstech domu a pozemku 1270/322006</popis>
+        <bod>
+          <gml:Point gml:id="P.80207296010.JED.1941881101" srsName="EPSG:5514">
+            <gml:pos>1047690.5 750168.55</gml:pos>
+          </gml:Point>
+        </bod>
+        <teleso id="2720738101">
+          <cislo>17344</cislo>
+        </teleso>
+      </Nemovitost>
+    </nemovitosti>
+  </Rizeni>
+  <Rizeni id="80265739010">
+    <cisloRizeni>V-7382/2021-101</cisloRizeni>
+    <datumPodani>2021-02-01T09:05:55</datumPodani>
+    <datumZplatneni>2021-02-24T18:38:31</datumZplatneni>
+    <praresKod>101</praresKod>
+    <listiny>
+      <Listina id="64192473010">
+        <cena>3700000</cena>
+        <mena>CZK</mena>
+        <listinaTyp>Smlouva kupní</listinaTyp>
+      </Listina>
+    </listiny>
+    <nemovitosti>
+      <Nemovitost id="2019464101" typ="JED">
+        <katuzeKod>755541</katuzeKod>
+        <text>č.p. 2201</text>
+        <popis>jednotka č. 22040019, byt v budově č.p. 2201, 2202, 2203, 2204, 2205, část obce Stodůlky, na parcele 2342/27 Stodůlky, 2342/28 Stodůlky, 2342/29 Stodůlky (součástí je stavba č.p. 2201, 2202, 2203, 2204, 2205, čst obce Stodůlky), 2342/30 Stodůlky, 2342/31 Stodůlky, podl na společnch čstech domu a pozemku 4300/766187</popis>
+        <bod>
+          <gml:Point gml:id="P.80265739010.JED.2019464101" srsName="EPSG:5514">
+            <gml:pos>1047596.77 749258.13</gml:pos>
+          </gml:Point>
+        </bod>
+        <teleso id="14658191010">
+          <cislo>20737</cislo>
+        </teleso>
+      </Nemovitost>
+    </nemovitosti>
+  </Rizeni>
+  <Rizeni id="80283837010">
+    <cisloRizeni>V-7996/2021-101</cisloRizeni>
+    <datumPodani>2021-02-01T16:27:06</datumPodani>
+    <datumZplatneni>2021-02-24T07:51:02</datumZplatneni>
+    <praresKod>101</praresKod>
+    <listiny>
+      <Listina id="64204364010">
+        <cena>20500000</cena>
+        <mena>CZK</mena>
+        <listinaTyp>Smlouva kupní</listinaTyp>
+      </Listina>
+    </listiny>
+    <nemovitosti>
+      <Nemovitost id="2314308101" typ="PAR">
+        <katuzeKod>755541</katuzeKod>
+        <text>151/344</text>
+        <popis>č. 151/344 Stodůlky</popis>
+        <bod>
+          <gml:Point gml:id="P.80283837010.PAR.2314308101" srsName="EPSG:5514">
+            <gml:pos>1047325.34 751267.36</gml:pos>
+          </gml:Point>
+        </bod>
+        <teleso id="18194632010">
+          <cislo>24157</cislo>
+        </teleso>
+      </Nemovitost>
+      <Nemovitost id="33178525010" typ="PAR">
+        <katuzeKod>755541</katuzeKod>
+        <text>151/583</text>
+        <popis>č. 151/583 Stodůlky</popis>
+        <bod>
+          <gml:Point gml:id="P.80283837010.PAR.33178525010" srsName="EPSG:5514">
+            <gml:pos>1047310.62 751269.76</gml:pos>
+          </gml:Point>
+        </bod>
+        <teleso id="18194632010">
+          <cislo>24157</cislo>
+        </teleso>
+      </Nemovitost>
+    </nemovitosti>
+  </Rizeni>
+  <Rizeni id="80032649010">
+    <cisloRizeni>V-2981/2021-101</cisloRizeni>
+    <datumPodani>2021-01-15T08:32:18</datumPodani>
+    <datumZplatneni>2021-02-12T10:25:38</datumZplatneni>
+    <praresKod>101</praresKod>
+    <listiny>
+      <Listina id="63956647010">
+        <cena>5475</cena>
+        <mena>CZK</mena>
+        <listinaTyp>Smlouva kupní</listinaTyp>
+      </Listina>
+    </listiny>
+    <nemovitosti>
+      <Nemovitost id="2320463101" typ="PAR">
+        <katuzeKod>755541</katuzeKod>
+        <text>2780/29</text>
+        <popis>č. 2780/29 Stodůlky (součástí je stavba č.p. 2463, 2464, 2465, čst obce Stodůlky)</popis>
+        <bod>
+          <gml:Point gml:id="P.80032649010.PAR.2320463101" srsName="EPSG:5514">
+            <gml:pos>1045961.46 748975.45</gml:pos>
+          </gml:Point>
+        </bod>
+        <teleso id="17843488010">
+          <cislo>23907</cislo>
+        </teleso>
+      </Nemovitost>
+      <Nemovitost id="2320464101" typ="PAR">
+        <katuzeKod>755541</katuzeKod>
+        <text>2780/30</text>
+        <popis>č. 2780/30 Stodůlky</popis>
+        <bod>
+          <gml:Point gml:id="P.80032649010.PAR.2320464101" srsName="EPSG:5514">
+            <gml:pos>1045984.61 748972.07</gml:pos>
+          </gml:Point>
+        </bod>
+        <teleso id="17843488010">
+          <cislo>23907</cislo>
+        </teleso>
+      </Nemovitost>
+      <Nemovitost id="2320465101" typ="PAR">
+        <katuzeKod>755541</katuzeKod>
+        <text>2780/31</text>
+        <popis>č. 2780/31 Stodůlky</popis>
+        <bod>
+          <gml:Point gml:id="P.80032649010.PAR.2320465101" srsName="EPSG:5514">
+            <gml:pos>1046004.01 748972.66</gml:pos>
+          </gml:Point>
+        </bod>
+        <teleso id="17843488010">
+          <cislo>23907</cislo>
+        </teleso>
+      </Nemovitost>
+    </nemovitosti>
+  </Rizeni>
+  <Rizeni id="80072138010">
+    <cisloRizeni>V-3765/2021-101</cisloRizeni>
+    <datumPodani>2021-01-18T14:29:28</datumPodani>
+    <datumZplatneni>2021-02-10T18:29:47</datumZplatneni>
+    <praresKod>101</praresKod>
+    <listiny>
+      <Listina id="63970405010">
+        <cena>15300000</cena>
+        <mena>CZK</mena>
+        <listinaTyp>Smlouva kupní</listinaTyp>
+      </Listina>
+    </listiny>
+    <nemovitosti>
+      <Nemovitost id="2315121101" typ="PAR">
+        <katuzeKod>755541</katuzeKod>
+        <text>497</text>
+        <popis>č. 497 Stodůlky</popis>
+        <bod>
+          <gml:Point gml:id="P.80072138010.PAR.2315121101" srsName="EPSG:5514">
+            <gml:pos>1044748.73 750427.2</gml:pos>
+          </gml:Point>
+        </bod>
+        <teleso id="2001238101">
+          <cislo>436</cislo>
+        </teleso>
+      </Nemovitost>
+    </nemovitosti>
+  </Rizeni>
+  <Rizeni id="80207240010">
+    <cisloRizeni>V-6404/2021-101</cisloRizeni>
+    <datumPodani>2021-01-27T10:26:12</datumPodani>
+    <datumZplatneni>2021-02-18T10:46:38</datumZplatneni>
+    <praresKod>101</praresKod>
+    <listiny>
+      <Listina id="64154744010">
+        <cena>1640000</cena>
+        <mena>CZK</mena>
+        <listinaTyp>Smlouva kupní</listinaTyp>
+      </Listina>
+    </listiny>
+    <nemovitosti>
+      <Nemovitost id="1829881101" typ="JED">
+        <katuzeKod>755541</katuzeKod>
+        <text>č.p. 2030</text>
+        <popis>jednotka č. 20300060, byt v budově č.p. 2030, část obce Stodůlky, na parcele 2131/109 Stodůlky (součástí je stavba č.p. 2030, čst obce Stodůlky), podl na společnch čstech domu a pozemku 4297/417715</popis>
+        <bod>
+          <gml:Point gml:id="P.80207240010.JED.1829881101" srsName="EPSG:5514">
+            <gml:pos>1046674.76 750171.43</gml:pos>
+          </gml:Point>
+        </bod>
+        <teleso id="14639867010">
+          <cislo>20603</cislo>
+        </teleso>
+      </Nemovitost>
+    </nemovitosti>
+  </Rizeni>
+  <Rizeni id="80219892010">
+    <cisloRizeni>V-6818/2021-101</cisloRizeni>
+    <datumPodani>2021-01-27T15:07:51</datumPodani>
+    <datumZplatneni>2021-02-23T13:58:57</datumZplatneni>
+    <praresKod>101</praresKod>
+    <listiny>
+      <Listina id="64130834010">
+        <cena>4480000</cena>
+        <mena>CZK</mena>
+        <listinaTyp>Smlouva kupní</listinaTyp>
+      </Listina>
+    </listiny>
+    <nemovitosti>
+      <Nemovitost id="2020113101" typ="JED">
+        <katuzeKod>755541</katuzeKod>
+        <text>č.p. 2158</text>
+        <popis>jednotka č. 21570001, byt v budově č.p. 2158, 2155, 2156, 2157, část obce Stodůlky, na parcele 2978 Stodůlky (součástí je stavba č.p. 2158, 2155, 2156, 2157, čst obce Stodůlky), 2979 Stodůlky, 2980 Stodůlky, 2981 Stodůlky, podl na společnch čstech domu a pozemku 428/67021</popis>
+        <bod>
+          <gml:Point gml:id="P.80219892010.JED.2020113101" srsName="EPSG:5514">
+            <gml:pos>1046471.74 748478.02</gml:pos>
+          </gml:Point>
+        </bod>
+        <teleso id="2754962101">
+          <cislo>19698</cislo>
+        </teleso>
+      </Nemovitost>
+    </nemovitosti>
+  </Rizeni>
+  <Rizeni id="79962125010">
+    <cisloRizeni>V-1697/2021-101</cisloRizeni>
+    <datumPodani>2021-01-11T12:58:50</datumPodani>
+    <datumZplatneni>2021-02-26T14:45:12</datumZplatneni>
+    <praresKod>101</praresKod>
+    <listiny>
+      <Listina id="63849092010">
+        <cena>780000</cena>
+        <mena>CZK</mena>
+        <listinaTyp>Smlouva kupní</listinaTyp>
+      </Listina>
+    </listiny>
+    <nemovitosti>
+      <Nemovitost id="1558945101" typ="JED">
+        <katuzeKod>755541</katuzeKod>
+        <text>č.p. 2583</text>
+        <popis>jednotka č. 25830301, garáž v budově č.p. 2583, část obce Stodůlky, na parcele 2860/192 Stodůlky (součástí je stavba č.p. 2583, čst obce Stodůlky), podl na společnch čstech domu a pozemku 770060/3019910</popis>
+        <bod>
+          <gml:Point gml:id="P.79962125010.JED.1558945101" srsName="EPSG:5514">
+            <gml:pos>1046323.45 748752.58</gml:pos>
+          </gml:Point>
+        </bod>
+        <teleso id="2556065101">
+          <cislo>11226</cislo>
+        </teleso>
+      </Nemovitost>
+    </nemovitosti>
+  </Rizeni>
+  <Rizeni id="80036597010">
+    <cisloRizeni>V-3027/2021-101</cisloRizeni>
+    <datumPodani>2021-01-15T10:11:23</datumPodani>
+    <datumZplatneni>2021-02-10T14:52:06</datumZplatneni>
+    <praresKod>101</praresKod>
+    <listiny>
+      <Listina id="63933861010">
+        <cena>1200000</cena>
+        <mena>CZK</mena>
+        <listinaTyp>Smlouva kupní</listinaTyp>
+      </Listina>
+    </listiny>
+    <nemovitosti>
+      <Nemovitost id="2317461101" typ="PAR">
+        <katuzeKod>755541</katuzeKod>
+        <text>1589</text>
+        <popis>č. 1589 Stodůlky (součástí je stavba č.p. 435, čst obce Stodůlky)</popis>
+        <bod>
+          <gml:Point gml:id="P.80036597010.PAR.2317461101" srsName="EPSG:5514">
+            <gml:pos>1045973.68 749917.99</gml:pos>
+          </gml:Point>
+        </bod>
+        <teleso id="2000885101">
+          <cislo>33</cislo>
+        </teleso>
+      </Nemovitost>
+      <Nemovitost id="2317462101" typ="PAR">
+        <katuzeKod>755541</katuzeKod>
+        <text>1590</text>
+        <popis>č. 1590 Stodůlky</popis>
+        <bod>
+          <gml:Point gml:id="P.80036597010.PAR.2317462101" srsName="EPSG:5514">
+            <gml:pos>1045964.16 749927.56</gml:pos>
+          </gml:Point>
+        </bod>
+        <teleso id="2000885101">
+          <cislo>33</cislo>
+        </teleso>
+      </Nemovitost>
+    </nemovitosti>
+  </Rizeni>
+  <Rizeni id="80074032010">
+    <cisloRizeni>V-3905/2021-101</cisloRizeni>
+    <datumPodani>2021-01-18T16:29:17</datumPodani>
+    <datumZplatneni>2021-02-11T10:11:35</datumZplatneni>
+    <praresKod>101</praresKod>
+    <listiny>
+      <Listina id="63980277010">
+        <cena>669321.66</cena>
+        <mena>CZK</mena>
+        <listinaTyp>Smlouva kupní</listinaTyp>
+      </Listina>
+    </listiny>
+    <nemovitosti>
+      <Nemovitost id="3454739101" typ="PAR">
+        <katuzeKod>755541</katuzeKod>
+        <text>1055/9</text>
+        <popis>č. 1055/9 Stodůlky</popis>
+        <bod>
+          <gml:Point gml:id="P.80074032010.PAR.3454739101" srsName="EPSG:5514">
+            <gml:pos>1045744.09 750885.15</gml:pos>
+          </gml:Point>
+        </bod>
+        <teleso id="2681674101">
+          <cislo>15676</cislo>
+        </teleso>
+      </Nemovitost>
+    </nemovitosti>
+  </Rizeni>
+  <Rizeni id="80097982010">
+    <cisloRizeni>V-4324/2021-101</cisloRizeni>
+    <datumPodani>2021-01-20T10:00:18</datumPodani>
+    <datumZplatneni>2021-02-12T14:46:21</datumZplatneni>
+    <praresKod>101</praresKod>
+    <listiny>
+      <Listina id="64002004010">
+        <cena>280000</cena>
+        <mena>CZK</mena>
+        <listinaTyp>Smlouva kupní</listinaTyp>
+      </Listina>
+    </listiny>
+    <nemovitosti>
+      <Nemovitost id="983977101" typ="BUD">
+        <katuzeKod>755541</katuzeKod>
+        <text>bez čp/če</text>
+        <popis>budova bez čp/če, garáž, na parcele 1177/30 Stodůlky, 1195/7 Stodůlky (součástí je stavba budova bez čp/če, garáž), 1195/9 Stodůlky</popis>
+        <bod>
+          <gml:Point gml:id="P.80097982010.BUD.983977101" srsName="EPSG:5514">
+            <gml:pos>1045836.28 750497.7</gml:pos>
+          </gml:Point>
+        </bod>
+        <teleso id="2000984101">
+          <cislo>149</cislo>
+        </teleso>
+      </Nemovitost>
+    </nemovitosti>
+  </Rizeni>
+  <Rizeni id="80111541010">
+    <cisloRizeni>V-4694/2021-101</cisloRizeni>
+    <datumPodani>2021-01-20T14:26:45</datumPodani>
+    <datumZplatneni>2021-02-12T14:11:15</datumZplatneni>
+    <praresKod>101</praresKod>
+    <listiny>
+      <Listina id="64012306010">
+        <cena>5533655</cena>
+        <mena>CZK</mena>
+        <listinaTyp>Smlouva kupní</listinaTyp>
+      </Listina>
+    </listiny>
+    <nemovitosti>
+      <Nemovitost id="1854003101" typ="JED">
+        <katuzeKod>755541</katuzeKod>
+        <text>č.p. 2020</text>
+        <popis>jednotka č. 20200021, byt v budově č.p. 2020, 2019, část obce Stodůlky, na parcele 2131/74 Stodůlky, 2131/75 Stodůlky (součástí je stavba č.p. 2020, 2019, čst obce Stodůlky), podl na společnch čstech domu a pozemku 7552/416079</popis>
+        <bod>
+          <gml:Point gml:id="P.80111541010.JED.1854003101" srsName="EPSG:5514">
+            <gml:pos>1046667.5 749962.67</gml:pos>
+          </gml:Point>
+        </bod>
+        <teleso id="2694769101">
+          <cislo>16366</cislo>
+        </teleso>
+      </Nemovitost>
+    </nemovitosti>
+  </Rizeni>
+  <Rizeni id="80116391010">
+    <cisloRizeni>V-4796/2021-101</cisloRizeni>
+    <datumPodani>2021-01-20T16:02:07</datumPodani>
+    <datumZplatneni>2021-02-11T15:29:39</datumZplatneni>
+    <praresKod>101</praresKod>
+    <listiny>
+      <Listina id="64015874010">
+        <cena>780000</cena>
+        <mena>CZK</mena>
+        <listinaTyp>Smlouva kupní</listinaTyp>
+      </Listina>
+    </listiny>
+    <nemovitosti>
+      <Nemovitost id="1045755101" typ="JED">
+        <katuzeKod>755541</katuzeKod>
+        <text>č.p. 2567</text>
+        <popis>jednotka č. 25700021, garáž v budově č.p. 2567, 2514, 2540, 2568, 2569, 2570, 2571, část obce Stodůlky, na parcele 2846/1 Stodůlky, 2846/2 Stodůlky (součástí je stavba č.p. 2567, 2514, 2540, 2568, 2569, 2570, 2571, čst obce Stodůlky), 2846/3 Stodůlky, 2846/4 Stodůlky, 2846/5 Stodůlky, 2846/6 Stodůlky, 2846/7 Stodůlky, 2846/8 Stodůlky, 2847/4 Stodůlky, 2847/5 Stodůlky, 2848/1 Stodůlky, 2848/2 Stodůlky, podl na společnch čstech domu a pozemku 284315/1765896</popis>
+        <bod>
+          <gml:Point gml:id="P.80116391010.JED.1045755101" srsName="EPSG:5514">
+            <gml:pos>1046318.38 749040.48</gml:pos>
+          </gml:Point>
+        </bod>
+        <teleso id="2220773101">
+          <cislo>5308</cislo>
+        </teleso>
+      </Nemovitost>
+      <Nemovitost id="2320805101" typ="PAR">
+        <katuzeKod>755541</katuzeKod>
+        <text>2846/1</text>
+        <popis>č. 2846/1 Stodůlky</popis>
+        <bod>
+          <gml:Point gml:id="P.80116391010.PAR.2320805101" srsName="EPSG:5514">
+            <gml:pos>1046309.83 749039.5</gml:pos>
+          </gml:Point>
+        </bod>
+        <teleso id="2575236101">
+          <cislo>11995</cislo>
+        </teleso>
+      </Nemovitost>
+      <Nemovitost id="2320806101" typ="PAR">
+        <katuzeKod>755541</katuzeKod>
+        <text>2846/2</text>
+        <popis>č. 2846/2 Stodůlky (součástí je stavba č.p. 2567, 2514, 2540, 2568, 2569, 2570, 2571, čst obce Stodůlky)</popis>
+        <bod>
+          <gml:Point gml:id="P.80116391010.PAR.2320806101" srsName="EPSG:5514">
+            <gml:pos>1046320.9 749040.94</gml:pos>
+          </gml:Point>
+        </bod>
+        <teleso id="2575236101">
+          <cislo>11995</cislo>
+        </teleso>
+      </Nemovitost>
+      <Nemovitost id="2320807101" typ="PAR">
+        <katuzeKod>755541</katuzeKod>
+        <text>2846/3</text>
+        <popis>č. 2846/3 Stodůlky</popis>
+        <bod>
+          <gml:Point gml:id="P.80116391010.PAR.2320807101" srsName="EPSG:5514">
+            <gml:pos>1046297.1 749031.06</gml:pos>
+          </gml:Point>
+        </bod>
+        <teleso id="2575236101">
+          <cislo>11995</cislo>
+        </teleso>
+      </Nemovitost>
+      <Nemovitost id="2320808101" typ="PAR">
+        <katuzeKod>755541</katuzeKod>
+        <text>2846/4</text>
+        <popis>č. 2846/4 Stodůlky</popis>
+        <bod>
+          <gml:Point gml:id="P.80116391010.PAR.2320808101" srsName="EPSG:5514">
+            <gml:pos>1046297.31 749048.98</gml:pos>
+          </gml:Point>
+        </bod>
+        <teleso id="2575236101">
+          <cislo>11995</cislo>
+        </teleso>
+      </Nemovitost>
+      <Nemovitost id="2320809101" typ="PAR">
+        <katuzeKod>755541</katuzeKod>
+        <text>2846/5</text>
+        <popis>č. 2846/5 Stodůlky</popis>
+        <bod>
+          <gml:Point gml:id="P.80116391010.PAR.2320809101" srsName="EPSG:5514">
+            <gml:pos>1046301.84 749064.52</gml:pos>
+          </gml:Point>
+        </bod>
+        <teleso id="2575236101">
+          <cislo>11995</cislo>
+        </teleso>
+      </Nemovitost>
+      <Nemovitost id="2320810101" typ="PAR">
+        <katuzeKod>755541</katuzeKod>
+        <text>2846/6</text>
+        <popis>č. 2846/6 Stodůlky</popis>
+        <bod>
+          <gml:Point gml:id="P.80116391010.PAR.2320810101" srsName="EPSG:5514">
+            <gml:pos>1046326.46 749065.04</gml:pos>
+          </gml:Point>
+        </bod>
+        <teleso id="2575236101">
+          <cislo>11995</cislo>
+        </teleso>
+      </Nemovitost>
+      <Nemovitost id="2320811101" typ="PAR">
+        <katuzeKod>755541</katuzeKod>
+        <text>2846/7</text>
+        <popis>č. 2846/7 Stodůlky</popis>
+        <bod>
+          <gml:Point gml:id="P.80116391010.PAR.2320811101" srsName="EPSG:5514">
+            <gml:pos>1046332.85 749049.28</gml:pos>
+          </gml:Point>
+        </bod>
+        <teleso id="2575236101">
+          <cislo>11995</cislo>
+        </teleso>
+      </Nemovitost>
+      <Nemovitost id="2320812101" typ="PAR">
+        <katuzeKod>755541</katuzeKod>
+        <text>2846/8</text>
+        <popis>č. 2846/8 Stodůlky</popis>
+        <bod>
+          <gml:Point gml:id="P.80116391010.PAR.2320812101" srsName="EPSG:5514">
+            <gml:pos>1046332.95 749029.92</gml:pos>
+          </gml:Point>
+        </bod>
+        <teleso id="2575236101">
+          <cislo>11995</cislo>
+        </teleso>
+      </Nemovitost>
+      <Nemovitost id="2320813101" typ="PAR">
+        <katuzeKod>755541</katuzeKod>
+        <text>2847/1</text>
+        <popis>č. 2847/1 Stodůlky</popis>
+        <bod>
+          <gml:Point gml:id="P.80116391010.PAR.2320813101" srsName="EPSG:5514">
+            <gml:pos>1046349.23 749039.4</gml:pos>
+          </gml:Point>
+        </bod>
+        <teleso id="2248406101">
+          <cislo>6637</cislo>
+        </teleso>
+      </Nemovitost>
+      <Nemovitost id="2320814101" typ="PAR">
+        <katuzeKod>755541</katuzeKod>
+        <text>2847/2</text>
+        <popis>č. 2847/2 Stodůlky</popis>
+        <bod>
+          <gml:Point gml:id="P.80116391010.PAR.2320814101" srsName="EPSG:5514">
+            <gml:pos>1046290.82 749088.11</gml:pos>
+          </gml:Point>
+        </bod>
+        <teleso id="2248406101">
+          <cislo>6637</cislo>
+        </teleso>
+      </Nemovitost>
+      <Nemovitost id="2320815101" typ="PAR">
+        <katuzeKod>755541</katuzeKod>
+        <text>2847/3</text>
+        <popis>č. 2847/3 Stodůlky</popis>
+        <bod>
+          <gml:Point gml:id="P.80116391010.PAR.2320815101" srsName="EPSG:5514">
+            <gml:pos>1046311.22 748998.31</gml:pos>
+          </gml:Point>
+        </bod>
+        <teleso id="2248406101">
+          <cislo>6637</cislo>
+        </teleso>
+      </Nemovitost>
+      <Nemovitost id="2320816101" typ="PAR">
+        <katuzeKod>755541</katuzeKod>
+        <text>2847/4</text>
+        <popis>č. 2847/4 Stodůlky</popis>
+        <bod>
+          <gml:Point gml:id="P.80116391010.PAR.2320816101" srsName="EPSG:5514">
+            <gml:pos>1046311.37 749086.97</gml:pos>
+          </gml:Point>
+        </bod>
+        <teleso id="2575236101">
+          <cislo>11995</cislo>
+        </teleso>
+      </Nemovitost>
+      <Nemovitost id="2320817101" typ="PAR">
+        <katuzeKod>755541</katuzeKod>
+        <text>2847/5</text>
+        <popis>č. 2847/5 Stodůlky</popis>
+        <bod>
+          <gml:Point gml:id="P.80116391010.PAR.2320817101" srsName="EPSG:5514">
+            <gml:pos>1046302.25 749087.8</gml:pos>
+          </gml:Point>
+        </bod>
+        <teleso id="2575236101">
+          <cislo>11995</cislo>
+        </teleso>
+      </Nemovitost>
+      <Nemovitost id="2320818101" typ="PAR">
+        <katuzeKod>755541</katuzeKod>
+        <text>2848/1</text>
+        <popis>č. 2848/1 Stodůlky</popis>
+        <bod>
+          <gml:Point gml:id="P.80116391010.PAR.2320818101" srsName="EPSG:5514">
+            <gml:pos>1046313.07 749009.64</gml:pos>
+          </gml:Point>
+        </bod>
+        <teleso id="2575236101">
+          <cislo>11995</cislo>
+        </teleso>
+      </Nemovitost>
+      <Nemovitost id="2320819101" typ="PAR">
+        <katuzeKod>755541</katuzeKod>
+        <text>2848/2</text>
+        <popis>č. 2848/2 Stodůlky</popis>
+        <bod>
+          <gml:Point gml:id="P.80116391010.PAR.2320819101" srsName="EPSG:5514">
+            <gml:pos>1046328.52 749009.12</gml:pos>
+          </gml:Point>
+        </bod>
+        <teleso id="2575236101">
+          <cislo>11995</cislo>
+        </teleso>
+      </Nemovitost>
+    </nemovitosti>
+  </Rizeni>
+  <Rizeni id="80181554010">
+    <cisloRizeni>V-5919/2021-101</cisloRizeni>
+    <datumPodani>2021-01-25T15:52:08</datumPodani>
+    <datumZplatneni>2021-02-18T15:20:33</datumZplatneni>
+    <praresKod>101</praresKod>
+    <listiny>
+      <Listina id="64100743010">
+        <cena>647355</cena>
+        <mena>CZK</mena>
+        <listinaTyp>Smlouva kupní</listinaTyp>
+      </Listina>
+    </listiny>
+    <nemovitosti>
+      <Nemovitost id="14233355010" typ="JED">
+        <katuzeKod>755541</katuzeKod>
+        <text>č.p. 2057</text>
+        <popis>jednotka č. 20570002, byt v budově č.p. 2057, 2054, 2055, 2056, část obce Stodůlky, na parcele 2131/26 Stodůlky, 2131/27 Stodůlky, 2131/28 Stodůlky (součástí je stavba č.p. 2057, 2054, 2055, 2056, čst obce Stodůlky), 2131/29 Stodůlky, podl na společnch čstech domu a pozemku 7241/839119</popis>
+        <bod>
+          <gml:Point gml:id="P.80181554010.JED.14233355010" srsName="EPSG:5514">
+            <gml:pos>1046440 750500.06</gml:pos>
+          </gml:Point>
+        </bod>
+        <teleso id="43255194010">
+          <cislo>27852</cislo>
+        </teleso>
+      </Nemovitost>
+    </nemovitosti>
+  </Rizeni>
+  <Rizeni id="80247074010">
+    <cisloRizeni>V-7276/2021-101</cisloRizeni>
+    <datumPodani>2021-01-29T11:18:00</datumPodani>
+    <datumZplatneni>2021-02-25T15:03:37</datumZplatneni>
+    <praresKod>101</praresKod>
+    <listiny>
+      <Listina id="64181559010">
+        <cena>6890000</cena>
+        <mena>CZK</mena>
+        <listinaTyp>Smlouva kupní</listinaTyp>
+      </Listina>
+    </listiny>
+    <nemovitosti>
+      <Nemovitost id="1558695101" typ="JED">
+        <katuzeKod>755541</katuzeKod>
+        <text>č.p. 2583</text>
+        <popis>jednotka č. 25830107, byt v budově č.p. 2583, část obce Stodůlky, na parcele 2860/192 Stodůlky (součástí je stavba č.p. 2583, čst obce Stodůlky), podl na společnch čstech domu a pozemku 9850/3019910</popis>
+        <bod>
+          <gml:Point gml:id="P.80247074010.JED.1558695101" srsName="EPSG:5514">
+            <gml:pos>1046323.45 748752.58</gml:pos>
+          </gml:Point>
+        </bod>
+        <teleso id="2579590101">
+          <cislo>12152</cislo>
+        </teleso>
+      </Nemovitost>
+      <Nemovitost id="1558945101" typ="JED">
+        <katuzeKod>755541</katuzeKod>
+        <text>č.p. 2583</text>
+        <popis>jednotka č. 25830301, garáž v budově č.p. 2583, část obce Stodůlky, na parcele 2860/192 Stodůlky (součástí je stavba č.p. 2583, čst obce Stodůlky), podl na společnch čstech domu a pozemku 770060/3019910</popis>
+        <bod>
+          <gml:Point gml:id="P.80247074010.JED.1558945101" srsName="EPSG:5514">
+            <gml:pos>1046323.45 748752.58</gml:pos>
+          </gml:Point>
+        </bod>
+        <teleso id="2556065101">
+          <cislo>11226</cislo>
+        </teleso>
+      </Nemovitost>
+    </nemovitosti>
+  </Rizeni>
+  <Rizeni id="79248082010">
+    <cisloRizeni>V-70977/2020-101</cisloRizeni>
+    <datumPodani>2020-11-25T08:28:20</datumPodani>
+    <datumZplatneni>2021-02-01T10:17:13</datumZplatneni>
+    <praresKod>101</praresKod>
+    <listiny>
+      <Listina id="63095234010">
+        <cena>760000</cena>
+        <mena>CZK</mena>
+        <listinaTyp>Smlouva kupní</listinaTyp>
+      </Listina>
+    </listiny>
+    <nemovitosti>
+      <Nemovitost id="1932215101" typ="JED">
+        <katuzeKod>755541</katuzeKod>
+        <text>č.p. 2722</text>
+        <popis>jednotka č. 27220223, jiný nebytový prostor v budově č.p. 2722, část obce Stodůlky, na parcele 2131/180 Stodůlky (součástí je stavba č.p. 2722, čst obce Stodůlky), podl na společnch čstech domu a pozemku 1724/1627256</popis>
+        <bod>
+          <gml:Point gml:id="P.79248082010.JED.1932215101" srsName="EPSG:5514">
+            <gml:pos>1046984.81 749461.37</gml:pos>
+          </gml:Point>
+        </bod>
+        <teleso id="17032656010">
+          <cislo>23425</cislo>
+        </teleso>
+      </Nemovitost>
+    </nemovitosti>
+  </Rizeni>
+  <Rizeni id="79717948010">
+    <cisloRizeni>V-80089/2020-101</cisloRizeni>
+    <datumPodani>2020-12-23T11:45:36</datumPodani>
+    <datumZplatneni>2021-02-04T08:05:45</datumZplatneni>
+    <praresKod>101</praresKod>
+    <listiny>
+      <Listina id="63634804010">
+        <cena>2500000</cena>
+        <mena>CZK</mena>
+        <listinaTyp>Smlouva kupní</listinaTyp>
+      </Listina>
+    </listiny>
+    <nemovitosti>
+      <Nemovitost id="1047187101" typ="JED">
+        <katuzeKod>755541</katuzeKod>
+        <text>č.p. 2471</text>
+        <popis>jednotka č. 24710089, byt v budově č.p. 2471, 2472, 2473, část obce Stodůlky, na parcele 2780/37 Stodůlky (součástí je stavba č.p. 2471, 2472, 2473, čst obce Stodůlky), 2780/38 Stodůlky, 2780/39 Stodůlky, podl na společnch čstech domu a pozemku 63/6468</popis>
+        <bod>
+          <gml:Point gml:id="P.79717948010.JED.1047187101" srsName="EPSG:5514">
+            <gml:pos>1046082.66 748977.88</gml:pos>
+          </gml:Point>
+        </bod>
+        <teleso id="2300340101">
+          <cislo>7281</cislo>
+        </teleso>
+      </Nemovitost>
+    </nemovitosti>
+  </Rizeni>
+  <Rizeni id="79991386010">
+    <cisloRizeni>V-2238/2021-101</cisloRizeni>
+    <datumPodani>2021-01-13T09:33:18</datumPodani>
+    <datumZplatneni>2021-02-15T15:28:06</datumZplatneni>
+    <praresKod>101</praresKod>
+    <listiny>
+      <Listina id="63891470010">
+        <cena>5000000</cena>
+        <mena>CZK</mena>
+        <listinaTyp>Smlouva kupní</listinaTyp>
+      </Listina>
+    </listiny>
+    <nemovitosti>
+      <Nemovitost id="1047317101" typ="JED">
+        <katuzeKod>755541</katuzeKod>
+        <text>č.p. 1887</text>
+        <popis>jednotka č. 18870075, byt v budově č.p. 1887, 1885, 1886, část obce Stodůlky, na parcele 2131/208 Stodůlky (součástí je stavba č.p. 1887, 1885, 1886, čst obce Stodůlky), 2131/209 Stodůlky, 2131/210 Stodůlky, podl na společnch čstech domu a pozemku 75/6069</popis>
+        <bod>
+          <gml:Point gml:id="P.79991386010.JED.1047317101" srsName="EPSG:5514">
+            <gml:pos>1046938.67 750141.02</gml:pos>
+          </gml:Point>
+        </bod>
+        <teleso id="20227351010">
+          <cislo>25443</cislo>
+        </teleso>
+      </Nemovitost>
+      <Nemovitost id="2318598101" typ="PAR">
+        <katuzeKod>755541</katuzeKod>
+        <text>2131/208</text>
+        <popis>č. 2131/208 Stodůlky (součástí je stavba č.p. 1887, 1885, 1886, čst obce Stodůlky)</popis>
+        <bod>
+          <gml:Point gml:id="P.79991386010.PAR.2318598101" srsName="EPSG:5514">
+            <gml:pos>1046941.86 750141.6</gml:pos>
+          </gml:Point>
+        </bod>
+        <teleso id="2518073101">
+          <cislo>10240</cislo>
+        </teleso>
+      </Nemovitost>
+      <Nemovitost id="2318599101" typ="PAR">
+        <katuzeKod>755541</katuzeKod>
+        <text>2131/209</text>
+        <popis>č. 2131/209 Stodůlky</popis>
+        <bod>
+          <gml:Point gml:id="P.79991386010.PAR.2318599101" srsName="EPSG:5514">
+            <gml:pos>1046931.07 750127.71</gml:pos>
+          </gml:Point>
+        </bod>
+        <teleso id="2518073101">
+          <cislo>10240</cislo>
+        </teleso>
+      </Nemovitost>
+      <Nemovitost id="2318600101" typ="PAR">
+        <katuzeKod>755541</katuzeKod>
+        <text>2131/210</text>
+        <popis>č. 2131/210 Stodůlky</popis>
+        <bod>
+          <gml:Point gml:id="P.79991386010.PAR.2318600101" srsName="EPSG:5514">
+            <gml:pos>1046918.55 750114.07</gml:pos>
+          </gml:Point>
+        </bod>
+        <teleso id="2518073101">
+          <cislo>10240</cislo>
+        </teleso>
+      </Nemovitost>
+    </nemovitosti>
+  </Rizeni>
+  <Rizeni id="80166860010">
+    <cisloRizeni>V-5376/2021-101</cisloRizeni>
+    <datumPodani>2021-01-25T10:16:36</datumPodani>
+    <datumZplatneni>2021-02-18T16:03:52</datumZplatneni>
+    <praresKod>101</praresKod>
+    <listiny>
+      <Listina id="64073380010">
+        <cena>3300000</cena>
+        <mena>CZK</mena>
+        <listinaTyp>Smlouva kupní</listinaTyp>
+      </Listina>
+    </listiny>
+    <nemovitosti>
+      <Nemovitost id="2013944101" typ="JED">
+        <katuzeKod>755541</katuzeKod>
+        <text>č.p. 1966</text>
+        <popis>jednotka č. 19660037, byt v budově č.p. 1966, část obce Stodůlky, na parcele 2131/272 Stodůlky (součástí je stavba č.p. 1966, čst obce Stodůlky), podl na společnch čstech domu a pozemku 433/43288</popis>
+        <bod>
+          <gml:Point gml:id="P.80166860010.JED.2013944101" srsName="EPSG:5514">
+            <gml:pos>1046927.93 749551.07</gml:pos>
+          </gml:Point>
+        </bod>
+        <teleso id="2751770101">
+          <cislo>19110</cislo>
+        </teleso>
+      </Nemovitost>
+    </nemovitosti>
+  </Rizeni>
+  <Rizeni id="80181595010">
+    <cisloRizeni>V-5926/2021-101</cisloRizeni>
+    <datumPodani>2021-01-25T15:56:03</datumPodani>
+    <datumZplatneni>2021-02-16T14:01:07</datumZplatneni>
+    <praresKod>101</praresKod>
+    <listiny>
+      <Listina id="64095938010">
+        <cena>742746</cena>
+        <mena>CZK</mena>
+        <listinaTyp>Smlouva kupní</listinaTyp>
+      </Listina>
+    </listiny>
+    <nemovitosti>
+      <Nemovitost id="14233282010" typ="JED">
+        <katuzeKod>755541</katuzeKod>
+        <text>č.p. 2057</text>
+        <popis>jednotka č. 20540020, byt v budově č.p. 2057, 2054, 2055, 2056, část obce Stodůlky, na parcele 2131/26 Stodůlky, 2131/27 Stodůlky, 2131/28 Stodůlky (součástí je stavba č.p. 2057, 2054, 2055, 2056, čst obce Stodůlky), 2131/29 Stodůlky, podl na společnch čstech domu a pozemku 8308/839119</popis>
+        <bod>
+          <gml:Point gml:id="P.80181595010.JED.14233282010" srsName="EPSG:5514">
+            <gml:pos>1046440 750500.06</gml:pos>
+          </gml:Point>
+        </bod>
+        <teleso id="43400198010">
+          <cislo>27857</cislo>
+        </teleso>
+      </Nemovitost>
+    </nemovitosti>
+  </Rizeni>
+  <Rizeni id="80268987010">
+    <cisloRizeni>V-7521/2021-101</cisloRizeni>
+    <datumPodani>2021-01-30T11:41:56</datumPodani>
+    <datumZplatneni>2021-02-24T07:40:29</datumZplatneni>
+    <praresKod>101</praresKod>
+    <listiny>
+      <Listina id="64188863010">
+        <cena>5520000</cena>
+        <mena>CZK</mena>
+        <listinaTyp>Smlouva kupní</listinaTyp>
+      </Listina>
+    </listiny>
+    <nemovitosti>
+      <Nemovitost id="1051707101" typ="JED">
+        <katuzeKod>755541</katuzeKod>
+        <text>č.p. 2258</text>
+        <popis>jednotka č. 22580060, byt v budově č.p. 2258, část obce Stodůlky, na parcele 2903 Stodůlky (součástí je stavba č.p. 2258, čst obce Stodůlky), podl na společnch čstech domu a pozemku 75/5580</popis>
+        <bod>
+          <gml:Point gml:id="P.80268987010.JED.1051707101" srsName="EPSG:5514">
+            <gml:pos>1046226.35 748475.29</gml:pos>
+          </gml:Point>
+        </bod>
+        <teleso id="2473113101">
+          <cislo>8446</cislo>
+        </teleso>
+      </Nemovitost>
+      <Nemovitost id="1308781101" typ="JED">
+        <katuzeKod>755541</katuzeKod>
+        <text>č.p. 2258</text>
+        <popis>jednotka č. 22580301, jiný nebytový prostor v budově č.p. 2258, část obce Stodůlky, na parcele 2903 Stodůlky (součástí je stavba č.p. 2258, čst obce Stodůlky), podl na společnch čstech domu a pozemku 8/5580</popis>
+        <bod>
+          <gml:Point gml:id="P.80268987010.JED.1308781101" srsName="EPSG:5514">
+            <gml:pos>1046226.35 748475.29</gml:pos>
+          </gml:Point>
+        </bod>
+        <teleso id="2385793101">
+          <cislo>7751</cislo>
+        </teleso>
+      </Nemovitost>
+      <Nemovitost id="1308782101" typ="JED">
+        <katuzeKod>755541</katuzeKod>
+        <text>č.p. 2258</text>
+        <popis>jednotka č. 22580302, dílna nebo provozovna v budově č.p. 2258, část obce Stodůlky, na parcele 2903 Stodůlky (součástí je stavba č.p. 2258, čst obce Stodůlky), podl na společnch čstech domu a pozemku 28/5580</popis>
+        <bod>
+          <gml:Point gml:id="P.80268987010.JED.1308782101" srsName="EPSG:5514">
+            <gml:pos>1046226.35 748475.29</gml:pos>
+          </gml:Point>
+        </bod>
+        <teleso id="2385793101">
+          <cislo>7751</cislo>
+        </teleso>
+      </Nemovitost>
+      <Nemovitost id="1308783101" typ="JED">
+        <katuzeKod>755541</katuzeKod>
+        <text>č.p. 2258</text>
+        <popis>jednotka č. 22580303, jiný nebytový prostor v budově č.p. 2258, část obce Stodůlky, na parcele 2903 Stodůlky (součástí je stavba č.p. 2258, čst obce Stodůlky), podl na společnch čstech domu a pozemku 6/5580</popis>
+        <bod>
+          <gml:Point gml:id="P.80268987010.JED.1308783101" srsName="EPSG:5514">
+            <gml:pos>1046226.35 748475.29</gml:pos>
+          </gml:Point>
+        </bod>
+        <teleso id="2385793101">
+          <cislo>7751</cislo>
+        </teleso>
+      </Nemovitost>
+      <Nemovitost id="1308784101" typ="JED">
+        <katuzeKod>755541</katuzeKod>
+        <text>č.p. 2258</text>
+        <popis>jednotka č. 22580304, jiný nebytový prostor v budově č.p. 2258, část obce Stodůlky, na parcele 2903 Stodůlky (součástí je stavba č.p. 2258, čst obce Stodůlky), podl na společnch čstech domu a pozemku 9/5580</popis>
+        <bod>
+          <gml:Point gml:id="P.80268987010.JED.1308784101" srsName="EPSG:5514">
+            <gml:pos>1046226.35 748475.29</gml:pos>
+          </gml:Point>
+        </bod>
+        <teleso id="2385793101">
+          <cislo>7751</cislo>
+        </teleso>
+      </Nemovitost>
+      <Nemovitost id="1308786101" typ="JED">
+        <katuzeKod>755541</katuzeKod>
+        <text>č.p. 2258</text>
+        <popis>jednotka č. 22580305, jiný nebytový prostor v budově č.p. 2258, část obce Stodůlky, na parcele 2903 Stodůlky (součástí je stavba č.p. 2258, čst obce Stodůlky), podl na společnch čstech domu a pozemku 28/5580</popis>
+        <bod>
+          <gml:Point gml:id="P.80268987010.JED.1308786101" srsName="EPSG:5514">
+            <gml:pos>1046226.35 748475.29</gml:pos>
+          </gml:Point>
+        </bod>
+        <teleso id="2385793101">
+          <cislo>7751</cislo>
+        </teleso>
+      </Nemovitost>
+      <Nemovitost id="1308787101" typ="JED">
+        <katuzeKod>755541</katuzeKod>
+        <text>č.p. 2258</text>
+        <popis>jednotka č. 22580306, jiný nebytový prostor v budově č.p. 2258, část obce Stodůlky, na parcele 2903 Stodůlky (součástí je stavba č.p. 2258, čst obce Stodůlky), podl na společnch čstech domu a pozemku 48/5580</popis>
+        <bod>
+          <gml:Point gml:id="P.80268987010.JED.1308787101" srsName="EPSG:5514">
+            <gml:pos>1046226.35 748475.29</gml:pos>
+          </gml:Point>
+        </bod>
+        <teleso id="2385793101">
+          <cislo>7751</cislo>
+        </teleso>
+      </Nemovitost>
+      <Nemovitost id="1308788101" typ="JED">
+        <katuzeKod>755541</katuzeKod>
+        <text>č.p. 2258</text>
+        <popis>jednotka č. 22580307, jiný nebytový prostor v budově č.p. 2258, část obce Stodůlky, na parcele 2903 Stodůlky (součástí je stavba č.p. 2258, čst obce Stodůlky), podl na společnch čstech domu a pozemku 28/5580</popis>
+        <bod>
+          <gml:Point gml:id="P.80268987010.JED.1308788101" srsName="EPSG:5514">
+            <gml:pos>1046226.35 748475.29</gml:pos>
+          </gml:Point>
+        </bod>
+        <teleso id="2385793101">
+          <cislo>7751</cislo>
+        </teleso>
+      </Nemovitost>
+      <Nemovitost id="1308789101" typ="JED">
+        <katuzeKod>755541</katuzeKod>
+        <text>č.p. 2258</text>
+        <popis>jednotka č. 22580308, jiný nebytový prostor v budově č.p. 2258, část obce Stodůlky, na parcele 2903 Stodůlky (součástí je stavba č.p. 2258, čst obce Stodůlky), podl na společnch čstech domu a pozemku 4/5580</popis>
+        <bod>
+          <gml:Point gml:id="P.80268987010.JED.1308789101" srsName="EPSG:5514">
+            <gml:pos>1046226.35 748475.29</gml:pos>
+          </gml:Point>
+        </bod>
+        <teleso id="2385793101">
+          <cislo>7751</cislo>
+        </teleso>
+      </Nemovitost>
+      <Nemovitost id="1308790101" typ="JED">
+        <katuzeKod>755541</katuzeKod>
+        <text>č.p. 2258</text>
+        <popis>jednotka č. 22580309, jiný nebytový prostor v budově č.p. 2258, část obce Stodůlky, na parcele 2903 Stodůlky (součástí je stavba č.p. 2258, čst obce Stodůlky), podl na společnch čstech domu a pozemku 5/5580</popis>
+        <bod>
+          <gml:Point gml:id="P.80268987010.JED.1308790101" srsName="EPSG:5514">
+            <gml:pos>1046226.35 748475.29</gml:pos>
+          </gml:Point>
+        </bod>
+        <teleso id="2385793101">
+          <cislo>7751</cislo>
+        </teleso>
+      </Nemovitost>
+      <Nemovitost id="2320909101" typ="PAR">
+        <katuzeKod>755541</katuzeKod>
+        <text>2903</text>
+        <popis>č. 2903 Stodůlky (součástí je stavba č.p. 2258, čst obce Stodůlky)</popis>
+        <bod>
+          <gml:Point gml:id="P.80268987010.PAR.2320909101" srsName="EPSG:5514">
+            <gml:pos>1046229.03 748475.37</gml:pos>
+          </gml:Point>
+        </bod>
+        <teleso id="2680505101">
+          <cislo>15588</cislo>
+        </teleso>
+      </Nemovitost>
+    </nemovitosti>
+  </Rizeni>
+  <Rizeni id="80331435010">
+    <cisloRizeni>V-8564/2021-101</cisloRizeni>
+    <datumPodani>2021-02-03T12:16:30</datumPodani>
+    <datumZplatneni>2021-02-25T14:38:59</datumZplatneni>
+    <praresKod>101</praresKod>
+    <listiny>
+      <Listina id="64284518010">
+        <cena>495510</cena>
+        <mena>CZK</mena>
+        <listinaTyp>Smlouva kupní</listinaTyp>
+      </Listina>
+    </listiny>
+    <nemovitosti>
+      <Nemovitost id="14740435010" typ="JED">
+        <katuzeKod>755541</katuzeKod>
+        <text>č.p. 1826</text>
+        <popis>jednotka č. 18250008, byt v budově č.p. 1826, 1824, 1825, část obce Stodůlky, na parcele 2160/48 Stodůlky (součástí je stavba č.p. 1826, 1824, 1825, čst obce Stodůlky), podl na společnch čstech domu a pozemku 7332/623760</popis>
+        <bod>
+          <gml:Point gml:id="P.80331435010.JED.14740435010" srsName="EPSG:5514">
+            <gml:pos>1046961.15 750304.44</gml:pos>
+          </gml:Point>
+        </bod>
+        <teleso id="44046195010">
+          <cislo>27872</cislo>
+        </teleso>
+      </Nemovitost>
+    </nemovitosti>
+  </Rizeni>
+  <Rizeni id="79870193010">
+    <cisloRizeni>V-708/2021-101</cisloRizeni>
+    <datumPodani>2021-01-06T12:19:31</datumPodani>
+    <datumZplatneni>2021-02-02T14:28:37</datumZplatneni>
+    <praresKod>101</praresKod>
+    <listiny>
+      <Listina id="63770269010">
+        <cena>21000000</cena>
+        <mena>CZK</mena>
+        <listinaTyp>Smlouva kupní</listinaTyp>
+      </Listina>
+    </listiny>
+    <nemovitosti>
+      <Nemovitost id="2315752101" typ="PAR">
+        <katuzeKod>755541</katuzeKod>
+        <text>990</text>
+        <popis>č. 990 Stodůlky (součástí je stavba č.p. 775, čst obce Stodůlky)</popis>
+        <bod>
+          <gml:Point gml:id="P.79870193010.PAR.2315752101" srsName="EPSG:5514">
+            <gml:pos>1045133.07 750054.39</gml:pos>
+          </gml:Point>
+        </bod>
+        <teleso id="2001041101">
+          <cislo>212</cislo>
+        </teleso>
+      </Nemovitost>
+      <Nemovitost id="2315753101" typ="PAR">
+        <katuzeKod>755541</katuzeKod>
+        <text>991/1</text>
+        <popis>č. 991/1 Stodůlky</popis>
+        <bod>
+          <gml:Point gml:id="P.79870193010.PAR.2315753101" srsName="EPSG:5514">
+            <gml:pos>1045148.88 750052.91</gml:pos>
+          </gml:Point>
+        </bod>
+        <teleso id="2001041101">
+          <cislo>212</cislo>
+        </teleso>
+      </Nemovitost>
+      <Nemovitost id="2315754101" typ="PAR">
+        <katuzeKod>755541</katuzeKod>
+        <text>991/2</text>
+        <popis>č. 991/2 Stodůlky (součástí je stavba budova bez čp/če, garáž)</popis>
+        <bod>
+          <gml:Point gml:id="P.79870193010.PAR.2315754101" srsName="EPSG:5514">
+            <gml:pos>1045128.61 750062.82</gml:pos>
+          </gml:Point>
+        </bod>
+        <teleso id="2001041101">
+          <cislo>212</cislo>
+        </teleso>
+      </Nemovitost>
+    </nemovitosti>
+  </Rizeni>
+  <Rizeni id="79913216010">
+    <cisloRizeni>V-1266/2021-101</cisloRizeni>
+    <datumPodani>2021-01-08T10:31:51</datumPodani>
+    <datumZplatneni>2021-02-02T17:32:51</datumZplatneni>
+    <praresKod>101</praresKod>
+    <listiny>
+      <Listina id="63813534010">
+        <cena>799000</cena>
+        <mena>CZK</mena>
+        <listinaTyp>Smlouva kupní</listinaTyp>
+      </Listina>
+    </listiny>
+    <nemovitosti>
+      <Nemovitost id="1049471101" typ="JED">
+        <katuzeKod>755541</katuzeKod>
+        <text>č.p. 2548</text>
+        <popis>jednotka č. 25480068, garáž v budově č.p. 2548, část obce Stodůlky, na parcele 2780/217 Stodůlky (součástí je stavba č.p. 2548, čst obce Stodůlky), podl na společnch čstech domu a pozemku 2779/628880</popis>
+        <bod>
+          <gml:Point gml:id="P.79913216010.JED.1049471101" srsName="EPSG:5514">
+            <gml:pos>1045906.4 748782.44</gml:pos>
+          </gml:Point>
+        </bod>
+        <teleso id="17963440010">
+          <cislo>23970</cislo>
+        </teleso>
+      </Nemovitost>
+    </nemovitosti>
+  </Rizeni>
+  <Rizeni id="79956423010">
+    <cisloRizeni>V-1589/2021-101</cisloRizeni>
+    <datumPodani>2021-01-11T11:02:19</datumPodani>
+    <datumZplatneni>2021-02-03T11:48:19</datumZplatneni>
+    <praresKod>101</praresKod>
+    <listiny>
+      <Listina id="63843935010">
+        <cena>5850000</cena>
+        <mena>CZK</mena>
+        <listinaTyp>Smlouva kupní</listinaTyp>
+      </Listina>
+    </listiny>
+    <nemovitosti>
+      <Nemovitost id="1558688101" typ="JED">
+        <katuzeKod>755541</katuzeKod>
+        <text>č.p. 2583</text>
+        <popis>jednotka č. 25830100, byt v budově č.p. 2583, část obce Stodůlky, na parcele 2860/192 Stodůlky (součástí je stavba č.p. 2583, čst obce Stodůlky), podl na společnch čstech domu a pozemku 9300/3019910</popis>
+        <bod>
+          <gml:Point gml:id="P.79956423010.JED.1558688101" srsName="EPSG:5514">
+            <gml:pos>1046323.45 748752.58</gml:pos>
+          </gml:Point>
+        </bod>
+        <teleso id="2564761101">
+          <cislo>11634</cislo>
+        </teleso>
+      </Nemovitost>
+      <Nemovitost id="1558945101" typ="JED">
+        <katuzeKod>755541</katuzeKod>
+        <text>č.p. 2583</text>
+        <popis>jednotka č. 25830301, garáž v budově č.p. 2583, část obce Stodůlky, na parcele 2860/192 Stodůlky (součástí je stavba č.p. 2583, čst obce Stodůlky), podl na společnch čstech domu a pozemku 770060/3019910</popis>
+        <bod>
+          <gml:Point gml:id="P.79956423010.JED.1558945101" srsName="EPSG:5514">
+            <gml:pos>1046323.45 748752.58</gml:pos>
+          </gml:Point>
+        </bod>
+        <teleso id="2556065101">
+          <cislo>11226</cislo>
+        </teleso>
+      </Nemovitost>
+    </nemovitosti>
+  </Rizeni>
+  <Rizeni id="80223882010">
+    <cisloRizeni>V-6974/2021-101</cisloRizeni>
+    <datumPodani>2021-01-27T16:36:29</datumPodani>
+    <datumZplatneni>2021-02-19T15:38:33</datumZplatneni>
+    <praresKod>101</praresKod>
+    <listiny>
+      <Listina id="64134464010">
+        <cena>8500000</cena>
+        <mena>CZK</mena>
+        <listinaTyp>Smlouva kupní</listinaTyp>
+      </Listina>
+    </listiny>
+    <nemovitosti>
+      <Nemovitost id="1043842101" typ="JED">
+        <katuzeKod>755541</katuzeKod>
+        <text>č.p. 2524</text>
+        <popis>jednotka č. 25240004, byt v budově č.p. 2524, část obce Stodůlky, na parcele 2780/166 Stodůlky (součástí je stavba č.p. 2524, čst obce Stodůlky), podl na společnch čstech domu a pozemku 13592/686619</popis>
+        <bod>
+          <gml:Point gml:id="P.80223882010.JED.1043842101" srsName="EPSG:5514">
+            <gml:pos>1046298.08 749249.63</gml:pos>
+          </gml:Point>
+        </bod>
+        <teleso id="2218917101">
+          <cislo>3490</cislo>
+        </teleso>
+      </Nemovitost>
+      <Nemovitost id="2320590101" typ="PAR">
+        <katuzeKod>755541</katuzeKod>
+        <text>2780/166</text>
+        <popis>č. 2780/166 Stodůlky (součástí je stavba č.p. 2524, čst obce Stodůlky)</popis>
+        <bod>
+          <gml:Point gml:id="P.80223882010.PAR.2320590101" srsName="EPSG:5514">
+            <gml:pos>1046300.8 749249.83</gml:pos>
+          </gml:Point>
+        </bod>
+        <teleso id="2620989101">
+          <cislo>13161</cislo>
+        </teleso>
+      </Nemovitost>
+    </nemovitosti>
+  </Rizeni>
+  <Rizeni id="80283808010">
+    <cisloRizeni>V-7993/2021-101</cisloRizeni>
+    <datumPodani>2021-02-01T16:23:23</datumPodani>
+    <datumZplatneni>2021-02-23T15:59:37</datumZplatneni>
+    <praresKod>101</praresKod>
+    <listiny>
+      <Listina id="64204338010">
+        <cena>19950000</cena>
+        <mena>CZK</mena>
+        <listinaTyp>Smlouva kupní</listinaTyp>
+      </Listina>
+    </listiny>
+    <nemovitosti>
+      <Nemovitost id="983420101" typ="BUD">
+        <katuzeKod>755541</katuzeKod>
+        <text>č.p. 2586</text>
+        <popis>č.p. 2586, část obce Stodůlky, na parcele 129/5 Stodůlky, 131/4 Stodůlky (součástí je stavba č.p. 2586, čst obce Stodůlky)</popis>
+        <bod>
+          <gml:Point gml:id="P.80283808010.BUD.983420101" srsName="EPSG:5514">
+            <gml:pos>1046307.34 750792.88</gml:pos>
+          </gml:Point>
+        </bod>
+        <teleso id="2002479101">
+          <cislo>1910</cislo>
+        </teleso>
+      </Nemovitost>
+      <Nemovitost id="2313939101" typ="PAR">
+        <katuzeKod>755541</katuzeKod>
+        <text>129/5</text>
+        <popis>č. 129/5 Stodůlky</popis>
+        <bod>
+          <gml:Point gml:id="P.80283808010.PAR.2313939101" srsName="EPSG:5514">
+            <gml:pos>1046313.18 750798.38</gml:pos>
+          </gml:Point>
+        </bod>
+        <teleso id="2002479101">
+          <cislo>1910</cislo>
+        </teleso>
+      </Nemovitost>
+      <Nemovitost id="2313943101" typ="PAR">
+        <katuzeKod>755541</katuzeKod>
+        <text>131/4</text>
+        <popis>č. 131/4 Stodůlky (součástí je stavba č.p. 2586, čst obce Stodůlky)</popis>
+        <bod>
+          <gml:Point gml:id="P.80283808010.PAR.2313943101" srsName="EPSG:5514">
+            <gml:pos>1046309.69 750793.09</gml:pos>
+          </gml:Point>
+        </bod>
+        <teleso id="2002479101">
+          <cislo>1910</cislo>
+        </teleso>
+      </Nemovitost>
+      <Nemovitost id="2313944101" typ="PAR">
+        <katuzeKod>755541</katuzeKod>
+        <text>131/5</text>
+        <popis>č. 131/5 Stodůlky</popis>
+        <bod>
+          <gml:Point gml:id="P.80283808010.PAR.2313944101" srsName="EPSG:5514">
+            <gml:pos>1046317.22 750790.45</gml:pos>
+          </gml:Point>
+        </bod>
+        <teleso id="2002479101">
+          <cislo>1910</cislo>
+        </teleso>
+      </Nemovitost>
+    </nemovitosti>
+  </Rizeni>
+  <Rizeni id="80284571010">
+    <cisloRizeni>V-7989/2021-101</cisloRizeni>
+    <datumPodani>2021-02-01T16:18:44</datumPodani>
+    <datumZplatneni>2021-02-25T14:56:46</datumZplatneni>
+    <praresKod>101</praresKod>
+    <listiny>
+      <Listina id="64203657010">
+        <cena>3650000</cena>
+        <mena>CZK</mena>
+        <listinaTyp>Smlouva kupní</listinaTyp>
+      </Listina>
+    </listiny>
+    <nemovitosti>
+      <Nemovitost id="25402742010" typ="JED">
+        <katuzeKod>755541</katuzeKod>
+        <text>č.p. 1776</text>
+        <popis>jednotka č. 17720010, byt v budově č.p. 1776, 1772, 1773, 1774, 1775, část obce Stodůlky, na parcele 2160/12 Stodůlky (součástí je stavba č.p. 1776, 1772, 1773, 1774, 1775, čst obce Stodůlky), podl na společnch čstech domu a pozemku 447/106609</popis>
+        <bod>
+          <gml:Point gml:id="P.80284571010.JED.25402742010" srsName="EPSG:5514">
+            <gml:pos>1046594.52 750719.59</gml:pos>
+          </gml:Point>
+        </bod>
+        <teleso id="20893539010">
+          <cislo>25624</cislo>
+        </teleso>
+      </Nemovitost>
+    </nemovitosti>
+  </Rizeni>
+  <Rizeni id="79772455010">
+    <cisloRizeni>V-81286/2020-101</cisloRizeni>
+    <datumPodani>2020-12-30T15:09:54</datumPodani>
+    <datumZplatneni>2021-02-03T13:57:44</datumZplatneni>
+    <praresKod>101</praresKod>
+    <listiny>
+      <Listina id="63698242010">
+        <cena>3500000</cena>
+        <mena>CZK</mena>
+        <listinaTyp>Smlouva kupní</listinaTyp>
+      </Listina>
+    </listiny>
+    <nemovitosti>
+      <Nemovitost id="22470073010" typ="JED">
+        <katuzeKod>755541</katuzeKod>
+        <text>č.p. 1971</text>
+        <popis>jednotka č. 19710002, byt v budově č.p. 1971, část obce Stodůlky, na parcele 2131/277 Stodůlky (součástí je stavba č.p. 1971, čst obce Stodůlky), podl na společnch čstech domu a pozemku 766/22893</popis>
+        <bod>
+          <gml:Point gml:id="P.79772455010.JED.22470073010" srsName="EPSG:5514">
+            <gml:pos>1046888.25 749499.71</gml:pos>
+          </gml:Point>
+        </bod>
+        <teleso id="18172631010">
+          <cislo>24136</cislo>
+        </teleso>
+      </Nemovitost>
+    </nemovitosti>
+  </Rizeni>
+  <Rizeni id="79873680010">
+    <cisloRizeni>V-792/2021-101</cisloRizeni>
+    <datumPodani>2021-01-06T13:58:33</datumPodani>
+    <datumZplatneni>2021-02-01T10:16:44</datumZplatneni>
+    <praresKod>101</praresKod>
+    <listiny>
+      <Listina id="63773428010">
+        <cena>5990000</cena>
+        <mena>CZK</mena>
+        <listinaTyp>Smlouva kupní</listinaTyp>
+      </Listina>
+    </listiny>
+    <nemovitosti>
+      <Nemovitost id="1443053101" typ="JED">
+        <katuzeKod>755541</katuzeKod>
+        <text>č.p. 2100</text>
+        <popis>jednotka č. 21000002, byt v budově č.p. 2100, 2096, 2097, 2098, 2099, část obce Stodůlky, na parcele 3005 Stodůlky, 3006 Stodůlky (součástí je stavba č.p. 2100, 2096, 2097, 2098, 2099, čst obce Stodůlky), 3007 Stodůlky, 3008 Stodůlky, 3009 Stodůlky, podl na společnch čstech domu a pozemku 759/73947</popis>
+        <bod>
+          <gml:Point gml:id="P.79873680010.JED.1443053101" srsName="EPSG:5514">
+            <gml:pos>1046530.36 748885.53</gml:pos>
+          </gml:Point>
+        </bod>
+        <teleso id="2497482101">
+          <cislo>9474</cislo>
+        </teleso>
+      </Nemovitost>
+      <Nemovitost id="1443151101" typ="JED">
+        <katuzeKod>755541</katuzeKod>
+        <text>č.p. 2100</text>
+        <popis>jednotka č. 21000100, dílna nebo provozovna v budově č.p. 2100, 2096, 2097, 2098, 2099, část obce Stodůlky, na parcele 3005 Stodůlky, 3006 Stodůlky (součástí je stavba č.p. 2100, 2096, 2097, 2098, 2099, čst obce Stodůlky), 3007 Stodůlky, 3008 Stodůlky, 3009 Stodůlky, podl na společnch čstech domu a pozemku 138/73947</popis>
+        <bod>
+          <gml:Point gml:id="P.79873680010.JED.1443151101" srsName="EPSG:5514">
+            <gml:pos>1046530.36 748885.53</gml:pos>
+          </gml:Point>
+        </bod>
+        <teleso id="2497429101">
+          <cislo>9464</cislo>
+        </teleso>
+      </Nemovitost>
+      <Nemovitost id="1443152101" typ="JED">
+        <katuzeKod>755541</katuzeKod>
+        <text>č.p. 2100</text>
+        <popis>jednotka č. 20980102, jiný nebytový prostor v budově č.p. 2100, 2096, 2097, 2098, 2099, část obce Stodůlky, na parcele 3005 Stodůlky, 3006 Stodůlky (součástí je stavba č.p. 2100, 2096, 2097, 2098, 2099, čst obce Stodůlky), 3007 Stodůlky, 3008 Stodůlky, 3009 Stodůlky, podl na společnch čstech domu a pozemku 138/73947</popis>
+        <bod>
+          <gml:Point gml:id="P.79873680010.JED.1443152101" srsName="EPSG:5514">
+            <gml:pos>1046530.36 748885.53</gml:pos>
+          </gml:Point>
+        </bod>
+        <teleso id="2497429101">
+          <cislo>9464</cislo>
+        </teleso>
+      </Nemovitost>
+      <Nemovitost id="1443153101" typ="JED">
+        <katuzeKod>755541</katuzeKod>
+        <text>č.p. 2100</text>
+        <popis>jednotka č. 20970103, dílna nebo provozovna v budově č.p. 2100, 2096, 2097, 2098, 2099, část obce Stodůlky, na parcele 3005 Stodůlky, 3006 Stodůlky (součástí je stavba č.p. 2100, 2096, 2097, 2098, 2099, čst obce Stodůlky), 3007 Stodůlky, 3008 Stodůlky, 3009 Stodůlky, podl na společnch čstech domu a pozemku 555/73947</popis>
+        <bod>
+          <gml:Point gml:id="P.79873680010.JED.1443153101" srsName="EPSG:5514">
+            <gml:pos>1046530.36 748885.53</gml:pos>
+          </gml:Point>
+        </bod>
+        <teleso id="2497429101">
+          <cislo>9464</cislo>
+        </teleso>
+      </Nemovitost>
+      <Nemovitost id="1443154101" typ="JED">
+        <katuzeKod>755541</katuzeKod>
+        <text>č.p. 2100</text>
+        <popis>jednotka č. 20960104, dílna nebo provozovna v budově č.p. 2100, 2096, 2097, 2098, 2099, část obce Stodůlky, na parcele 3005 Stodůlky, 3006 Stodůlky (součástí je stavba č.p. 2100, 2096, 2097, 2098, 2099, čst obce Stodůlky), 3007 Stodůlky, 3008 Stodůlky, 3009 Stodůlky, podl na společnch čstech domu a pozemku 391/73947</popis>
+        <bod>
+          <gml:Point gml:id="P.79873680010.JED.1443154101" srsName="EPSG:5514">
+            <gml:pos>1046530.36 748885.53</gml:pos>
+          </gml:Point>
+        </bod>
+        <teleso id="2497429101">
+          <cislo>9464</cislo>
+        </teleso>
+      </Nemovitost>
+      <Nemovitost id="1443156101" typ="JED">
+        <katuzeKod>755541</katuzeKod>
+        <text>č.p. 2100</text>
+        <popis>jednotka č. 20990101, jiný nebytový prostor v budově č.p. 2100, 2096, 2097, 2098, 2099, část obce Stodůlky, na parcele 3005 Stodůlky, 3006 Stodůlky (součástí je stavba č.p. 2100, 2096, 2097, 2098, 2099, čst obce Stodůlky), 3007 Stodůlky, 3008 Stodůlky, 3009 Stodůlky, podl na společnch čstech domu a pozemku 181/73947</popis>
+        <bod>
+          <gml:Point gml:id="P.79873680010.JED.1443156101" srsName="EPSG:5514">
+            <gml:pos>1046530.36 748885.53</gml:pos>
+          </gml:Point>
+        </bod>
+        <teleso id="2497429101">
+          <cislo>9464</cislo>
+        </teleso>
+      </Nemovitost>
+      <Nemovitost id="2321016101" typ="PAR">
+        <katuzeKod>755541</katuzeKod>
+        <text>3005</text>
+        <popis>č. 3005 Stodůlky</popis>
+        <bod>
+          <gml:Point gml:id="P.79873680010.PAR.2321016101" srsName="EPSG:5514">
+            <gml:pos>1046515.18 748886.13</gml:pos>
+          </gml:Point>
+        </bod>
+        <teleso id="2693748101">
+          <cislo>16336</cislo>
+        </teleso>
+      </Nemovitost>
+      <Nemovitost id="2321017101" typ="PAR">
+        <katuzeKod>755541</katuzeKod>
+        <text>3006</text>
+        <popis>č. 3006 Stodůlky (součástí je stavba č.p. 2100, 2096, 2097, 2098, 2099, čst obce Stodůlky)</popis>
+        <bod>
+          <gml:Point gml:id="P.79873680010.PAR.2321017101" srsName="EPSG:5514">
+            <gml:pos>1046532.98 748885.53</gml:pos>
+          </gml:Point>
+        </bod>
+        <teleso id="2693748101">
+          <cislo>16336</cislo>
+        </teleso>
+      </Nemovitost>
+      <Nemovitost id="2321018101" typ="PAR">
+        <katuzeKod>755541</katuzeKod>
+        <text>3007</text>
+        <popis>č. 3007 Stodůlky</popis>
+        <bod>
+          <gml:Point gml:id="P.79873680010.PAR.2321018101" srsName="EPSG:5514">
+            <gml:pos>1046550.38 748884.73</gml:pos>
+          </gml:Point>
+        </bod>
+        <teleso id="2693748101">
+          <cislo>16336</cislo>
+        </teleso>
+      </Nemovitost>
+      <Nemovitost id="2321019101" typ="PAR">
+        <katuzeKod>755541</katuzeKod>
+        <text>3008</text>
+        <popis>č. 3008 Stodůlky</popis>
+        <bod>
+          <gml:Point gml:id="P.79873680010.PAR.2321019101" srsName="EPSG:5514">
+            <gml:pos>1046562.54 748884.43</gml:pos>
+          </gml:Point>
+        </bod>
+        <teleso id="2693748101">
+          <cislo>16336</cislo>
+        </teleso>
+      </Nemovitost>
+      <Nemovitost id="2321020101" typ="PAR">
+        <katuzeKod>755541</katuzeKod>
+        <text>3009</text>
+        <popis>č. 3009 Stodůlky</popis>
+        <bod>
+          <gml:Point gml:id="P.79873680010.PAR.2321020101" srsName="EPSG:5514">
+            <gml:pos>1046573.51 748884.23</gml:pos>
+          </gml:Point>
+        </bod>
+        <teleso id="2693748101">
+          <cislo>16336</cislo>
+        </teleso>
+      </Nemovitost>
+    </nemovitosti>
+  </Rizeni>
+  <Rizeni id="79950305010">
+    <cisloRizeni>V-1374/2021-101</cisloRizeni>
+    <datumPodani>2021-01-11T08:59:34</datumPodani>
+    <datumZplatneni>2021-02-04T18:02:12</datumZplatneni>
+    <praresKod>101</praresKod>
+    <listiny>
+      <Listina id="63838979010">
+        <cena>4190000</cena>
+        <mena>CZK</mena>
+        <listinaTyp>Smlouva kupní</listinaTyp>
+      </Listina>
+    </listiny>
+    <nemovitosti>
+      <Nemovitost id="1051816101" typ="JED">
+        <katuzeKod>755541</katuzeKod>
+        <text>č.p. 2286</text>
+        <popis>jednotka č. 22870080, byt v budově č.p. 2286, 2283, 2284, 2285, 2287, část obce Stodůlky, na parcele 2891 Stodůlky, 2892 Stodůlky, 2893 Stodůlky, 2894 Stodůlky (součástí je stavba č.p. 2286, 2283, 2284, 2285, 2287, čst obce Stodůlky), 2895 Stodůlky, podl na společnch čstech domu a pozemku 23/3580</popis>
+        <bod>
+          <gml:Point gml:id="P.79950305010.JED.1051816101" srsName="EPSG:5514">
+            <gml:pos>1046061.31 748501.06</gml:pos>
+          </gml:Point>
+        </bod>
+        <teleso id="20194327010">
+          <cislo>25423</cislo>
+        </teleso>
+      </Nemovitost>
+    </nemovitosti>
+  </Rizeni>
+  <Rizeni id="80004591010">
+    <cisloRizeni>V-2618/2021-101</cisloRizeni>
+    <datumPodani>2021-01-13T14:24:57</datumPodani>
+    <datumZplatneni>2021-02-05T11:30:13</datumZplatneni>
+    <praresKod>101</praresKod>
+    <listiny>
+      <Listina id="63897331010">
+        <cena>5550000</cena>
+        <mena>CZK</mena>
+        <listinaTyp>Smlouva kupní</listinaTyp>
+      </Listina>
+    </listiny>
+    <nemovitosti>
+      <Nemovitost id="28988170010" typ="JED">
+        <katuzeKod>755541</katuzeKod>
+        <text>č.p. 2955</text>
+        <popis>jednotka č. 29550012, byt v budově č.p. 2955, část obce Stodůlky, na parcele 151/776 Stodůlky (součástí je stavba č.p. 2955, čst obce Stodůlky), podl na společnch čstech domu a pozemku 581/26649</popis>
+        <bod>
+          <gml:Point gml:id="P.80004591010.JED.28988170010" srsName="EPSG:5514">
+            <gml:pos>1046803.49 751234.83</gml:pos>
+          </gml:Point>
+        </bod>
+        <teleso id="25115827010">
+          <cislo>26852</cislo>
+        </teleso>
+      </Nemovitost>
+      <Nemovitost id="69758762010" typ="PAR">
+        <katuzeKod>755541</katuzeKod>
+        <text>151/781</text>
+        <popis>č. 151/781 Stodůlky</popis>
+        <bod>
+          <gml:Point gml:id="P.80004591010.PAR.69758762010" srsName="EPSG:5514">
+            <gml:pos>1046792.86 751204.28</gml:pos>
+          </gml:Point>
+        </bod>
+        <teleso id="24629705010">
+          <cislo>26413</cislo>
+        </teleso>
+      </Nemovitost>
+      <Nemovitost id="69758764010" typ="PAR">
+        <katuzeKod>755541</katuzeKod>
+        <text>151/783</text>
+        <popis>č. 151/783 Stodůlky</popis>
+        <bod>
+          <gml:Point gml:id="P.80004591010.PAR.69758764010" srsName="EPSG:5514">
+            <gml:pos>1046828.98 751212.59</gml:pos>
+          </gml:Point>
+        </bod>
+        <teleso id="24629705010">
+          <cislo>26413</cislo>
+        </teleso>
+      </Nemovitost>
+    </nemovitosti>
+  </Rizeni>
+  <Rizeni id="80055202010">
+    <cisloRizeni>V-3133/2021-101</cisloRizeni>
+    <datumPodani>2021-01-18T08:49:47</datumPodani>
+    <datumZplatneni>2021-02-10T18:20:00</datumZplatneni>
+    <praresKod>101</praresKod>
+    <listiny>
+      <Listina id="63954862010">
+        <cena>6250000</cena>
+        <mena>CZK</mena>
+        <listinaTyp>Smlouva kupní</listinaTyp>
+      </Listina>
+    </listiny>
+    <nemovitosti>
+      <Nemovitost id="1857406101" typ="JED">
+        <katuzeKod>755541</katuzeKod>
+        <text>č.p. 2660</text>
+        <popis>jednotka č. 26600024, byt v budově č.p. 2660, část obce Stodůlky, na parcele 2315/158 Stodůlky (součástí je stavba č.p. 2660, čst obce Stodůlky), podl na společnch čstech domu a pozemku 613/40182</popis>
+        <bod>
+          <gml:Point gml:id="P.80055202010.JED.1857406101" srsName="EPSG:5514">
+            <gml:pos>1047778.26 750061.41</gml:pos>
+          </gml:Point>
+        </bod>
+        <teleso id="2679076101">
+          <cislo>15497</cislo>
+        </teleso>
+      </Nemovitost>
+    </nemovitosti>
+  </Rizeni>
+  <Rizeni id="80099462010">
+    <cisloRizeni>V-4401/2021-101</cisloRizeni>
+    <datumPodani>2021-01-20T10:27:30</datumPodani>
+    <datumZplatneni>2021-02-11T10:36:31</datumZplatneni>
+    <praresKod>101</praresKod>
+    <listiny>
+      <Listina id="64028472010">
+        <cena>376668</cena>
+        <mena>CZK</mena>
+        <listinaTyp>Smlouva kupní</listinaTyp>
+      </Listina>
+    </listiny>
+    <nemovitosti>
+      <Nemovitost id="14740471010" typ="JED">
+        <katuzeKod>755541</katuzeKod>
+        <text>č.p. 1826</text>
+        <popis>jednotka č. 18260007, byt v budově č.p. 1826, 1824, 1825, část obce Stodůlky, na parcele 2160/48 Stodůlky (součástí je stavba č.p. 1826, 1824, 1825, čst obce Stodůlky), podl na společnch čstech domu a pozemku 4287/623760</popis>
+        <bod>
+          <gml:Point gml:id="P.80099462010.JED.14740471010" srsName="EPSG:5514">
+            <gml:pos>1046961.15 750304.44</gml:pos>
+          </gml:Point>
+        </bod>
+        <teleso id="43358220010">
+          <cislo>27854</cislo>
+        </teleso>
+      </Nemovitost>
+    </nemovitosti>
+  </Rizeni>
+  <Rizeni id="80099505010">
+    <cisloRizeni>V-4409/2021-101</cisloRizeni>
+    <datumPodani>2021-01-20T10:27:30</datumPodani>
+    <datumZplatneni>2021-02-25T16:24:13</datumZplatneni>
+    <praresKod>101</praresKod>
+    <listiny>
+      <Listina id="64028619010">
+        <cena>350341</cena>
+        <mena>CZK</mena>
+        <listinaTyp>Smlouva kupní</listinaTyp>
+      </Listina>
+    </listiny>
+    <nemovitosti>
+      <Nemovitost id="14740409010" typ="JED">
+        <katuzeKod>755541</katuzeKod>
+        <text>č.p. 1826</text>
+        <popis>jednotka č. 18240008, byt v budově č.p. 1826, 1824, 1825, část obce Stodůlky, na parcele 2160/48 Stodůlky (součástí je stavba č.p. 1826, 1824, 1825, čst obce Stodůlky), podl na společnch čstech domu a pozemku 4557/623760</popis>
+        <bod>
+          <gml:Point gml:id="P.80099505010.JED.14740409010" srsName="EPSG:5514">
+            <gml:pos>1046961.15 750304.44</gml:pos>
+          </gml:Point>
+        </bod>
+        <teleso id="44041223010">
+          <cislo>27871</cislo>
+        </teleso>
+      </Nemovitost>
+    </nemovitosti>
+  </Rizeni>
+  <Rizeni id="80140929010">
+    <cisloRizeni>V-5100/2021-101</cisloRizeni>
+    <datumPodani>2021-01-22T10:24:17</datumPodani>
+    <datumZplatneni>2021-02-23T16:42:12</datumZplatneni>
+    <praresKod>101</praresKod>
+    <listiny>
+      <Listina id="64065754010">
+        <cena>2000</cena>
+        <mena>CZK</mena>
+        <listinaTyp>Smlouva kupní</listinaTyp>
+      </Listina>
+    </listiny>
+    <nemovitosti>
+      <Nemovitost id="3340754101" typ="PAR">
+        <katuzeKod>755541</katuzeKod>
+        <text>2131/687</text>
+        <popis>č. 2131/687 Stodůlky</popis>
+        <bod>
+          <gml:Point gml:id="P.80140929010.PAR.3340754101" srsName="EPSG:5514">
+            <gml:pos>1046762.76 749452.75</gml:pos>
+          </gml:Point>
+        </bod>
+        <teleso id="43868212010">
+          <cislo>27862</cislo>
+        </teleso>
+      </Nemovitost>
+    </nemovitosti>
+  </Rizeni>
+  <Rizeni id="80168941010">
+    <cisloRizeni>V-5453/2021-101</cisloRizeni>
+    <datumPodani>2021-01-25T10:54:59</datumPodani>
+    <datumZplatneni>2021-02-18T13:33:17</datumZplatneni>
+    <praresKod>101</praresKod>
+    <listiny>
+      <Listina id="64095953010">
+        <cena>266253</cena>
+        <mena>CZK</mena>
+        <listinaTyp>Smlouva kupní</listinaTyp>
+      </Listina>
+    </listiny>
+    <nemovitosti>
+      <Nemovitost id="1812761101" typ="JED">
+        <katuzeKod>755541</katuzeKod>
+        <text>č.p. 1842</text>
+        <popis>jednotka č. 18410009, byt v budově č.p. 1842, 1840, 1841, část obce Stodůlky, na parcele 2160/86 Stodůlky, 2160/87 Stodůlky, 2160/88 Stodůlky (součástí je stavba č.p. 1842, 1840, 1841, čst obce Stodůlky), podl na společnch čstech domu a pozemku 8019/616797</popis>
+        <bod>
+          <gml:Point gml:id="P.80168941010.JED.1812761101" srsName="EPSG:5514">
+            <gml:pos>1046855.29 750576.57</gml:pos>
+          </gml:Point>
+        </bod>
+        <teleso id="43443243010">
+          <cislo>27859</cislo>
+        </teleso>
+      </Nemovitost>
+    </nemovitosti>
+  </Rizeni>
+  <Rizeni id="80193105010">
+    <cisloRizeni>V-6129/2021-101</cisloRizeni>
+    <datumPodani>2021-01-26T11:43:40</datumPodani>
+    <datumZplatneni>2021-02-22T17:07:15</datumZplatneni>
+    <praresKod>101</praresKod>
+    <listiny>
+      <Listina id="64125925010">
+        <cena>591000</cena>
+        <mena>CZK</mena>
+        <listinaTyp>Smlouva kupní</listinaTyp>
+      </Listina>
+    </listiny>
+    <nemovitosti>
+      <Nemovitost id="1478491101" typ="JED">
+        <katuzeKod>755541</katuzeKod>
+        <text>č.p. 1385</text>
+        <popis>jednotka č. 13850100, garáž v budově č.p. 1385, část obce Stodůlky, na parcele 1569/100 Stodůlky (součástí je stavba č.p. 1385, čst obce Stodůlky), podl na společnch čstech domu a pozemku 71495/442304</popis>
+        <bod>
+          <gml:Point gml:id="P.80193105010.JED.1478491101" srsName="EPSG:5514">
+            <gml:pos>1046092.67 749812.32</gml:pos>
+          </gml:Point>
+        </bod>
+        <teleso id="2515445101">
+          <cislo>10123</cislo>
+        </teleso>
+      </Nemovitost>
+      <Nemovitost id="1478511101" typ="JED">
+        <katuzeKod>755541</katuzeKod>
+        <text>č.p. 1385</text>
+        <popis>jednotka č. 13850015, jiný nebytový prostor v budově č.p. 1385, část obce Stodůlky, na parcele 1569/100 Stodůlky (součástí je stavba č.p. 1385, čst obce Stodůlky), podl na společnch čstech domu a pozemku 92/442304</popis>
+        <bod>
+          <gml:Point gml:id="P.80193105010.JED.1478511101" srsName="EPSG:5514">
+            <gml:pos>1046092.67 749812.32</gml:pos>
+          </gml:Point>
+        </bod>
+        <teleso id="2518988101">
+          <cislo>10285</cislo>
+        </teleso>
+      </Nemovitost>
+      <Nemovitost id="1478598101" typ="JED">
+        <katuzeKod>755541</katuzeKod>
+        <text>č.p. 1385</text>
+        <popis>jednotka č. 13850144, byt v budově č.p. 1385, část obce Stodůlky, na parcele 1569/100 Stodůlky (součástí je stavba č.p. 1385, čst obce Stodůlky), podl na společnch čstech domu a pozemku 4046/442304</popis>
+        <bod>
+          <gml:Point gml:id="P.80193105010.JED.1478598101" srsName="EPSG:5514">
+            <gml:pos>1046092.67 749812.32</gml:pos>
+          </gml:Point>
+        </bod>
+        <teleso id="2518988101">
+          <cislo>10285</cislo>
+        </teleso>
+      </Nemovitost>
+    </nemovitosti>
+  </Rizeni>
+  <Rizeni id="80221872010">
+    <cisloRizeni>V-6904/2021-101</cisloRizeni>
+    <datumPodani>2021-01-27T15:47:04</datumPodani>
+    <datumZplatneni>2021-02-22T10:17:01</datumZplatneni>
+    <praresKod>101</praresKod>
+    <listiny>
+      <Listina id="64143680010">
+        <cena>3900000</cena>
+        <mena>CZK</mena>
+        <listinaTyp>Smlouva kupní</listinaTyp>
+      </Listina>
+    </listiny>
+    <nemovitosti>
+      <Nemovitost id="1051233101" typ="JED">
+        <katuzeKod>755541</katuzeKod>
+        <text>č.p. 2476</text>
+        <popis>jednotka č. 24770082, byt v budově č.p. 2476, 2477, 2478, 2479, 2480, 2481, část obce Stodůlky, na parcele 2780/11 Stodůlky (součástí je stavba č.p. 2476, 2477, 2478, 2479, 2480, 2481, čst obce Stodůlky), 2780/12 Stodůlky, 2780/13 Stodůlky, 2780/14 Stodůlky, 2780/15 Stodůlky, 2780/16 Stodůlky, 2780/211 Stodůlky, 2780/212 Stodůlky, 2780/213 Stodůlky, 2780/214 Stodůlky, 2780/215 Stodůlky, 2780/216 Stodůlky, podl na společnch čstech domu a pozemku 25/2934</popis>
+        <bod>
+          <gml:Point gml:id="P.80221872010.JED.1051233101" srsName="EPSG:5514">
+            <gml:pos>1046131.63 749013.09</gml:pos>
+          </gml:Point>
+        </bod>
+        <teleso id="15018795010">
+          <cislo>21658</cislo>
+        </teleso>
+      </Nemovitost>
+      <Nemovitost id="2320446101" typ="PAR">
+        <katuzeKod>755541</katuzeKod>
+        <text>2780/12</text>
+        <popis>č. 2780/12 Stodůlky</popis>
+        <bod>
+          <gml:Point gml:id="P.80221872010.PAR.2320446101" srsName="EPSG:5514">
+            <gml:pos>1046123.19 748988.45</gml:pos>
+          </gml:Point>
+        </bod>
+        <teleso id="2716848101">
+          <cislo>17155</cislo>
+        </teleso>
+      </Nemovitost>
+      <Nemovitost id="2320447101" typ="PAR">
+        <katuzeKod>755541</katuzeKod>
+        <text>2780/13</text>
+        <popis>č. 2780/13 Stodůlky</popis>
+        <bod>
+          <gml:Point gml:id="P.80221872010.PAR.2320447101" srsName="EPSG:5514">
+            <gml:pos>1046125.75 748972.2</gml:pos>
+          </gml:Point>
+        </bod>
+        <teleso id="2716848101">
+          <cislo>17155</cislo>
+        </teleso>
+      </Nemovitost>
+      <Nemovitost id="2320448101" typ="PAR">
+        <katuzeKod>755541</katuzeKod>
+        <text>2780/14</text>
+        <popis>č. 2780/14 Stodůlky</popis>
+        <bod>
+          <gml:Point gml:id="P.80221872010.PAR.2320448101" srsName="EPSG:5514">
+            <gml:pos>1046127.4 748957.28</gml:pos>
+          </gml:Point>
+        </bod>
+        <teleso id="2716848101">
+          <cislo>17155</cislo>
+        </teleso>
+      </Nemovitost>
+      <Nemovitost id="2320449101" typ="PAR">
+        <katuzeKod>755541</katuzeKod>
+        <text>2780/15</text>
+        <popis>č. 2780/15 Stodůlky</popis>
+        <bod>
+          <gml:Point gml:id="P.80221872010.PAR.2320449101" srsName="EPSG:5514">
+            <gml:pos>1046128.01 748939.61</gml:pos>
+          </gml:Point>
+        </bod>
+        <teleso id="2716848101">
+          <cislo>17155</cislo>
+        </teleso>
+      </Nemovitost>
+      <Nemovitost id="2320450101" typ="PAR">
+        <katuzeKod>755541</katuzeKod>
+        <text>2780/16</text>
+        <popis>č. 2780/16 Stodůlky</popis>
+        <bod>
+          <gml:Point gml:id="P.80221872010.PAR.2320450101" srsName="EPSG:5514">
+            <gml:pos>1046132.81 748920.6</gml:pos>
+          </gml:Point>
+        </bod>
+        <teleso id="2716848101">
+          <cislo>17155</cislo>
+        </teleso>
+      </Nemovitost>
+    </nemovitosti>
+  </Rizeni>
+  <Rizeni id="80277772010">
+    <cisloRizeni>V-7710/2021-101</cisloRizeni>
+    <datumPodani>2021-02-01T12:41:00</datumPodani>
+    <datumZplatneni>2021-02-24T14:02:34</datumZplatneni>
+    <praresKod>101</praresKod>
+    <listiny>
+      <Listina id="64220076010">
+        <cena>504000</cena>
+        <mena>CZK</mena>
+        <listinaTyp>Smlouva kupní</listinaTyp>
+      </Listina>
+    </listiny>
+    <nemovitosti>
+      <Nemovitost id="2316076101" typ="PAR">
+        <katuzeKod>755541</katuzeKod>
+        <text>1050/294</text>
+        <popis>č. 1050/294 Stodůlky</popis>
+        <bod>
+          <gml:Point gml:id="P.80277772010.PAR.2316076101" srsName="EPSG:5514">
+            <gml:pos>1045252.91 750451.65</gml:pos>
+          </gml:Point>
+        </bod>
+        <teleso id="14722879010">
+          <cislo>21004</cislo>
+        </teleso>
+      </Nemovitost>
+    </nemovitosti>
+  </Rizeni>
+  <Rizeni id="80280001010">
+    <cisloRizeni>V-7794/2021-101</cisloRizeni>
+    <datumPodani>2021-02-01T13:55:53</datumPodani>
+    <datumZplatneni>2021-02-24T15:02:51</datumZplatneni>
+    <praresKod>101</praresKod>
+    <listiny>
+      <Listina id="64198965010">
+        <cena>12200000</cena>
+        <mena>CZK</mena>
+        <listinaTyp>Smlouva kupní</listinaTyp>
+      </Listina>
+    </listiny>
+    <nemovitosti>
+      <Nemovitost id="14940992010" typ="JED">
+        <katuzeKod>755541</katuzeKod>
+        <text>č.p. 2790</text>
+        <popis>jednotka č. 27900406, byt v budově č.p. 2790, část obce Stodůlky, na parcele 160/370 Stodůlky (součástí je stavba č.p. 2790, čst obce Stodůlky), podl na společnch čstech domu a pozemku 461/56196</popis>
+        <bod>
+          <gml:Point gml:id="P.80280001010.JED.14940992010" srsName="EPSG:5514">
+            <gml:pos>1046308.14 751778.05</gml:pos>
+          </gml:Point>
+        </bod>
+        <teleso id="15692758010">
+          <cislo>22763</cislo>
+        </teleso>
+      </Nemovitost>
+      <Nemovitost id="14940993010" typ="JED">
+        <katuzeKod>755541</katuzeKod>
+        <text>č.p. 2790</text>
+        <popis>jednotka č. 27900407, byt v budově č.p. 2790, část obce Stodůlky, na parcele 160/370 Stodůlky (součástí je stavba č.p. 2790, čst obce Stodůlky), podl na společnch čstech domu a pozemku 817/56196</popis>
+        <bod>
+          <gml:Point gml:id="P.80280001010.JED.14940993010" srsName="EPSG:5514">
+            <gml:pos>1046308.14 751778.05</gml:pos>
+          </gml:Point>
+        </bod>
+        <teleso id="15692758010">
+          <cislo>22763</cislo>
+        </teleso>
+      </Nemovitost>
+      <Nemovitost id="14941039010" typ="JED">
+        <katuzeKod>755541</katuzeKod>
+        <text>č.p. 2790</text>
+        <popis>jednotka č. 27900020, garáž v budově č.p. 2790, část obce Stodůlky, na parcele 160/370 Stodůlky (součástí je stavba č.p. 2790, čst obce Stodůlky), podl na společnch čstech domu a pozemku 6450/56196</popis>
+        <bod>
+          <gml:Point gml:id="P.80280001010.JED.14941039010" srsName="EPSG:5514">
+            <gml:pos>1046308.14 751778.05</gml:pos>
+          </gml:Point>
+        </bod>
+        <teleso id="15656772010">
+          <cislo>22629</cislo>
+        </teleso>
+      </Nemovitost>
+      <Nemovitost id="14941040010" typ="JED">
+        <katuzeKod>755541</katuzeKod>
+        <text>č.p. 2790</text>
+        <popis>jednotka č. 27900021, jiný nebytový prostor v budově č.p. 2790, část obce Stodůlky, na parcele 160/370 Stodůlky (součástí je stavba č.p. 2790, čst obce Stodůlky), podl na společnch čstech domu a pozemku 44/56196</popis>
+        <bod>
+          <gml:Point gml:id="P.80280001010.JED.14941040010" srsName="EPSG:5514">
+            <gml:pos>1046308.14 751778.05</gml:pos>
+          </gml:Point>
+        </bod>
+        <teleso id="15692758010">
+          <cislo>22763</cislo>
+        </teleso>
+      </Nemovitost>
+      <Nemovitost id="25489753010" typ="PAR">
+        <katuzeKod>755541</katuzeKod>
+        <text>160/369</text>
+        <popis>č. 160/369 Stodůlky</popis>
+        <bod>
+          <gml:Point gml:id="P.80280001010.PAR.25489753010" srsName="EPSG:5514">
+            <gml:pos>1046338.54 751791.76</gml:pos>
+          </gml:Point>
+        </bod>
+        <teleso id="15253017010">
+          <cislo>21995</cislo>
+        </teleso>
+      </Nemovitost>
+    </nemovitosti>
+  </Rizeni>
+  <Rizeni id="80283902010">
+    <cisloRizeni>V-8003/2021-101</cisloRizeni>
+    <datumPodani>2021-02-01T16:35:53</datumPodani>
+    <datumZplatneni>2021-02-23T11:26:55</datumZplatneni>
+    <praresKod>101</praresKod>
+    <listiny>
+      <Listina id="64204431010">
+        <cena>2680000</cena>
+        <mena>CZK</mena>
+        <listinaTyp>Smlouva kupní</listinaTyp>
+      </Listina>
+    </listiny>
+    <nemovitosti>
+      <Nemovitost id="1989671101" typ="JED">
+        <katuzeKod>755541</katuzeKod>
+        <text>č.p. 2729</text>
+        <popis>jednotka č. 27290403, byt v budově č.p. 2729, část obce Stodůlky, na parcele 162/279 Stodůlky (součástí je stavba č.p. 2729, čst obce Stodůlky), podl na společnch čstech domu a pozemku 442/144950</popis>
+        <bod>
+          <gml:Point gml:id="P.80283902010.JED.1989671101" srsName="EPSG:5514">
+            <gml:pos>1046166.22 751808.77</gml:pos>
+          </gml:Point>
+        </bod>
+        <teleso id="2737938101">
+          <cislo>18314</cislo>
+        </teleso>
+      </Nemovitost>
+    </nemovitosti>
+  </Rizeni>
+  <Rizeni id="80338030010">
+    <cisloRizeni>V-8807/2021-101</cisloRizeni>
+    <datumPodani>2021-02-03T15:10:15</datumPodani>
+    <datumZplatneni>2021-02-26T10:04:35</datumZplatneni>
+    <praresKod>101</praresKod>
+    <listiny>
+      <Listina id="64278505010">
+        <cena>10490000</cena>
+        <mena>CZK</mena>
+        <listinaTyp>Smlouva kupní</listinaTyp>
+      </Listina>
+    </listiny>
+    <nemovitosti>
+      <Nemovitost id="2313834101" typ="PAR">
+        <katuzeKod>755541</katuzeKod>
+        <text>65</text>
+        <popis>č. 65 Stodůlky (součástí je stavba č.p. 17, čst obce Stodůlky)</popis>
+        <bod>
+          <gml:Point gml:id="P.80338030010.PAR.2313834101" srsName="EPSG:5514">
+            <gml:pos>1046211.76 751166.78</gml:pos>
+          </gml:Point>
+        </bod>
+        <teleso id="2001589101">
+          <cislo>826</cislo>
+        </teleso>
+      </Nemovitost>
+      <Nemovitost id="2313835101" typ="PAR">
+        <katuzeKod>755541</katuzeKod>
+        <text>66</text>
+        <popis>č. 66 Stodůlky</popis>
+        <bod>
+          <gml:Point gml:id="P.80338030010.PAR.2313835101" srsName="EPSG:5514">
+            <gml:pos>1046225.3 751163.98</gml:pos>
+          </gml:Point>
+        </bod>
+        <teleso id="2001589101">
+          <cislo>826</cislo>
+        </teleso>
+      </Nemovitost>
+    </nemovitosti>
+  </Rizeni>
+  <Rizeni id="79650019010">
+    <cisloRizeni>V-78409/2020-101</cisloRizeni>
+    <datumPodani>2020-12-18T10:49:45</datumPodani>
+    <datumZplatneni>2021-02-02T14:11:15</datumZplatneni>
+    <praresKod>101</praresKod>
+    <listiny>
+      <Listina id="63572503010">
+        <cena>50000000</cena>
+        <mena>CZK</mena>
+        <listinaTyp>Smlouva kupní</listinaTyp>
+      </Listina>
+    </listiny>
+    <nemovitosti>
+      <Nemovitost id="2318988101" typ="PAR">
+        <katuzeKod>755541</katuzeKod>
+        <text>2182/3</text>
+        <popis>č. 2182/3 Stodůlky</popis>
+        <bod>
+          <gml:Point gml:id="P.79650019010.PAR.2318988101" srsName="EPSG:5514">
+            <gml:pos>1046838.41 752059.33</gml:pos>
+          </gml:Point>
+        </bod>
+        <teleso id="42929208010">
+          <cislo>27846</cislo>
+        </teleso>
+      </Nemovitost>
+      <Nemovitost id="81848939010" typ="PAR">
+        <katuzeKod>755541</katuzeKod>
+        <text>157/54</text>
+        <popis>č. 157/54 Stodůlky</popis>
+        <bod>
+          <gml:Point gml:id="P.79650019010.PAR.81848939010" srsName="EPSG:5514">
+            <gml:pos>1046903.17 752082.64</gml:pos>
+          </gml:Point>
+        </bod>
+        <teleso id="42929208010">
+          <cislo>27846</cislo>
+        </teleso>
+      </Nemovitost>
+      <Nemovitost id="81848940010" typ="PAR">
+        <katuzeKod>755541</katuzeKod>
+        <text>159/10</text>
+        <popis>č. 159/10 Stodůlky</popis>
+        <bod>
+          <gml:Point gml:id="P.79650019010.PAR.81848940010" srsName="EPSG:5514">
+            <gml:pos>1047120.65 752060.77</gml:pos>
+          </gml:Point>
+        </bod>
+        <teleso id="42929208010">
+          <cislo>27846</cislo>
+        </teleso>
+      </Nemovitost>
+    </nemovitosti>
+  </Rizeni>
+  <Rizeni id="79961975010">
+    <cisloRizeni>V-1690/2021-101</cisloRizeni>
+    <datumPodani>2021-01-11T12:49:42</datumPodani>
+    <datumZplatneni>2021-02-03T14:01:46</datumZplatneni>
+    <praresKod>101</praresKod>
+    <listiny>
+      <Listina id="63848913010">
+        <cena>4990000</cena>
+        <mena>CZK</mena>
+        <listinaTyp>Smlouva kupní</listinaTyp>
+      </Listina>
+    </listiny>
+    <nemovitosti>
+      <Nemovitost id="1046811101" typ="JED">
+        <katuzeKod>755541</katuzeKod>
+        <text>č.p. 2410</text>
+        <popis>jednotka č. 24110100, byt v budově č.p. 2410, 2407, 2408, 2409, 2411, 2412, část obce Stodůlky, na parcele 2342/110 Stodůlky, 2342/111 Stodůlky, 2342/112 Stodůlky, 2342/113 Stodůlky (součástí je stavba č.p. 2410, 2407, 2408, 2409, 2411, 2412, čst obce Stodůlky), 2342/114 Stodůlky, 2342/115 Stodůlky, podl na společnch čstech domu a pozemku 79/8820</popis>
+        <bod>
+          <gml:Point gml:id="P.79961975010.JED.1046811101" srsName="EPSG:5514">
+            <gml:pos>1047815.38 749318.18</gml:pos>
+          </gml:Point>
+        </bod>
+        <teleso id="2744184101">
+          <cislo>18632</cislo>
+        </teleso>
+      </Nemovitost>
+      <Nemovitost id="2319474101" typ="PAR">
+        <katuzeKod>755541</katuzeKod>
+        <text>2342/110</text>
+        <popis>č. 2342/110 Stodůlky</popis>
+        <bod>
+          <gml:Point gml:id="P.79961975010.PAR.2319474101" srsName="EPSG:5514">
+            <gml:pos>1047818.43 749359.49</gml:pos>
+          </gml:Point>
+        </bod>
+        <teleso id="17230937010">
+          <cislo>23524</cislo>
+        </teleso>
+      </Nemovitost>
+      <Nemovitost id="2319475101" typ="PAR">
+        <katuzeKod>755541</katuzeKod>
+        <text>2342/111</text>
+        <popis>č. 2342/111 Stodůlky</popis>
+        <bod>
+          <gml:Point gml:id="P.79961975010.PAR.2319475101" srsName="EPSG:5514">
+            <gml:pos>1047818.47 749347.25</gml:pos>
+          </gml:Point>
+        </bod>
+        <teleso id="17230937010">
+          <cislo>23524</cislo>
+        </teleso>
+      </Nemovitost>
+      <Nemovitost id="2319476101" typ="PAR">
+        <katuzeKod>755541</katuzeKod>
+        <text>2342/112</text>
+        <popis>č. 2342/112 Stodůlky</popis>
+        <bod>
+          <gml:Point gml:id="P.79961975010.PAR.2319476101" srsName="EPSG:5514">
+            <gml:pos>1047818.58 749335.03</gml:pos>
+          </gml:Point>
+        </bod>
+        <teleso id="17230937010">
+          <cislo>23524</cislo>
+        </teleso>
+      </Nemovitost>
+      <Nemovitost id="2319477101" typ="PAR">
+        <katuzeKod>755541</katuzeKod>
+        <text>2342/113</text>
+        <popis>č. 2342/113 Stodůlky (součástí je stavba č.p. 2410, 2407, 2408, 2409, 2411, 2412, čst obce Stodůlky)</popis>
+        <bod>
+          <gml:Point gml:id="P.79961975010.PAR.2319477101" srsName="EPSG:5514">
+            <gml:pos>1047818.33 749318.4</gml:pos>
+          </gml:Point>
+        </bod>
+        <teleso id="17230937010">
+          <cislo>23524</cislo>
+        </teleso>
+      </Nemovitost>
+      <Nemovitost id="2319478101" typ="PAR">
+        <katuzeKod>755541</katuzeKod>
+        <text>2342/114</text>
+        <popis>č. 2342/114 Stodůlky</popis>
+        <bod>
+          <gml:Point gml:id="P.79961975010.PAR.2319478101" srsName="EPSG:5514">
+            <gml:pos>1047844.81 749315.89</gml:pos>
+          </gml:Point>
+        </bod>
+        <teleso id="17230937010">
+          <cislo>23524</cislo>
+        </teleso>
+      </Nemovitost>
+      <Nemovitost id="2319479101" typ="PAR">
+        <katuzeKod>755541</katuzeKod>
+        <text>2342/115</text>
+        <popis>č. 2342/115 Stodůlky</popis>
+        <bod>
+          <gml:Point gml:id="P.79961975010.PAR.2319479101" srsName="EPSG:5514">
+            <gml:pos>1047862.77 749316.01</gml:pos>
+          </gml:Point>
+        </bod>
+        <teleso id="17230937010">
+          <cislo>23524</cislo>
+        </teleso>
+      </Nemovitost>
+    </nemovitosti>
+  </Rizeni>
+  <Rizeni id="80038286010">
+    <cisloRizeni>V-3046/2021-101</cisloRizeni>
+    <datumPodani>2021-01-15T11:46:31</datumPodani>
+    <datumZplatneni>2021-02-12T10:42:16</datumZplatneni>
+    <praresKod>101</praresKod>
+    <listiny>
+      <Listina id="63956480010">
+        <cena>5179000</cena>
+        <mena>CZK</mena>
+        <listinaTyp>Smlouva kupní</listinaTyp>
+      </Listina>
+    </listiny>
+    <nemovitosti>
+      <Nemovitost id="2019234101" typ="JED">
+        <katuzeKod>755541</katuzeKod>
+        <text>č.p. 2201</text>
+        <popis>jednotka č. 22010006, byt v budově č.p. 2201, 2202, 2203, 2204, 2205, část obce Stodůlky, na parcele 2342/27 Stodůlky, 2342/28 Stodůlky, 2342/29 Stodůlky (součástí je stavba č.p. 2201, 2202, 2203, 2204, 2205, čst obce Stodůlky), 2342/30 Stodůlky, 2342/31 Stodůlky, podl na společnch čstech domu a pozemku 7237/766187</popis>
+        <bod>
+          <gml:Point gml:id="P.80038286010.JED.2019234101" srsName="EPSG:5514">
+            <gml:pos>1047596.77 749258.13</gml:pos>
+          </gml:Point>
+        </bod>
+        <teleso id="2758302101">
+          <cislo>20004</cislo>
+        </teleso>
+      </Nemovitost>
+    </nemovitosti>
+  </Rizeni>
+  <Rizeni id="80074048010">
+    <cisloRizeni>V-3909/2021-101</cisloRizeni>
+    <datumPodani>2021-01-18T16:29:17</datumPodani>
+    <datumZplatneni>2021-02-11T09:21:24</datumZplatneni>
+    <praresKod>101</praresKod>
+    <listiny>
+      <Listina id="63986117010">
+        <cena>1510323.2</cena>
+        <mena>CZK</mena>
+        <listinaTyp>Smlouva kupní</listinaTyp>
+      </Listina>
+    </listiny>
+    <nemovitosti>
+      <Nemovitost id="2947496101" typ="PAR">
+        <katuzeKod>755541</katuzeKod>
+        <text>1085/54</text>
+        <popis>č. 1085/54 Stodůlky</popis>
+        <bod>
+          <gml:Point gml:id="P.80074048010.PAR.2947496101" srsName="EPSG:5514">
+            <gml:pos>1045769.29 750928</gml:pos>
+          </gml:Point>
+        </bod>
+        <teleso id="2002292101">
+          <cislo>1696</cislo>
+        </teleso>
+      </Nemovitost>
+      <Nemovitost id="3038087101" typ="PAR">
+        <katuzeKod>755541</katuzeKod>
+        <text>1055/22</text>
+        <popis>č. 1055/22 Stodůlky</popis>
+        <bod>
+          <gml:Point gml:id="P.80074048010.PAR.3038087101" srsName="EPSG:5514">
+            <gml:pos>1045758.64 750922.78</gml:pos>
+          </gml:Point>
+        </bod>
+        <teleso id="2002292101">
+          <cislo>1696</cislo>
+        </teleso>
+      </Nemovitost>
+      <Nemovitost id="3038144101" typ="PAR">
+        <katuzeKod>755541</katuzeKod>
+        <text>1085/60</text>
+        <popis>č. 1085/60 Stodůlky</popis>
+        <bod>
+          <gml:Point gml:id="P.80074048010.PAR.3038144101" srsName="EPSG:5514">
+            <gml:pos>1045765.95 750928.18</gml:pos>
+          </gml:Point>
+        </bod>
+        <teleso id="2002292101">
+          <cislo>1696</cislo>
+        </teleso>
+      </Nemovitost>
+    </nemovitosti>
+  </Rizeni>
+  <Rizeni id="80097037010">
+    <cisloRizeni>V-4275/2021-101</cisloRizeni>
+    <datumPodani>2021-01-19T14:43:00</datumPodani>
+    <datumZplatneni>2021-02-16T14:33:31</datumZplatneni>
+    <praresKod>101</praresKod>
+    <listiny>
+      <Listina id="64000534010">
+        <cena>406000</cena>
+        <mena>CZK</mena>
+        <listinaTyp>Smlouva kupní</listinaTyp>
+      </Listina>
+    </listiny>
+    <nemovitosti>
+      <Nemovitost id="1644554101" typ="JED">
+        <katuzeKod>755541</katuzeKod>
+        <text>č.p. 1486</text>
+        <popis>jednotka č. 14860100, garáž v budově č.p. 1486, část obce Stodůlky, na parcele 1569/159 Stodůlky (součástí je stavba č.p. 1486, čst obce Stodůlky), podl na společnch čstech domu a pozemku 37455/215333</popis>
+        <bod>
+          <gml:Point gml:id="P.80097037010.JED.1644554101" srsName="EPSG:5514">
+            <gml:pos>1045911.21 749799.91</gml:pos>
+          </gml:Point>
+        </bod>
+        <teleso id="2610589101">
+          <cislo>12828</cislo>
+        </teleso>
+      </Nemovitost>
+    </nemovitosti>
+  </Rizeni>
+  <Rizeni id="80179449010">
+    <cisloRizeni>V-5756/2021-101</cisloRizeni>
+    <datumPodani>2021-01-25T14:32:13</datumPodani>
+    <datumZplatneni>2021-02-17T08:14:25</datumZplatneni>
+    <praresKod>101</praresKod>
+    <listiny>
+      <Listina id="64085503010">
+        <cena>7710000</cena>
+        <mena>CZK</mena>
+        <listinaTyp>Smlouva kupní</listinaTyp>
+      </Listina>
+    </listiny>
+    <nemovitosti>
+      <Nemovitost id="1042083101" typ="JED">
+        <katuzeKod>755541</katuzeKod>
+        <text>č.p. 12</text>
+        <popis>jednotka č. 120012, garáž v budově č.p. 12, část obce Stodůlky, na parcele 95 Stodůlky (součástí je stavba č.p. 12, čst obce Stodůlky), podl na společnch čstech domu a pozemku 157/7836</popis>
+        <bod>
+          <gml:Point gml:id="P.80179449010.JED.1042083101" srsName="EPSG:5514">
+            <gml:pos>1046212.85 751191.93</gml:pos>
+          </gml:Point>
+        </bod>
+        <teleso id="2291547101">
+          <cislo>7114</cislo>
+        </teleso>
+      </Nemovitost>
+      <Nemovitost id="1042085101" typ="JED">
+        <katuzeKod>755541</katuzeKod>
+        <text>č.p. 12</text>
+        <popis>jednotka č. 120002, byt v budově č.p. 12, část obce Stodůlky, na parcele 95 Stodůlky (součástí je stavba č.p. 12, čst obce Stodůlky), podl na společnch čstech domu a pozemku 957/7836</popis>
+        <bod>
+          <gml:Point gml:id="P.80179449010.JED.1042085101" srsName="EPSG:5514">
+            <gml:pos>1046212.85 751191.93</gml:pos>
+          </gml:Point>
+        </bod>
+        <teleso id="2291547101">
+          <cislo>7114</cislo>
+        </teleso>
+      </Nemovitost>
+    </nemovitosti>
+  </Rizeni>
+  <Rizeni id="80245125010">
+    <cisloRizeni>V-7212/2021-101</cisloRizeni>
+    <datumPodani>2021-01-29T09:53:56</datumPodani>
+    <datumZplatneni>2021-02-23T15:15:00</datumZplatneni>
+    <praresKod>101</praresKod>
+    <listiny>
+      <Listina id="64163672010">
+        <cena>4850000</cena>
+        <mena>CZK</mena>
+        <listinaTyp>Smlouva kupní</listinaTyp>
+      </Listina>
+    </listiny>
+    <nemovitosti>
+      <Nemovitost id="1047679101" typ="JED">
+        <katuzeKod>755541</katuzeKod>
+        <text>č.p. 2415</text>
+        <popis>jednotka č. 24130114, byt v budově č.p. 2415, 2413, 2414, 2416, 2417, 2418, část obce Stodůlky, na parcele 2342/116 Stodůlky, 2342/117 Stodůlky, 2342/118 Stodůlky (součástí je stavba č.p. 2415, 2413, 2414, 2416, 2417, 2418, čst obce Stodůlky), 2342/119 Stodůlky, 2342/120 Stodůlky, 2342/121 Stodůlky, podl na společnch čstech domu a pozemku 76/9228</popis>
+        <bod>
+          <gml:Point gml:id="P.80245125010.JED.1047679101" srsName="EPSG:5514">
+            <gml:pos>1047917.01 749317.65</gml:pos>
+          </gml:Point>
+        </bod>
+        <teleso id="2627932101">
+          <cislo>13397</cislo>
+        </teleso>
+      </Nemovitost>
+      <Nemovitost id="2319480101" typ="PAR">
+        <katuzeKod>755541</katuzeKod>
+        <text>2342/116</text>
+        <popis>č. 2342/116 Stodůlky</popis>
+        <bod>
+          <gml:Point gml:id="P.80245125010.PAR.2319480101" srsName="EPSG:5514">
+            <gml:pos>1047884.71 749317.89</gml:pos>
+          </gml:Point>
+        </bod>
+        <teleso id="2688724101">
+          <cislo>16099</cislo>
+        </teleso>
+      </Nemovitost>
+      <Nemovitost id="2319481101" typ="PAR">
+        <katuzeKod>755541</katuzeKod>
+        <text>2342/117</text>
+        <popis>č. 2342/117 Stodůlky</popis>
+        <bod>
+          <gml:Point gml:id="P.80245125010.PAR.2319481101" srsName="EPSG:5514">
+            <gml:pos>1047896.35 749317.5</gml:pos>
+          </gml:Point>
+        </bod>
+        <teleso id="2688724101">
+          <cislo>16099</cislo>
+        </teleso>
+      </Nemovitost>
+      <Nemovitost id="2319482101" typ="PAR">
+        <katuzeKod>755541</katuzeKod>
+        <text>2342/118</text>
+        <popis>č. 2342/118 Stodůlky (součástí je stavba č.p. 2415, 2413, 2414, 2416, 2417, 2418, čst obce Stodůlky)</popis>
+        <bod>
+          <gml:Point gml:id="P.80245125010.PAR.2319482101" srsName="EPSG:5514">
+            <gml:pos>1047920.12 749318.16</gml:pos>
+          </gml:Point>
+        </bod>
+        <teleso id="2688724101">
+          <cislo>16099</cislo>
+        </teleso>
+      </Nemovitost>
+      <Nemovitost id="2319483101" typ="PAR">
+        <katuzeKod>755541</katuzeKod>
+        <text>2342/119</text>
+        <popis>č. 2342/119 Stodůlky</popis>
+        <bod>
+          <gml:Point gml:id="P.80245125010.PAR.2319483101" srsName="EPSG:5514">
+            <gml:pos>1047919.85 749334.94</gml:pos>
+          </gml:Point>
+        </bod>
+        <teleso id="2688724101">
+          <cislo>16099</cislo>
+        </teleso>
+      </Nemovitost>
+      <Nemovitost id="2319484101" typ="PAR">
+        <katuzeKod>755541</katuzeKod>
+        <text>2342/120</text>
+        <popis>č. 2342/120 Stodůlky</popis>
+        <bod>
+          <gml:Point gml:id="P.80245125010.PAR.2319484101" srsName="EPSG:5514">
+            <gml:pos>1047919.86 749347.37</gml:pos>
+          </gml:Point>
+        </bod>
+        <teleso id="2688724101">
+          <cislo>16099</cislo>
+        </teleso>
+      </Nemovitost>
+      <Nemovitost id="2319485101" typ="PAR">
+        <katuzeKod>755541</katuzeKod>
+        <text>2342/121</text>
+        <popis>č. 2342/121 Stodůlky</popis>
+        <bod>
+          <gml:Point gml:id="P.80245125010.PAR.2319485101" srsName="EPSG:5514">
+            <gml:pos>1047919.9 749359.26</gml:pos>
+          </gml:Point>
+        </bod>
+        <teleso id="2688724101">
+          <cislo>16099</cislo>
+        </teleso>
+      </Nemovitost>
+    </nemovitosti>
+  </Rizeni>
+</CenoveUdaje>

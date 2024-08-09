@@ -1,4 +1,6 @@
 #include <stdio.h>
 #include <stdbool.h>
 
-bool parseProlog(FILE *file);
+#include "../types.h"
+
+XMLNode *parseProlog(FILE *file);
