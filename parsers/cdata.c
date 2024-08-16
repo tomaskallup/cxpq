@@ -49,7 +49,7 @@ XMLTextNode *parseCDATA(FILE *file) {
       printCurrentLineMarked(file);
       PRINT_ERROR("Invalid character for CDATA closing tag, expecting %c\n",
                   CDATAClosing[i]);
-      freeXMLTree((XMLNode *)node);
+      freeXMLNode((XMLNode *)node);
       return NULL;
     }
   }

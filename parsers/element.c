@@ -1,10 +1,12 @@
 #include <ctype.h>
 #include <stdlib.h>
 
+#include "cdata.h"
 #include "comment.h"
 #include "element.h"
 #include "node.h"
-#include "cdata.h"
+
+#include "../node-collection.h"
 
 bool parseCloseTag(FILE *file, XMLElementNode *node) {
   char currentChar;
@@ -73,10 +75,7 @@ bool parseElementContent(FILE *file, XMLElementNode *node) {
         if (resultNode == NULL)
           return false;
 
-        if (lastChild == NULL)
-          node->child = resultNode;
-        else
-          lastChild->sibling = resultNode;
+        addNodeToCollection(node->children, resultNode);
 
         if (lastChild != NULL && lastChild->type == TEXT) {
           XMLTextNode *textNode = (XMLTextNode *)lastChild;
@@ -91,10 +90,7 @@ bool parseElementContent(FILE *file, XMLElementNode *node) {
         if (child == NULL)
           return false;
 
-        if (lastChild == NULL)
-          node->child = child;
-        else
-          lastChild->sibling = child;
+        addNodeToCollection(node->children, child);
 
         if (lastChild != NULL && lastChild->type == TEXT) {
           XMLTextNode *textNode = (XMLTextNode *)lastChild;
@@ -107,10 +103,7 @@ bool parseElementContent(FILE *file, XMLElementNode *node) {
           lastChild->type != TEXT && !isWhitespace(currentChar)) {
         XMLNode *textNode = initNode(TEXT);
 
-        if (lastChild == NULL)
-          node->child = textNode;
-        else
-          lastChild->sibling = textNode;
+        addNodeToCollection(node->children, textNode);
 
         lastChild = textNode;
       }
@@ -232,7 +225,7 @@ XMLElementNode *parseElement(FILE *file) {
                     "expected a space or `>`\n",
                     currentChar);
 
-        freeXMLTree((XMLNode *)node);
+        freeXMLNode((XMLNode *)node);
         return NULL;
       }
       if (!isValidNameChar(currentChar)) {
@@ -241,14 +234,14 @@ XMLElementNode *parseElement(FILE *file) {
         PRINT_ERROR("Invalid character found for element name \"%c\"\n",
                     currentChar);
 
-        freeXMLTree((XMLNode *)node);
+        freeXMLNode((XMLNode *)node);
         return NULL;
       }
       stringAppendChar(node->tag, currentChar);
     } else if (currentChar == '>') {
       // Parse node content
       if (!parseElementContent(file, node)) {
-        freeXMLTree((XMLNode *)node);
+        freeXMLNode((XMLNode *)node);
         return NULL;
       }
 
@@ -260,7 +253,7 @@ XMLElementNode *parseElement(FILE *file) {
       Attribute *attr = parseAttribute(file);
 
       if (attr == NULL) {
-        freeXMLTree((XMLNode *)node);
+        freeXMLNode((XMLNode *)node);
         return NULL;
       }
 

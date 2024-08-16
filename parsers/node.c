@@ -1,7 +1,7 @@
 #include "node.h"
 #include "dtd.h"
 #include "element.h"
-#include "prolog.h"
+#include "processing-instruction.h"
 
 #include "../util.h"
 
@@ -21,7 +21,7 @@ XMLNode *parseNode(FILE *file, XMLNode *parent) {
   case '?': {
     // Processing instruction or prolog
     PRINT_DEBUG("Found processing instruction\n");
-    return (XMLNode *)parseProlog(file);
+    return (XMLNode *)parseProcessingInstruction(file);
   }
   default: {
     // Element

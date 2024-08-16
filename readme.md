@@ -2,7 +2,7 @@
 
 A simple C program for parsing XML files (with partial validation - see below) and querying them.
 
-This is still very much work in progress, parsing is still not complete & work on querying has not even started.
+This is still very much **work in progress**, parsing is not 100% complete & querying is slowly underway. This also means git history will most likely be full of mess (random commits to store progress, occasional commit with broken code).
 
 ## Setup
 
@@ -32,7 +32,7 @@ $ make realease
 $ ./release/cxpq ../examples/bookstore.xml
 ```
 
-## Features
+## Features/non-features
  - [ ] Parsing
    - [x] Prolog (attributes get skipped)
    - [x] DTD (content is just skipped)
@@ -43,12 +43,19 @@ $ ./release/cxpq ../examples/bookstore.xml
      - [x] CDATA (parsed as text content, with a flag)
    - [x] Comments (currently get skipped)
    - [x] Processing Instructions
- - [ ] Validation
-   - [ ] Valid file (no unclosed tags, comments, etc.)
+ - [ ] Validation (should be reworked and under a flag)
+   - [x] Valid file (no unclosed tags, comments, etc.) - should be done?
    - [ ] Valid Prolog
    - [x] Valid Root Node name
-   - [ ] Valid Node name (partially, missing `xml` "ban")
+   - [ ] Valid Node names (partially, missing `xml` "ban")
    - [ ] Namespaces (currenly they just get included in node name)
+   - [ ] Valid document (has prolog & a single root node)
  - [ ] Querying
    - [ ] XPath?
    - [ ] Custom query language (CSS selector like)
+ - [ ] Tests
+   - [ ] Individual node parsers
+   - [ ] Entire file parser
+   - [ ] Validator (after rework)
+   - [ ] Query parsing
+   - [ ] Query execution

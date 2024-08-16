@@ -1,4 +1,5 @@
 #include <stdbool.h>
+#include <stdlib.h>
 
 #include "string.h"
 
@@ -23,19 +24,23 @@ typedef struct Attribute {
 typedef struct XMLNode {
   enum XMLNodeType type;
   struct XMLNode *parent;
-  struct XMLNode *sibling;
 } XMLNode;
+
+typedef struct NodeCollection {
+  XMLNode **nodes;
+  int size;
+  size_t allocated;
+} NodeCollection;
 
 typedef struct XMLElementNode {
   /* Generic attributes */
   enum XMLNodeType type;
   struct XMLNode *parent;
-  struct XMLNode *sibling;
 
   /* Specific attributes */
   String *tag;
   String *closeTag;
-  struct XMLNode *child;
+  NodeCollection *children;
   struct Attribute **attributes;
   int attributesSize;
   bool hasNamespace;
@@ -45,7 +50,6 @@ typedef struct XMLCommentNode {
   /* Generic attributes */
   enum XMLNodeType type;
   struct XMLNode *parent;
-  struct XMLNode *sibling;
 
   /* Specific attributes */
   String *content;
@@ -55,7 +59,6 @@ typedef struct XMLTextNode {
   /* Generic attributes */
   enum XMLNodeType type;
   struct XMLNode *parent;
-  struct XMLNode *sibling;
 
   /* Specific attributes */
   String *content;
@@ -66,7 +69,6 @@ typedef struct XMLProcessingInstructionNode {
   /* Generic attributes */
   enum XMLNodeType type;
   struct XMLNode *parent;
-  struct XMLNode *sibling;
 
   /* Specific attributes */
   String *tag;
@@ -78,16 +80,16 @@ typedef struct XMLDTDNode {
   /* Generic attributes */
   enum XMLNodeType type;
   struct XMLNode *parent;
-  struct XMLNode *sibling;
 
   /* Specific attributes */
   String *content;
+  String *name;
+  String *systemID;
 } XMLDTDNode;
 
 typedef struct XMLDocument {
-  XMLElementNode *root;
-  XMLNode **meta;
-  int metaSize;
+  NodeCollection *nodes;
+  int rootIndex;
 } XMLDocument;
 
 #endif

@@ -27,9 +27,9 @@ XMLNode *initNode(enum XMLNodeType type);
 Attribute *initAttribute();
 void freeAttribute(Attribute *attribute);
 
-void freeXMLTree(XMLNode *root);
-void freeString(String *str);
+void freeXMLNode(XMLNode *root);
 void freeXMLDocument(XMLDocument *document);
 void printXMLTree(XMLNode *root, int depth);
+void printXMLDocument(XMLDocument *document);
 
 #endif

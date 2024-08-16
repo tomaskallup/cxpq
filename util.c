@@ -3,6 +3,7 @@
 
 #include <ctype.h>
 
+#include "node-collection.h"
 #include "util.h"
 
 bool isWhitespace(const char input) {
@@ -107,7 +108,6 @@ XMLNode *initNode(enum XMLNodeType type) {
   }
 
   node->type = type;
-  node->sibling = NULL;
   node->parent = NULL;
 
   if (type == ELEMENT) {
@@ -116,7 +116,7 @@ XMLNode *initNode(enum XMLNodeType type) {
     elementNode->closeTag = stringCreateEmpty();
     elementNode->attributes = NULL;
     elementNode->attributesSize = 0;
-    elementNode->child = NULL;
+    elementNode->children = initNodeCollection();
   } else if (type == COMMENT) {
     XMLCommentNode *commentNode = (XMLCommentNode *)node;
     commentNode->content = stringCreateEmpty();
@@ -132,7 +132,9 @@ XMLNode *initNode(enum XMLNodeType type) {
     processingInstructionNode->attributesSize = 0;
   } else if (type == DTD) {
     XMLDTDNode *dtdNode = (XMLDTDNode *)node;
-    dtdNode->content = stringCreateEmpty();
+    dtdNode->name = stringCreateEmpty();
+    dtdNode->content = NULL;
+    dtdNode->systemID = NULL;
   }
 
   return node;
@@ -148,14 +150,6 @@ Attribute *initAttribute() {
   return attribute;
 }
 
-void freeString(String *str) {
-  if (str->value != NULL) {
-    free(str->value);
-  }
-
-  free(str);
-}
-
 void freeAttribute(Attribute *attribute) {
   if (attribute->name != NULL)
     freeString(attribute->name);
@@ -164,14 +158,17 @@ void freeAttribute(Attribute *attribute) {
     freeString(attribute->content);
 }
 
-void freeXMLTree(XMLNode *node) {
+void freeXMLNode(XMLNode *node) {
   if (node == NULL)
     return;
 
   if (node->type == ELEMENT) {
     XMLElementNode *elementNode = (XMLElementNode *)node;
-    if (elementNode->child != NULL) {
-      freeXMLTree(elementNode->child);
+    if (elementNode->children != NULL) {
+      for (int i = 0; i < elementNode->children->size; i++)
+        freeXMLNode(elementNode->children->nodes[i]);
+
+      freeNodeCollection(elementNode->children);
     }
 
     freeString(elementNode->tag);
@@ -205,27 +202,22 @@ void freeXMLTree(XMLNode *node) {
     }
   } else if (node->type == DTD) {
     XMLDTDNode *dtdNode = (XMLDTDNode *)node;
-    freeString(dtdNode->content);
-  }
-
-  if (node->sibling != NULL) {
-    freeXMLTree(node->sibling);
+    freeString(dtdNode->name);
+    if (dtdNode->content != NULL)
+      freeString(dtdNode->content);
+    if (dtdNode->systemID != NULL)
+    freeString(dtdNode->systemID);
   }
 
   free(node);
 }
 
 void freeXMLDocument(XMLDocument *document) {
-  if (document->root != NULL)
-    freeXMLTree((XMLNode *)document->root);
-
-  if (document->metaSize > 0) {
-    for (int i = 0; i < document->metaSize; i++) {
-      freeXMLTree(document->meta[i]);
-    }
+  for (int i = 0; i < document->nodes->size; i++) {
+    freeXMLNode(document->nodes->nodes[i]);
   }
 
-  free(document->meta);
+  freeNodeCollection(document->nodes);
 
   free(document);
 }
@@ -246,8 +238,8 @@ void printXMLTree(XMLNode *root, int depth) {
 
     printf(">\n");
 
-    if (elementNode->child != NULL)
-      printXMLTree(elementNode->child, depth + 1);
+    for (int i = 0; i < elementNode->children->size; i++)
+      printXMLTree(elementNode->children->nodes[i], depth + 1);
 
     for (int i = 0; i < depth; i++)
       printf("  ");
@@ -274,7 +266,14 @@ void printXMLTree(XMLNode *root, int depth) {
   }
   case DTD: {
     XMLDTDNode *dtdNode = (XMLDTDNode *)root;
-    printf("<!DOCTYPE %s>\n", dtdNode->content->value);
+    printf("<!DOCTYPE %s", dtdNode->name->value);
+
+    if (dtdNode->systemID != NULL)
+      printf(" SYSTEM \"%s\"", dtdNode->systemID->value);
+    else if (dtdNode->content != NULL)
+      printf(" [%s]", dtdNode->content->value);
+
+    printf(">\n");
 
     break;
   }
@@ -285,14 +284,18 @@ void printXMLTree(XMLNode *root, int depth) {
 
     for (int a = 0; a < processingInstructionNode->attributesSize; a++) {
       struct Attribute *attribute = processingInstructionNode->attributes[a];
-      printf(" %s=%s", attribute->name->value, attribute->content->value);
+      printf(" %s=\"%s\"", attribute->name->value, attribute->content->value);
     }
 
     printf("?>\n");
     break;
   }
   }
+}
 
-  if (root->sibling != NULL)
-    printXMLTree(root->sibling, depth);
+void printXMLDocument(XMLDocument *document) {
+  NodeCollection *nodes = document->nodes;
+  for (int i = 0; i < nodes->size; i++) {
+    printXMLTree(nodes->nodes[i], 0);
+  }
 }

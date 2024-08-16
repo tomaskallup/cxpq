@@ -43,7 +43,7 @@ XMLCommentNode *parseComment(FILE *file) {
   PRINT_ERROR("Missing closing tag for comment\n");
 
   freeString(end);
-  freeXMLTree((XMLNode *)commentNode);
+  freeXMLNode((XMLNode *)commentNode);
 
   return NULL;
 }

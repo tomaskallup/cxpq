@@ -3,4 +3,4 @@
 
 #include "../types.h"
 
-XMLNode *parseProlog(FILE *file);
+XMLNode *parseProcessingInstruction(FILE *file);

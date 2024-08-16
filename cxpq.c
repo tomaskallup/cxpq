@@ -19,7 +19,9 @@ int main(int argc, char *argv[]) {
   }
 
   XMLDocument *document = parseXML(file);
-  XMLElementNode *root = document->root;
+  XMLElementNode *root = document->rootIndex >= 0
+                             ? (XMLElementNode *)document->nodes->nodes[document->rootIndex]
+                             : NULL;
 
   fclose(file);
 
@@ -28,9 +30,9 @@ int main(int argc, char *argv[]) {
     PRINT_ERROR("Failed to parse provided XML file\n");
     return 2;
   } else {
-    printf("Root node %s\n", root->tag->value);
+    printf("Root node %s (%i)\n", root->tag->value, document->rootIndex);
 
-    printXMLTree((XMLNode *)root, 0);
+    printXMLDocument(document);
 
     freeXMLDocument(document);
   }

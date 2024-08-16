@@ -3,6 +3,7 @@
 #include <stdlib.h>
 #include <string.h>
 
+#include "string.h"
 #include "util.h"
 
 String *stringCreateEmpty() {
@@ -15,15 +16,6 @@ String *stringCreateEmpty() {
   str->value = NULL;
   str->allocated = 0;
   str->length = 0;
-
-  return str;
-}
-
-String *stringCreateFromChars(char *chars) {
-  String *str = stringCreateEmpty();
-  str->value = chars;
-  str->length = strlen(chars);
-  str->allocated = str->length;
 
   return str;
 }
@@ -109,4 +101,12 @@ String *stringSubstring(String *str, int start, int end) {
   strncpy(result->value, &str->value[start], length);
 
   return result;
+}
+
+void freeString(String *str) {
+  if (str->value != NULL) {
+    free(str->value);
+  }
+
+  free(str);
 }

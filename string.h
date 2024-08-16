@@ -14,8 +14,6 @@ typedef struct String {
 
 String *stringCreateEmpty();
 
-String *stringCreateFromChars(char *chars);
-
 void stringAppendChar(String *str, char charToAdd);
 void stringAppend(String *str, String *strToAdd);
 
@@ -23,6 +21,7 @@ bool stringEqual(String *str, String *cmp);
 bool stringEqualChars(String *str, char *cmp);
 
 void stringTrim(String *str);
+void freeString(String *str);
 
 String *stringSubstring(String *str, int start, int end);
 

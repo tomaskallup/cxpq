@@ -6,7 +6,27 @@
 
 const char *dtdTagName = "DOCTYPE";
 
-bool parseDTDLiteral(FILE *file) { return true; }
+static bool parseDTDLiteral(FILE *file, String *literal) {
+  const char firstChar = fgetc(file);
+  if (firstChar != '"') {
+    fseek(file, -1, SEEK_CUR);
+    printCurrentLineMarked(file);
+    PRINT_ERROR("Missing \" to start DTD Literal, got \"%c\"\n", firstChar);
+
+    return false;
+  }
+
+  char currentChar;
+  while ((currentChar = fgetc(file))) {
+    if (currentChar == '"') return true;
+    stringAppendChar(literal, currentChar);
+  }
+
+  fseek(file, -1, SEEK_CUR);
+  printCurrentLineMarked(file);
+  PRINT_ERROR("Missing \" to end DTD Literal, got \"%c\"\n", firstChar);
+  return false;
+}
 
 XMLDTDNode *parseDTD(FILE *file) {
   /* DTD Must start with DOCTYPE */
@@ -35,6 +55,8 @@ XMLDTDNode *parseDTD(FILE *file) {
     return NULL;
   }
 
+  XMLDTDNode *node = (XMLDTDNode *)initNode(DTD);
+
   /* Next is name of the DTD */
   const char firstChar = fgetc(file);
   if (!isalpha(firstChar) && firstChar != '_') {
@@ -47,6 +69,7 @@ XMLDTDNode *parseDTD(FILE *file) {
     return NULL;
   }
 
+  stringAppendChar(node->name, firstChar);
   char currentChar;
   while ((currentChar = fgetc(file))) {
     if (currentChar == ' ' || currentChar == '>')
@@ -58,11 +81,10 @@ XMLDTDNode *parseDTD(FILE *file) {
 
       return NULL;
     }
+    stringAppendChar(node->name, currentChar);
   }
 
   fseek(file, -1, SEEK_CUR);
-
-  XMLDTDNode *node = (XMLDTDNode *)initNode(DTD);
 
   char nextChar = fgetc(file);
   if (nextChar == '>')
@@ -73,12 +95,13 @@ XMLDTDNode *parseDTD(FILE *file) {
     printCurrentLineMarked(file);
     PRINT_ERROR("Missing space after DTD name\n");
 
-    freeXMLTree((XMLNode *)node);
+    freeXMLNode((XMLNode *)node);
     return NULL;
   }
 
   nextChar = fgetc(file);
   if (nextChar == '[') {
+    node->content = stringCreateEmpty();
     while ((nextChar = fgetc(file)) != ']') {
       stringAppendChar(node->content, nextChar);
     }
@@ -88,7 +111,7 @@ XMLDTDNode *parseDTD(FILE *file) {
       printCurrentLineMarked(file);
       PRINT_ERROR("Missing `>` after internal DTD content\n");
 
-      freeXMLTree((XMLNode *)node);
+      freeXMLNode((XMLNode *)node);
       return NULL;
     }
 
@@ -98,34 +121,19 @@ XMLDTDNode *parseDTD(FILE *file) {
       externalID[i] = fgetc(file);
     }
 
-    bool isPublic = strncmp(externalID, "PUBLIC", 6) == 0;
     bool isSystem = strncmp(externalID, "SYSTEM", 6) == 0;
-    if (isPublic || isSystem) {
+    if (isSystem) {
+      node->systemID = stringCreateEmpty();
       if (fgetc(file) != ' ') {
         fseek(file, -1, SEEK_CUR);
         printCurrentLineMarked(file);
         PRINT_ERROR("Missing space after DTD external ID\n");
-        freeXMLTree((XMLNode *)node);
+        freeXMLNode((XMLNode *)node);
         return NULL;
       }
 
-      if (!parseDTDLiteral(file)) {
-        freeXMLTree((XMLNode *)node);
-        return NULL;
-      }
-
-      if (isPublic) {
-        if (fgetc(file) != ' ') {
-          fseek(file, -1, SEEK_CUR);
-          printCurrentLineMarked(file);
-          PRINT_ERROR("Missing space after DTD PUBLIC ID literal\n");
-          freeXMLTree((XMLNode *)node);
-          return NULL;
-        }
-      }
-
-      if (!parseDTDLiteral(file)) {
-        freeXMLTree((XMLNode *)node);
+      if (!parseDTDLiteral(file, node->systemID)) {
+        freeXMLNode((XMLNode *)node);
         return NULL;
       }
 
@@ -133,16 +141,16 @@ XMLDTDNode *parseDTD(FILE *file) {
         fseek(file, -1, SEEK_CUR);
         printCurrentLineMarked(file);
         PRINT_ERROR("Expected `>` after DTD literal\n");
-        freeXMLTree((XMLNode *)node);
+        freeXMLNode((XMLNode *)node);
         return NULL;
       }
     } else {
       fseek(file, -6, SEEK_CUR);
       printCurrentLineMarked(file);
-      PRINT_ERROR("Invalid DTD external ID, expected \"SYSTEM\" or \"PUBLIC\", "
+      PRINT_ERROR("Invalid DTD external ID, expected \"SYSTEM\", "
                   "got \"%s\"\n",
                   externalID);
-      freeXMLTree((XMLNode *)node);
+      freeXMLNode((XMLNode *)node);
       return NULL;
     }
   }

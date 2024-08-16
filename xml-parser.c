@@ -3,6 +3,7 @@
 #include <stdlib.h>
 #include <string.h>
 
+#include "node-collection.h"
 #include "parsers/dtd.h"
 #include "parsers/node.h"
 #include "util.h"
@@ -56,29 +57,30 @@ XMLDocument *parseXML(FILE *file) {
   skipWhitespaces(file);
 
   XMLDocument *document = malloc(sizeof(XMLDocument));
-  document->root = NULL;
-  document->meta = NULL;
-  document->metaSize = 0;
+  document->nodes = initNodeCollection();
+  document->rootIndex = -1;
+  XMLElementNode *root = NULL;
 
   XMLNode *currentNode = NULL;
 
   while (fgetc(file) == '<') {
     currentNode = parseNode(file, NULL);
 
-    if (currentNode != NULL && currentNode->type == ELEMENT) {
-      XMLElementNode *elementNode = (XMLElementNode *)currentNode;
-      if (document->root == NULL) {
-        document->root = elementNode;
-      } else {
-        PRINT_ERROR("Found multiple root elements\n");
-        freeXMLTree(currentNode);
+    if (currentNode != NULL) {
+      if (currentNode->type == ELEMENT) {
+        XMLElementNode *elementNode = (XMLElementNode *)currentNode;
+        if (root == NULL) {
+          root = elementNode;
+          document->rootIndex = document->nodes->size;
+          printf("Found root element %i\n", document->rootIndex);
+        } else {
+          PRINT_ERROR("Found multiple root elements\n");
+          freeXMLNode(currentNode);
+        }
       }
-    } else {
-      document->metaSize += 1;
-      document->meta = realloc(document->meta, sizeof(XMLNode *) * document->metaSize);
-      document->meta[document->metaSize - 1] = currentNode;
-    }
 
+      addNodeToCollection(document->nodes, currentNode);
+    }
     if (currentNode == NULL)
       break;
 
