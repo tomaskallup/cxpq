@@ -1,31 +1,12 @@
 #include "../lib/libtap/tap.h"
 
-#include "test-query-executor.c"
-#include "test-node-collection.c"
+#include "util.h"
 
-#define PRINT_SEPARATOR() diag("----------------------------------------\n");
-
-#define RUN_TESTS(func)                                                        \
-  {                                                                            \
-                                                                               \
-    PRINT_SEPARATOR();                                                         \
-    diag("Testing \"" #func "\"\n");                                           \
-    PRINT_SEPARATOR();                                                         \
-    int result = func();                                                       \
-    status |= result;                                                          \
-    if (result != 0) {                                                         \
-      PRINT_SEPARATOR();                                                       \
-      diag("Failed \"" #func "\"\n");                                          \
-      PRINT_SEPARATOR();                                                       \
-      return status;                                                           \
-    }                                                                          \
-    PRINT_SEPARATOR();                                                         \
-    diag("Finished \"" #func "\"\n");                                          \
-    PRINT_SEPARATOR();                                                         \
-  };
+#include "./node-collection/tests.c"
+#include "./query-executor/tests.c"
 
 int main(int argc, char *argv[]) {
-  int status = 0;
+  START_TESTS
 
   RUN_TESTS(testNodeCollection);
 
@@ -33,5 +14,5 @@ int main(int argc, char *argv[]) {
 
   // Use fmemopen for FILE mocking when testing parser
 
-  return status;
+  END_TESTS
 }
