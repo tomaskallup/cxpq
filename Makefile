@@ -9,7 +9,7 @@ release: GCCFLAGS += -O3 -o release/cxpq
 release: cxpq
 
 cxpq:
-	$(CC) $(GCCFLAGS) cxpq.c $(SOURCES)
+	$(CC) $(GCCFLAGS) cxpq.c cli-parser.c $(SOURCES)
 
 clean:
 	rm -f release/cxpq debug/cxpq

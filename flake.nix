@@ -23,6 +23,7 @@
           bear
           clang
           libllvm
+          gf
         ];
 
         shellHook = ''

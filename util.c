@@ -37,20 +37,15 @@ void printCurrentLineMarked(FILE *file) {
   unsigned long lineNumber = 1;
   unsigned long column = 1;
 
-  // printf("%lu: ", lineNumber);
   while (ftell(file) < position - 1) {
     const char currentChar = fgetc(file);
-    // printf("%c", currentChar);
     if (currentChar == '\n') {
       lineNumber++;
       column = 1;
-      // printf("%lu: ", lineNumber);
     }
 
     column++;
   }
-
-  printf("\n");
 
   unsigned long lineLength = column;
   while ((lineLength - column) < ERROR_MAX_LENGTH && fgetc(file) != '\n')

@@ -15,6 +15,8 @@ void skipBOM(FILE *file) {
 
   int to_seek = -1;
 
+  PRINT_DEBUG("BOM: ");
+
   if (nbytes >= 2) {
     if (memcmp(c, "\xFE\xFF", 2) == 0) {
       PRINT_DEBUG("UTF-16BE\n");
