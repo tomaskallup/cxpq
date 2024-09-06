@@ -14,7 +14,7 @@ struct ParseOptionsResult parse_options(int argc, char **argv,
     char *arg = argv[0];
     result.argcLeft--;
     argv++;
-    if (currentOptionDef != NULL && currentOptionDef->has_arg) {
+    if (currentOptionDef && currentOptionDef->has_arg) {
       if (result.shouldContinue) {
         enum OptionCallbackResult callbackResult =
             currentOptionDef->callback(arg);
@@ -32,7 +32,7 @@ struct ParseOptionsResult parse_options(int argc, char **argv,
     for (int i = 0; i < cliOptions.count; i++) {
       const struct OptionDef *optionDef = &cliOptions.optionDefs[i];
       if (isLong) {
-        if (optionDef->name != NULL && strcmp(arg + 2, optionDef->name) == 0) {
+        if (optionDef->name && strcmp(arg + 2, optionDef->name) == 0) {
           currentOptionDef = optionDef;
           break;
         }
@@ -44,7 +44,7 @@ struct ParseOptionsResult parse_options(int argc, char **argv,
       }
     }
 
-    if (currentOptionDef != NULL) {
+    if (currentOptionDef) {
       if (!currentOptionDef->has_arg) {
         if (result.shouldContinue) {
           enum OptionCallbackResult callbackResult =
@@ -71,7 +71,7 @@ struct ParseOptionsResult parse_options(int argc, char **argv,
     }
   }
 
-  if (currentOptionDef != NULL) {
+  if (currentOptionDef) {
     fprintf(stderr, "Missing value for option \"%s\"\n",
             currentOptionDef->name);
 
@@ -95,7 +95,7 @@ void print_help(char *command, const struct CliOptions cliOptions) {
     // before the option
     int optionLength = 3 + 2;
 
-    if (option->long_option != NULL) {
+    if (option->long_option) {
       // 2 is for `--`, 3 is for `-${short_name} ` and 2 is for `  ` printed
       optionLength += strlen(option->long_option) + 2;
     }
@@ -121,7 +121,7 @@ void print_help(char *command, const struct CliOptions cliOptions) {
       toPad -= 2;
     }
 
-    if (option.long_option != NULL) {
+    if (option.long_option) {
       if (option.short_option) {
         printf(", ");
         toPad -= 2;

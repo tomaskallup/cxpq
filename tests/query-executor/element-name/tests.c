@@ -6,14 +6,14 @@
 
 void simpleDirectElementQuery() {
   struct XMLDocument bookDocument = (XMLDocument){
-      &(NodeCollection){&(XMLNode *){(XMLNode *)&elementNameQueryFixtures.bookNode}, 1,
-                        1},
+      &(NodeCollection){
+          &(XMLNode *){(XMLNode *)&elementNameQueryFixtures.bookNode}, 1, 1},
       0,
   };
 
   struct XMLDocument book2Document = (XMLDocument){
-      &(NodeCollection){&(XMLNode *){(XMLNode *)&elementNameQueryFixtures.book2Node},
-                        1, 1},
+      &(NodeCollection){
+          &(XMLNode *){(XMLNode *)&elementNameQueryFixtures.book2Node}, 1, 1},
       0,
   };
 
@@ -39,20 +39,21 @@ void simpleDirectElementQuery() {
 
   ok(result != NULL, "Result is not null");
   cmp_ok(result->size, "==", 0, "Result size should be 0");
-  ok(result->nodes == NULL, "Result nodes should not be allocated");
+  ok(!result->nodes, "Result nodes should not be allocated");
 
   freeNodeCollection(result);
 }
 
 void simpleNonDirectElementQuery() {
   struct XMLDocument bookDocument = (XMLDocument){
-      &(NodeCollection){&(XMLNode *){(XMLNode *)&elementNameQueryFixtures.bookNode}, 1,
-                        1},
+      &(NodeCollection){
+          &(XMLNode *){(XMLNode *)&elementNameQueryFixtures.bookNode}, 1, 1},
       0,
   };
   struct XMLDocument bookDocumentWithChild = (XMLDocument){
       &(NodeCollection){
-          &(XMLNode *){(XMLNode *)&elementNameQueryFixtures.bookNodeWithChild}, 1, 1},
+          &(XMLNode *){(XMLNode *)&elementNameQueryFixtures.bookNodeWithChild},
+          1, 1},
       0,
   };
 
@@ -99,7 +100,8 @@ void simpleNonDirectElementQuery() {
 void wildcardElementQuery() {
   struct XMLDocument bookDocumentWithChild = (XMLDocument){
       &(NodeCollection){
-          &(XMLNode *){(XMLNode *)&elementNameQueryFixtures.bookNodeWithChild}, 1, 1},
+          &(XMLNode *){(XMLNode *)&elementNameQueryFixtures.bookNodeWithChild},
+          1, 1},
       0,
   };
 
@@ -115,7 +117,8 @@ void wildcardElementQuery() {
 
   ok(result != NULL, "Result is not null");
   cmp_ok(result->size, "==", 1, "Result size should be 1");
-  CHECK_NODE_IN_COLLECTION(result, elementNameQueryFixtures.bookNodeWithChild, 0);
+  CHECK_NODE_IN_COLLECTION(result, elementNameQueryFixtures.bookNodeWithChild,
+                           0);
 
   freeNodeCollection(result);
 
@@ -127,7 +130,8 @@ void wildcardElementQuery() {
 
   ok(result != NULL, "Result is not null");
   cmp_ok(result->size, "==", 2, "Result size should be 2");
-  CHECK_NODE_IN_COLLECTION(result, elementNameQueryFixtures.bookNodeWithChild, 0);
+  CHECK_NODE_IN_COLLECTION(result, elementNameQueryFixtures.bookNodeWithChild,
+                           0);
   CHECK_NODE_IN_COLLECTION(result, elementNameQueryFixtures.book2Node, 1);
 
   freeNodeCollection(result);
@@ -135,10 +139,9 @@ void wildcardElementQuery() {
 
 void simpleNonDirectElementQueryWithNestedDuplicate() {
   struct XMLDocument book2DocumentNested = (XMLDocument){
-      &(NodeCollection){
-          &(XMLNode *){
-              (XMLNode *)&elementNameQueryFixtures.book2NodeWithNestedBook2Node},
-          1, 1},
+      &(NodeCollection){&(XMLNode *){(XMLNode *)&elementNameQueryFixtures
+                                         .book2NodeWithNestedBook2Node},
+                        1, 1},
       0,
   };
 
@@ -156,8 +159,8 @@ void simpleNonDirectElementQueryWithNestedDuplicate() {
 
   ok(result != NULL, "Result is not null");
   cmp_ok(result->size, "==", 2, "Result size should be 2");
-  CHECK_NODE_IN_COLLECTION(result,
-                           elementNameQueryFixtures.book2NodeWithNestedBook2Node, 0);
+  CHECK_NODE_IN_COLLECTION(
+      result, elementNameQueryFixtures.book2NodeWithNestedBook2Node, 0);
   CHECK_NODE_IN_COLLECTION(result, elementNameQueryFixtures.book2Node, 1);
 
   freeNodeCollection(result);
@@ -166,7 +169,8 @@ void simpleNonDirectElementQueryWithNestedDuplicate() {
 void nestedDirectElementQuery() {
   struct XMLDocument bookDocumentWithChild = (XMLDocument){
       &(NodeCollection){
-          &(XMLNode *){(XMLNode *)&elementNameQueryFixtures.bookNodeWithChild}, 1, 1},
+          &(XMLNode *){(XMLNode *)&elementNameQueryFixtures.bookNodeWithChild},
+          1, 1},
       0,
   };
 

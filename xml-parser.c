@@ -68,13 +68,11 @@ XMLDocument *parseXML(FILE *file) {
   while (fgetc(file) == '<') {
     currentNode = parseNode(file, NULL);
 
-    if (currentNode != NULL) {
+    if (currentNode) {
       if (currentNode->type == ELEMENT) {
         XMLElementNode *elementNode = (XMLElementNode *)currentNode;
-        if (root == NULL) {
+        if (!root) {
           root = elementNode;
-          document->rootIndex = document->nodes->size;
-          printf("Found root element %i\n", document->rootIndex);
         } else {
           PRINT_ERROR("Found multiple root elements\n");
           freeXMLNode(currentNode);
@@ -82,8 +80,12 @@ XMLDocument *parseXML(FILE *file) {
       }
 
       addNodeToCollection(document->nodes, currentNode);
+      if (currentNode == (XMLNode *)root) {
+        document->rootIndex = document->nodes->lastIndex;
+        PRINT_DEBUG("Found root element %lu\n", document->rootIndex);
+      }
     }
-    if (currentNode == NULL)
+    if (!currentNode)
       break;
 
     skipWhitespaces(file);

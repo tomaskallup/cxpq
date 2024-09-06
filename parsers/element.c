@@ -10,7 +10,6 @@
 
 bool parseCloseTag(FILE *file, XMLElementNode *node) {
   char currentChar;
-  XMLNode *lastChild;
   while ((currentChar = fgetc(file))) {
     if (currentChar == '>') {
       if (stringEqual(node->tag, node->closeTag)) {
@@ -72,12 +71,12 @@ bool parseElementContent(FILE *file, XMLElementNode *node) {
           resultNode = (XMLNode *)parseCDATA(file);
         }
 
-        if (resultNode == NULL)
+        if (!resultNode)
           return false;
 
         addNodeToCollection(node->children, resultNode);
 
-        if (lastChild != NULL && lastChild->type == TEXT) {
+        if (lastChild && lastChild->type == TEXT) {
           XMLTextNode *textNode = (XMLTextNode *)lastChild;
           stringTrim(textNode->content);
         }
@@ -87,27 +86,27 @@ bool parseElementContent(FILE *file, XMLElementNode *node) {
 
         XMLNode *child = parseNode(file, (XMLNode *)node);
 
-        if (child == NULL)
+        if (!child)
           return false;
 
         addNodeToCollection(node->children, child);
 
-        if (lastChild != NULL && lastChild->type == TEXT) {
+        if (lastChild && lastChild->type == TEXT) {
           XMLTextNode *textNode = (XMLTextNode *)lastChild;
           stringTrim(textNode->content);
         }
         lastChild = child;
       }
     } else {
-      if (lastChild == NULL ||
-          lastChild->type != TEXT && !isWhitespace(currentChar)) {
+      if (!lastChild ||
+          (lastChild->type != TEXT && !isWhitespace(currentChar))) {
         XMLNode *textNode = initNode(TEXT);
 
         addNodeToCollection(node->children, textNode);
 
         lastChild = textNode;
       }
-      if (lastChild != NULL && lastChild->type == TEXT) {
+      if (lastChild && lastChild->type == TEXT) {
         // Parse text content
         XMLTextNode *textNode = (XMLTextNode *)lastChild;
         stringAppendChar(textNode->content, currentChar);
@@ -115,7 +114,7 @@ bool parseElementContent(FILE *file, XMLElementNode *node) {
     }
   }
 
-  if (lastChild != NULL && lastChild->type == TEXT) {
+  if (lastChild && lastChild->type == TEXT) {
     XMLTextNode *textNode = (XMLTextNode *)lastChild;
     stringTrim(textNode->content);
   }
@@ -158,8 +157,6 @@ Attribute *parseAttribute(FILE *file) {
   }
 
   Attribute *attr = initAttribute();
-
-  int nameLength = 0;
 
   char currentChar;
   while ((currentChar = fgetc(file))) {
@@ -252,7 +249,7 @@ XMLElementNode *parseElement(FILE *file) {
       // Parse node attributes
       Attribute *attr = parseAttribute(file);
 
-      if (attr == NULL) {
+      if (!attr) {
         freeXMLNode((XMLNode *)node);
         return NULL;
       }

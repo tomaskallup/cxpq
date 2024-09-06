@@ -39,8 +39,6 @@ static Attribute *parseAttribute(FILE *file) {
 
   Attribute *attr = initAttribute();
 
-  int nameLength = 0;
-
   char currentChar;
   while ((currentChar = fgetc(file))) {
     if (currentChar == '=') {
@@ -123,7 +121,7 @@ XMLNode *parseProcessingInstruction(FILE *file) {
 
       Attribute *attr = parseAttribute(file);
 
-      if (attr == NULL) {
+      if (!attr) {
         freeXMLNode((XMLNode *)node);
         return NULL;
       }

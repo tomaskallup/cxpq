@@ -7,6 +7,7 @@
 #define NODE_COLLECTION_ALLOC_SIZE 5
 
 NodeCollection *initNodeCollection();
+NodeCollection *cloneNodeCollection(NodeCollection *collection);
 void freeNodeCollection(NodeCollection *collection);
 void addNodeToCollection(NodeCollection *collection, XMLNode *node);
 /** Returns the number of time the node was present (and removed) */
@@ -14,5 +15,7 @@ int removeNodeFromCollection(NodeCollection *collection, XMLNode *node, bool rem
 int deduplicateNodeCollection(NodeCollection *collection);
 void compactNodeCollection(NodeCollection *collection);
 void concatNodeCollection(NodeCollection *collection, NodeCollection *other);
+
+void printNodeCollection(NodeCollection *collection, bool includeNewLine);
 
 #endif

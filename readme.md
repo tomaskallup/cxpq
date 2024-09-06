@@ -32,16 +32,25 @@ $ make realease
 $ ./release/cxpq ../examples/bookstore.xml
 ```
 
+## Known issues
+### Sub Queries & nesting
+When running a sub query (`book[...]`) any queries that follow it (`book[...]//...`) seem to be broken and don't return any nodes.
+Example:
+```shell
+$ make debug && ./debug/cxpq -Q xpath --query "book[price[@discount]]//price" ./examples/valid/bookstore.xml
+```
+It seems like the next query after the sub query is not properly nested and is not run on children of the sub query result.
+
 ## Features/non-features
  - [ ] Parsing
    - [x] Prolog (attributes get skipped)
-   - [x] DTD (content is just skipped)
+   - [x] DTD
    - [x] \(Root\) Node
      - [x] Attributes
      - [x] Namespaces
      - [x] Content
      - [x] CDATA (parsed as text content, with a flag)
-   - [x] Comments (currently get skipped)
+   - [x] Comments
    - [x] Processing Instructions
  - [ ] Validation (should be reworked and under a flag)
    - [x] Valid file (no unclosed tags, comments, etc.) - should be done?

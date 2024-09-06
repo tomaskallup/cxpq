@@ -30,7 +30,7 @@ static bool parseDTDLiteral(FILE *file, String *literal) {
 
 XMLDTDNode *parseDTD(FILE *file) {
   /* DTD Must start with DOCTYPE */
-  for (int i = 0; i < 7; i++) {
+  for (size_t i = 0; i < 7; i++) {
     char currentChar = fgetc(file);
 
     if (!currentChar) {
@@ -117,7 +117,7 @@ XMLDTDNode *parseDTD(FILE *file) {
 
   } else {
     char externalID[6] = {nextChar};
-    for (int i = 1; i < 6; i++) {
+    for (size_t i = 1; i < 6; i++) {
       externalID[i] = fgetc(file);
     }
 

@@ -8,7 +8,7 @@
 
 String *stringCreateEmpty() {
   struct String *str = malloc(sizeof(String));
-  if (str == NULL) {
+  if (!str) {
     PRINT_ERROR("Failed to allocate memory for string\n");
     return NULL;
   }
@@ -32,12 +32,23 @@ void stringAppendChar(String *str, char charToAdd) {
   str->value[str->length] = '\0';
 }
 
+void stringAppendChars(String *str, char *charsToAdd) {
+  size_t length = strlen(charsToAdd);
+  str->length += length;
+  str->allocated += length;
+  str->value = realloc(str->value, (1 + str->allocated) * sizeof(char));
+
+  for (size_t i = 0; i < length; i++) {
+    str->value[str->length - 1 - i] = charsToAdd[str->length - 1 - i];
+  }
+}
+
 void stringAppend(String *str, String *strToAdd) {
   str->length += strToAdd->length;
   str->allocated += strToAdd->allocated;
   str->value = realloc(str->value, (1 + str->allocated) * sizeof(char));
 
-  for (int i = 0; i < strToAdd->length; i++) {
+  for (size_t i = 0; i < strToAdd->length; i++) {
     str->value[str->length - 1 - i] = strToAdd->value[i];
   }
 }
@@ -53,14 +64,14 @@ bool stringEqualChars(String *str, char *cmp) {
 }
 
 void stringTrim(String *str) {
-  if (str->value == NULL)
+  if (!str->value)
     return;
-  int start = 0;
+  size_t start = 0;
 
   while (isWhitespace(str->value[start]) && start < str->length)
     start++;
 
-  int end = str->length - 1;
+  size_t end = str->length - 1;
   while (end > 0 && isWhitespace(str->value[end]))
     end--;
 
@@ -72,7 +83,7 @@ void stringTrim(String *str) {
     return;
   }
 
-  const int length = 1 + end - start;
+  const size_t length = 1 + end - start;
   char *result = calloc(length + 1, sizeof(char));
 
   str->allocated = length;
@@ -93,7 +104,7 @@ String *stringSubstring(String *str, int start, int end) {
                 str->length);
   }
 
-  const int length = end - start;
+  const size_t length = end - start;
   String *result = stringCreateEmpty();
   result->length = length;
   result->value = calloc(length + 1, sizeof(char));
@@ -104,7 +115,7 @@ String *stringSubstring(String *str, int start, int end) {
 }
 
 void freeString(String *str) {
-  if (str->value != NULL) {
+  if (str->value) {
     free(str->value);
   }
 

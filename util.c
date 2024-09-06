@@ -7,7 +7,7 @@
 #include "util.h"
 
 bool isWhitespace(const char input) {
-  return (input == ' ' || input == '\t' || input == '\n');
+  return (input == ' ' || input == '\t' || input == '\n' || input == '\r');
 }
 
 bool isValidNameChar(const char input) {
@@ -30,12 +30,12 @@ void skipWhitespaces(FILE *file) {
 }
 
 void printCurrentLineMarked(FILE *file) {
-  unsigned long position = ftell(file);
+  size_t position = ftell(file);
 
   fseek(file, 0, SEEK_SET);
 
-  unsigned long lineNumber = 1;
-  unsigned long column = 1;
+  size_t lineNumber = 1;
+  size_t column = 1;
 
   while (ftell(file) < position - 1) {
     const char currentChar = fgetc(file);
@@ -47,34 +47,29 @@ void printCurrentLineMarked(FILE *file) {
     column++;
   }
 
-  unsigned long lineLength = column;
+  size_t lineLength = column;
   while ((lineLength - column) < ERROR_MAX_LENGTH && fgetc(file) != '\n')
     lineLength++;
 
   fseek(file, column - lineLength - 1, SEEK_CUR);
 
-  unsigned long start =
+  size_t start =
       column > ERROR_MAX_LENGTH ? column - ERROR_MAX_LENGTH : 0;
-  unsigned long end = start + ERROR_MAX_LENGTH;
+  size_t end = start + ERROR_MAX_LENGTH;
   if (end >= lineLength)
     end = lineLength - 1;
-  unsigned long offset = column - start - 1;
-
-  char *offendingLine = calloc(column, sizeof(char));
-
-  /* PRINT_DEBUG("Start %lu end %lu column %lu rewind %lu lineLength %lu\n",
-     start, end, column, offset, lineLength); */
+  size_t offset = column - start - 1;
 
   fseek(file, -offset, SEEK_CUR);
 
   fprintf(stderr, "At line %lu, column %lu\n", lineNumber, column);
 
-  for (int i = 0; i < end - start; i++) {
+  for (size_t i = 0; i < end - start; i++) {
     const char character = fgetc(file);
     fprintf(stderr, "%c", character);
   }
   fprintf(stderr, "\n");
-  for (int i = 0; i < offset; i++)
+  for (size_t i = 0; i < offset; i++)
     fprintf(stderr, " ");
   fprintf(stderr, "^\n");
 }
@@ -146,21 +141,21 @@ Attribute *initAttribute() {
 }
 
 void freeAttribute(Attribute *attribute) {
-  if (attribute->name != NULL)
+  if (attribute->name)
     freeString(attribute->name);
 
-  if (attribute->content != NULL)
+  if (attribute->content)
     freeString(attribute->content);
 }
 
 void freeXMLNode(XMLNode *node) {
-  if (node == NULL)
+  if (!node)
     return;
 
   if (node->type == ELEMENT) {
     XMLElementNode *elementNode = (XMLElementNode *)node;
-    if (elementNode->children != NULL) {
-      for (int i = 0; i < elementNode->children->size; i++)
+    if (elementNode->children) {
+      for (size_t i = 0; i < elementNode->children->size; i++)
         freeXMLNode(elementNode->children->nodes[i]);
 
       freeNodeCollection(elementNode->children);
@@ -170,7 +165,7 @@ void freeXMLNode(XMLNode *node) {
     freeString(elementNode->closeTag);
 
     if (elementNode->attributesSize > 0) {
-      for (int a = 0; a < elementNode->attributesSize; a++) {
+      for (size_t a = 0; a < elementNode->attributesSize; a++) {
         freeAttribute(elementNode->attributes[a]);
         free(elementNode->attributes[a]);
       }
@@ -188,7 +183,7 @@ void freeXMLNode(XMLNode *node) {
         (XMLProcessingInstructionNode *)node;
     freeString(processingInstructionNode->tag);
     if (processingInstructionNode->attributesSize > 0) {
-      for (int a = 0; a < processingInstructionNode->attributesSize; a++) {
+      for (size_t a = 0; a < processingInstructionNode->attributesSize; a++) {
         freeAttribute(processingInstructionNode->attributes[a]);
         free(processingInstructionNode->attributes[a]);
       }
@@ -198,9 +193,9 @@ void freeXMLNode(XMLNode *node) {
   } else if (node->type == DTD) {
     XMLDTDNode *dtdNode = (XMLDTDNode *)node;
     freeString(dtdNode->name);
-    if (dtdNode->content != NULL)
+    if (dtdNode->content)
       freeString(dtdNode->content);
-    if (dtdNode->systemID != NULL)
+    if (dtdNode->systemID)
     freeString(dtdNode->systemID);
   }
 
@@ -208,7 +203,7 @@ void freeXMLNode(XMLNode *node) {
 }
 
 void freeXMLDocument(XMLDocument *document) {
-  for (int i = 0; i < document->nodes->size; i++) {
+  for (size_t i = 0; i <= document->nodes->lastIndex; i++) {
     freeXMLNode(document->nodes->nodes[i]);
   }
 
@@ -218,7 +213,7 @@ void freeXMLDocument(XMLDocument *document) {
 }
 
 void printXMLTree(XMLNode *root, int depth) {
-  for (int i = 0; i < depth; i++)
+  for (size_t i = 0; i < depth; i++)
     printf("  ");
 
   switch (root->type) {
@@ -226,17 +221,17 @@ void printXMLTree(XMLNode *root, int depth) {
     XMLElementNode *elementNode = (XMLElementNode *)root;
     printf("<%s", elementNode->tag->value);
 
-    for (int a = 0; a < elementNode->attributesSize; a++) {
+    for (size_t a = 0; a < elementNode->attributesSize; a++) {
       struct Attribute *attribute = elementNode->attributes[a];
       printf(" %s=\"%s\"", attribute->name->value, attribute->content->value);
     }
 
     printf(">\n");
 
-    for (int i = 0; i < elementNode->children->size; i++)
+    for (size_t i = 0; i <= elementNode->children->lastIndex; i++)
       printXMLTree(elementNode->children->nodes[i], depth + 1);
 
-    for (int i = 0; i < depth; i++)
+    for (size_t i = 0; i < depth; i++)
       printf("  ");
     printf("</%s>\n", elementNode->tag->value);
     break;
@@ -263,9 +258,9 @@ void printXMLTree(XMLNode *root, int depth) {
     XMLDTDNode *dtdNode = (XMLDTDNode *)root;
     printf("<!DOCTYPE %s", dtdNode->name->value);
 
-    if (dtdNode->systemID != NULL)
+    if (dtdNode->systemID)
       printf(" SYSTEM \"%s\"", dtdNode->systemID->value);
-    else if (dtdNode->content != NULL)
+    else if (dtdNode->content)
       printf(" [%s]", dtdNode->content->value);
 
     printf(">\n");
@@ -277,7 +272,7 @@ void printXMLTree(XMLNode *root, int depth) {
         (XMLProcessingInstructionNode *)root;
     printf("<?%s", processingInstructionNode->tag->value);
 
-    for (int a = 0; a < processingInstructionNode->attributesSize; a++) {
+    for (size_t a = 0; a < processingInstructionNode->attributesSize; a++) {
       struct Attribute *attribute = processingInstructionNode->attributes[a];
       printf(" %s=\"%s\"", attribute->name->value, attribute->content->value);
     }
@@ -290,7 +285,7 @@ void printXMLTree(XMLNode *root, int depth) {
 
 void printXMLDocument(XMLDocument *document) {
   NodeCollection *nodes = document->nodes;
-  for (int i = 0; i < nodes->size; i++) {
+  for (size_t i = 0; i <= nodes->lastIndex; i++) {
     printXMLTree(nodes->nodes[i], 0);
   }
 }

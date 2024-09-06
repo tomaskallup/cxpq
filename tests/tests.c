@@ -12,7 +12,7 @@ int main(int argc, char *argv[]) {
 
   RUN_TESTS(testQueryExecutor);
 
-  // Use fmemopen for FILE mocking when testing parser
+  // Use fmemopen (or tmpfile) for FILE mocking when testing parser
 
   END_TESTS
 }

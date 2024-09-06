@@ -1,6 +1,7 @@
 #include "../util.h"
 
 #include "../../node-collection.h"
+#include "../../util.h"
 
 #include "./fixtures.c"
 
@@ -11,7 +12,7 @@ void testInitNodeCollection() {
   cmp_ok(collection->size, "==", 0, "Collection size should be 0");
   cmp_ok(collection->allocated, "==", 0,
          "Collection should have 0 nodes allocated");
-  ok(collection->nodes == NULL, "Collection nodes should be null");
+  ok(!collection->nodes, "Collection nodes should be null");
 
   freeNodeCollection(collection);
 }
@@ -138,6 +139,40 @@ void testCompactNodeCollection() {
   freeNodeCollection(collection);
 }
 
+void testCloneNodeCollection() {
+  NodeCollection *collection = initNodeCollection();
+
+  addNodeToCollection(collection, (XMLNode *)&nodeCollectionFixtures.testNode);
+  addNodeToCollection(collection, (XMLNode *)&nodeCollectionFixtures.testNode2);
+  addNodeToCollection(collection, (XMLNode *)&nodeCollectionFixtures.test2Node);
+
+  NodeCollection *copy = cloneNodeCollection(collection);
+
+  ok(collection != NULL, "Collection is not null");
+  cmp_ok(collection->size, "==", 3, "Collection size should be 3");
+  cmp_ok(collection->allocated, "==", NODE_COLLECTION_ALLOC_SIZE,
+         "Collection should have %i nodes allocated",
+         NODE_COLLECTION_ALLOC_SIZE);
+  ok(collection->nodes != NULL, "Collection nodes should not be null");
+  CHECK_NODE_IN_COLLECTION(collection, nodeCollectionFixtures.testNode, 0);
+  CHECK_NODE_IN_COLLECTION(collection, nodeCollectionFixtures.testNode2, 1);
+  CHECK_NODE_IN_COLLECTION(collection, nodeCollectionFixtures.test2Node, 2);
+
+  freeNodeCollection(collection);
+
+  ok(copy != NULL, "Copy is not null");
+  cmp_ok(copy->size, "==", 3, "Copy size should be 3");
+  cmp_ok(copy->allocated, "==", NODE_COLLECTION_ALLOC_SIZE,
+         "Copy should have %i nodes allocated",
+         NODE_COLLECTION_ALLOC_SIZE);
+  ok(copy->nodes != NULL, "Copy nodes should not be null");
+  CHECK_NODE_IN_COLLECTION(copy, nodeCollectionFixtures.testNode, 0);
+  CHECK_NODE_IN_COLLECTION(copy, nodeCollectionFixtures.testNode2, 1);
+  CHECK_NODE_IN_COLLECTION(copy, nodeCollectionFixtures.test2Node, 2);
+
+  freeNodeCollection(copy);
+}
+
 int testNodeCollection() {
   plan(NO_PLAN);
 
@@ -149,6 +184,8 @@ int testNodeCollection() {
   IT(testRemoveNodefromCollectionWithDuplicate);
 
   IT(testCompactNodeCollection);
+
+  IT(testCloneNodeCollection);
 
   done_testing();
 }

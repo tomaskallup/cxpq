@@ -15,6 +15,7 @@ typedef struct String {
 String *stringCreateEmpty();
 
 void stringAppendChar(String *str, char charToAdd);
+void stringAppendChars(String *str, char *charsToAdd);
 void stringAppend(String *str, String *strToAdd);
 
 bool stringEqual(String *str, String *cmp);

@@ -1,3 +1,4 @@
+#include <assert.h>
 #include <stdio.h>
 #include <stdlib.h>
 
@@ -28,7 +29,7 @@ bool compare(String *leftSide, String *comparator, String *rightSide) {
 }
 
 bool checkNode(XMLElementNode *node, Query *query) {
-  if (query->prev == NULL && query->type != ElementName &&
+  if (!query->prev && query->type != ElementName &&
       query->type != ElementAttribute) {
     PRINT_ERROR(
         "First query should be ElementName or ElementAttribute filter\n");
@@ -45,93 +46,59 @@ bool checkNode(XMLElementNode *node, Query *query) {
       return false;
     const bool isWildcard =
         query->key->length == 1 && query->key->value[0] == '*';
-    const bool hasValue = query->value != NULL && query->value->length > 0;
+    const bool hasValue = query->value && query->value->length > 0;
 
     if (isWildcard && !hasValue)
       return true;
 
-    for (int i = 0; i < node->attributesSize; i++) {
+    for (size_t i = 0; i < node->attributesSize; i++) {
       Attribute *attribute = node->attributes[i];
       if (isWildcard || stringEqual(attribute->name, query->key)) {
         if (!hasValue || stringEqual(attribute->content, query->value))
           return true;
-        else return false;
+        else
+          return false;
       }
     }
 
     return false;
   }
-  case SubElementValue: {
-    if (node->children == NULL || node->children->size == 0)
-      return false;
-
-    const bool hasValue = query->value != NULL && query->value->length > 0;
-
-    for (int i = 0; i < node->children->size; i++) {
-      XMLNode *rawChild = node->children->nodes[i];
-      if (rawChild->type != ELEMENT)
-        continue;
-
-      XMLElementNode *child = (XMLElementNode *)rawChild;
-      if (child->children != NULL || child->children->size == 0)
-        continue;
-
-      if (stringEqual(child->tag, query->key)) {
-        String *childTextContent = stringCreateEmpty();
-
-        for (int j = 0; j < child->children->size; j++) {
-          XMLNode *rawGrandChild = child->children->nodes[j];
-          if (rawGrandChild->type != TEXT)
-            continue;
-
-          XMLTextNode *grandChild = (XMLTextNode *)rawGrandChild;
-          stringAppend(childTextContent, grandChild->content);
-        }
-
-        if (!hasValue ||
-            compare(childTextContent, query->comparator, query->value)) {
-          freeString(childTextContent);
-          return true;
-        }
-
-        freeString(childTextContent);
-      }
-    }
-    return false;
-  }
-  case PositionSelector:
-    return true;
   case FunctionFilter:
-    return true;
+    assert(false && "FunctionFilter is not implemented");
+    return false;
   }
 
   return false;
 }
 
-NodeCollection *runQuery(NodeCollection *nodes, Query *query) {
+// <book lang="cs"><book lang="en">test</book></book>
+// `/book` => <book lang="cs">
+// `//book` => <book lang="cs">,<book lang="en">
+// `//book[@lang=en]` => <book lang="en">
+// `//book[@lang=cs]` => <book lang="cs">
+
+NodeCollection *runQuery(NodeCollection *nodes, Query *query,
+                         bool checkNodeDirectly) {
   NodeCollection *result = initNodeCollection();
 
   if (nodes->size == 0)
     return result;
 
-  Query *currentQuery = query;
   bool isDirect = query->nesting == NESTING_DIRECT;
   bool hasNesting = query->nesting & NESTING_SOME;
-  /* PRINT_DEBUG("Running query %s (%s) on node %s\n", query->value->value,
-              isDirect ? "true" : "false", node->tag->value); */
 
-  for (int i = 0; i < nodes->size; i++) {
+  for (size_t i = 0; i <= nodes->lastIndex; i++) {
     const XMLNode *rawNode = nodes->nodes[i];
-    if (rawNode->type != ELEMENT)
+    if (!rawNode || rawNode->type != ELEMENT)
       continue;
     XMLElementNode *node = (XMLElementNode *)rawNode;
 
-    if (checkNode(node, query))
+    if (checkNodeDirectly && checkNode(node, query))
       addNodeToCollection(result, (XMLNode *)node);
 
     // If we need to "descend", we check children
-    if (!isDirect && hasNesting && node->children != NULL) {
-      NodeCollection *childrenResult = runQuery(node->children, query);
+    if (!isDirect && hasNesting && node->children) {
+      NodeCollection *childrenResult = runQuery(node->children, query, true);
       if (childrenResult->size > 0)
         concatNodeCollection(result, childrenResult);
       freeNodeCollection(childrenResult);
@@ -141,27 +108,54 @@ NodeCollection *runQuery(NodeCollection *nodes, Query *query) {
   if (result->size == 0)
     return result;
 
+  if (query->subQueryCount > 0) {
+    for (size_t i = 0; i < query->subQueryCount; i++) {
+      Query *subQuery = query->subQueries[i];
+      NodeCollection *resultCopy = cloneNodeCollection(result);
+      for (size_t i = 0; i < resultCopy->allocated; i++) {
+        XMLNode *currentNode = resultCopy->nodes[i];
+
+        if (!currentNode)
+          continue;
+
+        NodeCollection elementOnly = {
+            .size = 1,
+            .allocated = 1,
+            .nodes = &currentNode,
+        };
+        NodeCollection *newResult = runQuery(
+            &elementOnly, subQuery,
+            // Subquery should be executed on children if it's ElementName,
+            // otherwise it should directly check the node itself
+            subQuery->type != ElementName);
+
+        if (newResult->size == 0)
+          removeNodeFromCollection(resultCopy, currentNode, true);
+        freeNodeCollection(newResult);
+      }
+
+      freeNodeCollection(result);
+      result = resultCopy;
+    }
+  }
+
   Query *nextQuery = query->next;
-  if (nextQuery != NULL) {
+  if (nextQuery) {
     if (nextQuery->nesting & NESTING_SOME) {
       NodeCollection *childrenNodes = initNodeCollection();
-      for (int i = 0; i < result->size; i++) {
+      for (size_t i = 0; i < result->allocated; i++) {
         XMLNode *node = result->nodes[i];
-        if (node->type != ELEMENT)
+        if (!node || node->type != ELEMENT)
           continue;
         XMLElementNode *elementNode = (XMLElementNode *)node;
-        if (elementNode->children != NULL)
+        if (elementNode->children)
           concatNodeCollection(childrenNodes, elementNode->children);
       }
 
       freeNodeCollection(result);
-      result = runQuery(childrenNodes, nextQuery);
+      result = runQuery(childrenNodes, nextQuery, true);
       freeNodeCollection(childrenNodes);
     }
-
-    NodeCollection *nextResult = runQuery(result, nextQuery);
-    freeNodeCollection(result);
-    result = nextResult;
   }
 
   return result;
@@ -169,23 +163,24 @@ NodeCollection *runQuery(NodeCollection *nodes, Query *query) {
 
 NodeCollection *executeQuery(XMLDocument *document, Query *query) {
   NodeCollection *nodes = initNodeCollection();
-  Query *currentQuery = query;
 
   XMLElementNode *root =
       document->rootIndex >= 0
           ? (XMLElementNode *)document->nodes->nodes[document->rootIndex]
           : NULL;
 
-  if (root == NULL) {
+  if (!root) {
     PRINT_ERROR("Missing root element for XMLDocument, cannot query\n");
     return nodes;
   }
 
   addNodeToCollection(nodes, (XMLNode *)root);
 
-  NodeCollection *result = runQuery(nodes, query);
+  NodeCollection *result = runQuery(nodes, query, true);
 
   freeNodeCollection(nodes);
+
+  compactNodeCollection(result);
 
   return result;
 }

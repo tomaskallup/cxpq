@@ -28,8 +28,9 @@ typedef struct XMLNode {
 
 typedef struct NodeCollection {
   XMLNode **nodes;
-  int size;
+  size_t size;
   size_t allocated;
+  size_t lastIndex;
 } NodeCollection;
 
 typedef struct XMLElementNode {
@@ -42,7 +43,7 @@ typedef struct XMLElementNode {
   String *closeTag;
   NodeCollection *children;
   struct Attribute **attributes;
-  int attributesSize;
+  size_t attributesSize;
   bool hasNamespace;
 } XMLElementNode;
 
@@ -73,7 +74,7 @@ typedef struct XMLProcessingInstructionNode {
   /* Specific attributes */
   String *tag;
   struct Attribute **attributes;
-  int attributesSize;
+  size_t attributesSize;
 } XMLProcessingInstructionNode;
 
 typedef struct XMLDTDNode {
@@ -89,7 +90,7 @@ typedef struct XMLDTDNode {
 
 typedef struct XMLDocument {
   NodeCollection *nodes;
-  int rootIndex;
+  size_t rootIndex;
 } XMLDocument;
 
 #endif

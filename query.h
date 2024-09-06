@@ -14,23 +14,21 @@
 /** Can be used to check for any nesting (direct/indirect) */
 #define NESTING_SOME NESTING_DIRECT | NESTING_INDIRECT
 
-#define PRINT_QUERY(query)                                                     \
-  printf("%i key: %s, value: %s, nesting: %hu\n", query->type,                   \
-         query->key != NULL ? query->key->value : "(null)",                    \
-         query->value != NULL ? query->value->value : "(null)",                \
-         query->nesting)
-
 enum QueryType {
   /** Used to query by element tag name, eg. `bookstore` */
   ElementName,
   /** Used to query by element attribute with optional value, eg. `name="Test"`
      or just `name` */
   ElementAttribute,
-  /** Used to query by position in result, eg. `1` or `last()` or `len() - 1` */
-  PositionSelector,
-  /** Used to query by subelement value, eg. `price > 35.00` */
-  SubElementValue,
-  /** Used for custom selection by builtin functions, currently unused */
+  /** Used for custom selection by builtin functions
+   * eg.:
+   *   `last()`
+   *   `len() - 1`
+   *   `position() > 1`
+   *   `text() > 1`
+   *   `> 1` -> `text() > 1`
+   *   `1` -> `position() = 1`
+   * */
   FunctionFilter,
 };
 
@@ -44,10 +42,16 @@ typedef struct Query {
   unsigned short nesting;
   struct Query *next;
   struct Query *prev;
+  /** These queries are run on matching nodes as "root", if the have any results
+   * the "root" node is considered matching
+   */
+  struct Query **subQueries;
+  size_t subQueryCount;
 } Query;
 
 Query *initQuery(enum QueryType type);
 
 void freeQuery(Query *query);
+void printQuery(Query *query, size_t depth);
 
 #endif

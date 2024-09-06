@@ -3,7 +3,10 @@
 #include <stdlib.h>
 #include <string.h>
 
+#include "./parsers/xpath.h"
 #include "cli-parser.h"
+#include "query-executor.h"
+#include "query.h"
 #include "util.h"
 #include "xml-parser.h"
 
@@ -19,10 +22,10 @@ enum OptionCallbackResult printVersion(const char *value) {
 char *queryTypes[] = {"xpath"};
 
 char *queryType = NULL;
-const char *query = NULL;
+const char *rawQuery = NULL;
 
 enum OptionCallbackResult setQueryType(const char *value) {
-  for (int i = 0; i < sizeof(queryTypes) / sizeof(queryTypes[0]); i++) {
+  for (size_t i = 0; i < sizeof(queryTypes) / sizeof(queryTypes[0]); i++) {
     if (strlen(value) == strlen(queryTypes[i]) &&
         strcmp(value, queryTypes[i]) == 0) {
       queryType = queryTypes[i];
@@ -37,7 +40,7 @@ enum OptionCallbackResult setQueryType(const char *value) {
 }
 
 enum OptionCallbackResult setQuery(const char *value) {
-  query = value;
+  rawQuery = value;
 
   return OPTION_CALLBACK_RESULT_OK;
 }
@@ -91,13 +94,13 @@ enum OptionCallbackResult helpHandler(const char *value) {
 
 FILE *redirectStdin() {
   FILE *file = tmpfile();
-  if (file == NULL) {
+  if (!file) {
     perror("Failed to create tempfile");
     return NULL;
   }
 
   char chunk[1024];
-  while (fgets(chunk, 1024, stdin) != NULL) {
+  while (fgets(chunk, 1024, stdin)) {
     fputs(chunk, file);
   }
 
@@ -122,13 +125,13 @@ int main(int argc, char *argv[]) {
   if (!result.shouldContinue)
     return 1;
 
-  if (query == NULL && queryType != NULL) {
+  if (!rawQuery && queryType) {
     PRINT_ERROR("Missing query, but queryType \"%s\" was provided, use \"-q "
                 "query\" or \"--query query\" to provide query.\n",
                 queryType);
     return 1;
   }
-  if (query != NULL && queryType == NULL) {
+  if (rawQuery && !queryType) {
     PRINT_ERROR("Missing queryType for query, assuming \"%s\"\n",
                 queryTypes[0]);
     queryType = queryTypes[0];
@@ -138,16 +141,28 @@ int main(int argc, char *argv[]) {
     if (result.argcLeft == 0)
       PRINT_ERROR("No file was provided\n");
     if (result.argcLeft > 1)
-      PRINT_ERROR("Multiple file provided\n");
+      PRINT_ERROR("Multiple files provided\n");
 
     return 1;
+  }
+
+  Query *query = NULL;
+  if (rawQuery) {
+    if (strcmp(queryType, "xpath") == 0) {
+      query = parseXpath(rawQuery);
+    }
+
+    if (!query) {
+      PRINT_ERROR("Query could not be parsed\n");
+      return 1;
+    }
   }
 
   const char *fileName = result.remainingArgv[0];
   FILE *file;
   if (strlen(fileName) == 1 && fileName[0] == '-') {
     FILE *newFile = redirectStdin();
-    if (newFile == NULL) {
+    if (!newFile) {
       perror("Failed to redirect stdin");
     }
     file = newFile;
@@ -167,14 +182,28 @@ int main(int argc, char *argv[]) {
 
   fclose(file);
 
-  if (root == NULL) {
+  if (!root) {
     freeXMLDocument(document);
-    PRINT_ERROR("Failed to parse provided XML file\n");
+    PRINT_ERROR("Failed to parse provided XML file, nodes %p\n",
+                document->nodes->nodes);
+
+    if (query)
+      freeQuery(query);
     return 2;
   } else {
-    printf("Root node %s (%i)\n", root->tag->value, document->rootIndex);
+    if (!query) {
+      printf("Root node %s (%lu)\n", root->tag->value, document->rootIndex);
 
-    printXMLDocument(document);
+      printXMLDocument(document);
+    } else {
+      NodeCollection *result = executeQuery(document, query);
+
+      printNodeCollection(result, true);
+
+      freeNodeCollection(result);
+
+      freeQuery(query);
+    }
 
     freeXMLDocument(document);
   }
