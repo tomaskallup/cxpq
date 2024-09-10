@@ -92,7 +92,7 @@ enum OptionCallbackResult helpHandler(const char *value) {
   return OPTION_CALLBACK_RESULT_OK_STOP;
 }
 
-FILE *redirectStdin() {
+FILE *redirectStdin(void) {
   FILE *file = tmpfile();
   if (!file) {
     perror("Failed to create tempfile");

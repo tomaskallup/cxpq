@@ -9,8 +9,8 @@
 #define QUERY_H
 
 #define NESTING_NONE 0
-#define NESTING_INDIRECT 0b01
-#define NESTING_DIRECT 0b10
+#define NESTING_INDIRECT 1
+#define NESTING_DIRECT 2
 /** Can be used to check for any nesting (direct/indirect) */
 #define NESTING_SOME NESTING_DIRECT | NESTING_INDIRECT
 
@@ -52,6 +52,6 @@ typedef struct Query {
 Query *initQuery(enum QueryType type);
 
 void freeQuery(Query *query);
-void printQuery(Query *query, size_t depth);
+void printQuery(Query *query, size_t depth, bool printNext);
 
 #endif

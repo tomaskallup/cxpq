@@ -6,7 +6,7 @@
 #include "string.h"
 #include "util.h"
 
-String *stringCreateEmpty() {
+String *stringCreateEmpty(void) {
   struct String *str = malloc(sizeof(String));
   if (!str) {
     PRINT_ERROR("Failed to allocate memory for string\n");

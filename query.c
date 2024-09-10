@@ -38,7 +38,7 @@ void freeQuery(Query *query) {
   free(query);
 }
 
-void printQuery(Query *query, size_t depth) {
+void printQuery(Query *query, size_t depth, bool printNext) {
   for (size_t i = 0; i < depth * 2; i++)
     fprintf(stderr, " ");
   if (query->type == ElementName) {
@@ -60,8 +60,8 @@ void printQuery(Query *query, size_t depth) {
 
   if (query->subQueries)
     for (size_t i = 0; i < query->subQueryCount; i++)
-      printQuery(query->subQueries[i], depth + 1);
+      printQuery(query->subQueries[i], depth + 1, printNext);
 
-  if (query->next)
-    printQuery(query->next, depth);
+  if (printNext && query->next)
+    printQuery(query->next, depth, printNext);
 }

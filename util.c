@@ -130,7 +130,7 @@ XMLNode *initNode(enum XMLNodeType type) {
   return node;
 }
 
-Attribute *initAttribute() {
+Attribute *initAttribute(void) {
   Attribute *attribute = malloc(sizeof(Attribute));
 
   attribute->name = stringCreateEmpty();

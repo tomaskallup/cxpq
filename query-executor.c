@@ -29,12 +29,6 @@ bool compare(String *leftSide, String *comparator, String *rightSide) {
 }
 
 bool checkNode(XMLElementNode *node, Query *query) {
-  if (!query->prev && query->type != ElementName &&
-      query->type != ElementAttribute) {
-    PRINT_ERROR(
-        "First query should be ElementName or ElementAttribute filter\n");
-    return false;
-  }
   switch (query->type) {
   case ElementName:
     if (query->value->length == 1 && query->value->value[0] == '*')
@@ -78,14 +72,13 @@ bool checkNode(XMLElementNode *node, Query *query) {
 // `//book[@lang=cs]` => <book lang="cs">
 
 NodeCollection *runQuery(NodeCollection *nodes, Query *query,
-                         bool checkNodeDirectly) {
+                         bool checkNodeDirectly, bool checkNext) {
   NodeCollection *result = initNodeCollection();
 
   if (nodes->size == 0)
     return result;
 
   bool isDirect = query->nesting == NESTING_DIRECT;
-  bool hasNesting = query->nesting & NESTING_SOME;
 
   for (size_t i = 0; i <= nodes->lastIndex; i++) {
     const XMLNode *rawNode = nodes->nodes[i];
@@ -97,10 +90,12 @@ NodeCollection *runQuery(NodeCollection *nodes, Query *query,
       addNodeToCollection(result, (XMLNode *)node);
 
     // If we need to "descend", we check children
-    if (!isDirect && hasNesting && node->children) {
-      NodeCollection *childrenResult = runQuery(node->children, query, true);
-      if (childrenResult->size > 0)
+    if (!isDirect && node->children) {
+      NodeCollection *childrenResult =
+          runQuery(node->children, query, true, false);
+      if (childrenResult->size > 0) {
         concatNodeCollection(result, childrenResult);
+      }
       freeNodeCollection(childrenResult);
     }
   }
@@ -112,7 +107,7 @@ NodeCollection *runQuery(NodeCollection *nodes, Query *query,
     for (size_t i = 0; i < query->subQueryCount; i++) {
       Query *subQuery = query->subQueries[i];
       NodeCollection *resultCopy = cloneNodeCollection(result);
-      for (size_t i = 0; i < resultCopy->allocated; i++) {
+      for (size_t i = 0; i <= resultCopy->lastIndex; i++) {
         XMLNode *currentNode = resultCopy->nodes[i];
 
         if (!currentNode)
@@ -121,13 +116,14 @@ NodeCollection *runQuery(NodeCollection *nodes, Query *query,
         NodeCollection elementOnly = {
             .size = 1,
             .allocated = 1,
+            .lastIndex = 0,
             .nodes = &currentNode,
         };
         NodeCollection *newResult = runQuery(
             &elementOnly, subQuery,
             // Subquery should be executed on children if it's ElementName,
             // otherwise it should directly check the node itself
-            subQuery->type != ElementName);
+            subQuery->type != ElementName, true);
 
         if (newResult->size == 0)
           removeNodeFromCollection(resultCopy, currentNode, true);
@@ -139,22 +135,24 @@ NodeCollection *runQuery(NodeCollection *nodes, Query *query,
     }
   }
 
-  Query *nextQuery = query->next;
-  if (nextQuery) {
-    if (nextQuery->nesting & NESTING_SOME) {
-      NodeCollection *childrenNodes = initNodeCollection();
-      for (size_t i = 0; i < result->allocated; i++) {
-        XMLNode *node = result->nodes[i];
-        if (!node || node->type != ELEMENT)
-          continue;
-        XMLElementNode *elementNode = (XMLElementNode *)node;
-        if (elementNode->children)
-          concatNodeCollection(childrenNodes, elementNode->children);
-      }
+  if (checkNext) {
+    Query *nextQuery = query->next;
+    if (nextQuery) {
+      if (nextQuery->nesting & NESTING_SOME) {
+        NodeCollection *childrenNodes = initNodeCollection();
+        for (size_t i = 0; i <= result->lastIndex; i++) {
+          XMLNode *node = result->nodes[i];
+          if (!node || node->type != ELEMENT)
+            continue;
+          XMLElementNode *elementNode = (XMLElementNode *)node;
+          if (elementNode->children)
+            concatNodeCollection(childrenNodes, elementNode->children);
+        }
 
-      freeNodeCollection(result);
-      result = runQuery(childrenNodes, nextQuery, true);
-      freeNodeCollection(childrenNodes);
+        freeNodeCollection(result);
+        result = runQuery(childrenNodes, nextQuery, true, false);
+        freeNodeCollection(childrenNodes);
+      }
     }
   }
 
@@ -176,7 +174,7 @@ NodeCollection *executeQuery(XMLDocument *document, Query *query) {
 
   addNodeToCollection(nodes, (XMLNode *)root);
 
-  NodeCollection *result = runQuery(nodes, query, true);
+  NodeCollection *result = runQuery(nodes, query, true, true);
 
   freeNodeCollection(nodes);
 

@@ -12,7 +12,7 @@ typedef struct String {
   int length;
 } String;
 
-String *stringCreateEmpty();
+String *stringCreateEmpty(void);
 
 void stringAppendChar(String *str, char charToAdd);
 void stringAppendChars(String *str, char *charsToAdd);

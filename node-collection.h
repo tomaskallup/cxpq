@@ -6,7 +6,7 @@
 
 #define NODE_COLLECTION_ALLOC_SIZE 5
 
-NodeCollection *initNodeCollection();
+NodeCollection *initNodeCollection(void);
 NodeCollection *cloneNodeCollection(NodeCollection *collection);
 void freeNodeCollection(NodeCollection *collection);
 void addNodeToCollection(NodeCollection *collection, XMLNode *node);

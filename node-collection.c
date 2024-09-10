@@ -4,7 +4,7 @@
 #include "node-collection.h"
 #include "util.h"
 
-NodeCollection *initNodeCollection() {
+NodeCollection *initNodeCollection(void) {
   NodeCollection *collection = malloc(sizeof(NodeCollection));
   collection->nodes = NULL;
   collection->size = 0;
@@ -54,13 +54,13 @@ void compactNodeCollection(NodeCollection *collection) {
 
     return;
   }
-  for (size_t i = 0; i < collection->allocated; i++) {
+  for (size_t i = 0; i <= collection->lastIndex; i++) {
     if (!collection->nodes[i]) {
       size_t oldIndex = i;
       size_t newIndex = i;
 
       XMLNode *nextNonNull = NULL;
-      while (!nextNonNull && ++newIndex < collection->allocated) {
+      while (!nextNonNull && ++newIndex <= collection->lastIndex) {
         nextNonNull = collection->nodes[newIndex];
       }
 
@@ -113,9 +113,14 @@ void concatNodeCollection(NodeCollection *collection, NodeCollection *other) {
   size_t start = collection->size == 0 && collection->lastIndex == 0
                      ? 0
                      : collection->lastIndex + 1;
+
+  // We intentionally copy all allocated nodes (including NULLs)
   for (size_t i = start; i < collection->allocated; i++) {
     collection->nodes[i] = other->nodes[i - start];
   }
+
+  // Make sure to account for two `0` last indexes
+  if (collection->size > 0) collection->lastIndex++;
 
   collection->lastIndex += other->lastIndex;
   collection->size += other->size;
@@ -126,9 +131,13 @@ NodeCollection *cloneNodeCollection(NodeCollection *collection) {
 
   copy->size = collection->size;
   copy->allocated = collection->allocated;
+  copy->lastIndex = collection->lastIndex;
+
+  if (copy->allocated == 0) return copy;
 
   copy->nodes = calloc(copy->allocated, sizeof(XMLNode *));
 
+  // We intentionally copy all allocated nodes (including NULLs)
   for (size_t i = 0; i < copy->allocated; i++) {
     copy->nodes[i] = collection->nodes[i];
   }
@@ -142,7 +151,7 @@ void printNodeCollection(NodeCollection *collection, bool includeNewLine) {
     return;
   }
 
-  for (size_t i = 0; i < collection->allocated; i++) {
+  for (size_t i = 0; i <= collection->lastIndex; i++) {
     XMLNode *node = collection->nodes[i];
     if (!node)
       continue;

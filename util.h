@@ -24,7 +24,7 @@ void skipWhitespaces(FILE *file);
 void printCurrentLineMarked(FILE *file);
 
 XMLNode *initNode(enum XMLNodeType type);
-Attribute *initAttribute();
+Attribute *initAttribute(void);
 void freeAttribute(Attribute *attribute);
 
 void freeXMLNode(XMLNode *root);
