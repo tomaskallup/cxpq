@@ -1,5 +1,4 @@
 #include <stdbool.h>
-#include <stdlib.h>
 
 #include "string.h"
 #include "types.h"
@@ -12,7 +11,7 @@
 #define NESTING_INDIRECT 1
 #define NESTING_DIRECT 2
 /** Can be used to check for any nesting (direct/indirect) */
-#define NESTING_SOME NESTING_DIRECT | NESTING_INDIRECT
+#define NESTING_SOME (NESTING_DIRECT | NESTING_INDIRECT)
 
 enum QueryType {
   /** Used to query by element tag name, eg. `bookstore` */
@@ -46,12 +45,13 @@ typedef struct Query {
    * the "root" node is considered matching
    */
   struct Query **subQueries;
-  size_t subQueryCount;
+  unsigned int subQueryCount;
 } Query;
 
 Query *initQuery(enum QueryType type);
 
 void freeQuery(Query *query);
-void printQuery(Query *query, size_t depth, bool printNext);
+void printQuery(Query *query, unsigned int depth, bool printNext);
+bool queryIsEmpty(Query *query);
 
 #endif

@@ -8,8 +8,8 @@
 
 typedef struct String {
   char *value;
-  int allocated;
-  int length;
+  unsigned int allocated;
+  unsigned int length;
 } String;
 
 String *stringCreateEmpty(void);
@@ -24,6 +24,6 @@ bool stringEqualChars(String *str, char *cmp);
 void stringTrim(String *str);
 void freeString(String *str);
 
-String *stringSubstring(String *str, int start, int end);
+String *stringSubstring(String *str, unsigned int start, unsigned int end);
 
 #endif

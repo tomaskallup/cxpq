@@ -1,4 +1,3 @@
-#include <ctype.h>
 #include <string.h>
 
 #include "../util.h"
@@ -10,7 +9,7 @@ const char *CDATAClosing = "]]>";
 XMLTextNode *parseCDATA(FILE *file) {
   /* DTD Must start with DOCTYPE */
   for (int i = 0; i < 5; i++) {
-    char currentChar = fgetc(file);
+    char currentChar = (char)fgetc(file);
 
     if (!currentChar) {
       fseek(file, -1, SEEK_CUR);
@@ -39,7 +38,7 @@ XMLTextNode *parseCDATA(FILE *file) {
 
   /* Read content of CDATA */
   char currentChar;
-  while ((currentChar = fgetc(file)) != CDATAClosing[0]) {
+  while ((currentChar = (char)fgetc(file)) != CDATAClosing[0]) {
     stringAppendChar(node->content, currentChar);
   }
 

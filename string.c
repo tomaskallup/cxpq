@@ -1,3 +1,4 @@
+#include <assert.h>
 #include <stdbool.h>
 #include <stdio.h>
 #include <stdlib.h>
@@ -25,7 +26,9 @@ void stringAppendChar(String *str, char charToAdd) {
 
   if (str->allocated <= str->length) {
     str->allocated += STRING_BUFFER_SIZE;
-    str->value = realloc(str->value, (1 + str->allocated) * sizeof(char));
+    char *newValue = realloc(str->value, (1 + str->allocated) * sizeof(char));
+    assert(newValue && "Failed to realloc new string size");
+    str->value = newValue;
   }
 
   str->value[str->length - 1] = charToAdd;
@@ -33,10 +36,12 @@ void stringAppendChar(String *str, char charToAdd) {
 }
 
 void stringAppendChars(String *str, char *charsToAdd) {
-  size_t length = strlen(charsToAdd);
+  int length = (int)strlen(charsToAdd);
   str->length += length;
   str->allocated += length;
-  str->value = realloc(str->value, (1 + str->allocated) * sizeof(char));
+  char *newValue = realloc(str->value, (1 + str->allocated) * sizeof(char));
+  assert(newValue && "Failed to realloc new string size");
+  str->value = newValue;
 
   for (size_t i = 0; i < length; i++) {
     str->value[str->length - 1 - i] = charsToAdd[str->length - 1 - i];
@@ -44,9 +49,13 @@ void stringAppendChars(String *str, char *charsToAdd) {
 }
 
 void stringAppend(String *str, String *strToAdd) {
+  if (!strToAdd || strToAdd->length == 0)
+    return;
   str->length += strToAdd->length;
   str->allocated += strToAdd->allocated;
-  str->value = realloc(str->value, (1 + str->allocated) * sizeof(char));
+  char *newValue = realloc(str->value, (1 + str->allocated) * sizeof(char));
+  assert(newValue && "Failed to realloc new string size");
+  str->value = newValue;
 
   for (size_t i = 0; i < strToAdd->length; i++) {
     str->value[str->length - 1 - i] = strToAdd->value[i];
@@ -94,7 +103,7 @@ void stringTrim(String *str) {
   str->value = result;
 }
 
-String *stringSubstring(String *str, int start, int end) {
+String *stringSubstring(String *str, unsigned int start, unsigned int end) {
   if (start < 0)
     start = str->length + start;
   if (end < 0)

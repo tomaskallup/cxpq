@@ -7,7 +7,7 @@
 const char *dtdTagName = "DOCTYPE";
 
 static bool parseDTDLiteral(FILE *file, String *literal) {
-  const char firstChar = fgetc(file);
+  const char firstChar = (char)fgetc(file);
   if (firstChar != '"') {
     fseek(file, -1, SEEK_CUR);
     printCurrentLineMarked(file);
@@ -17,8 +17,9 @@ static bool parseDTDLiteral(FILE *file, String *literal) {
   }
 
   char currentChar;
-  while ((currentChar = fgetc(file))) {
-    if (currentChar == '"') return true;
+  while ((currentChar = (char)fgetc(file))) {
+    if (currentChar == '"')
+      return true;
     stringAppendChar(literal, currentChar);
   }
 
@@ -30,8 +31,8 @@ static bool parseDTDLiteral(FILE *file, String *literal) {
 
 XMLDTDNode *parseDTD(FILE *file) {
   /* DTD Must start with DOCTYPE */
-  for (size_t i = 0; i < 7; i++) {
-    char currentChar = fgetc(file);
+  for (unsigned short i = 0; i < 7; i++) {
+    char currentChar = (char)fgetc(file);
 
     if (!currentChar) {
       fseek(file, -1, SEEK_CUR);
@@ -58,7 +59,7 @@ XMLDTDNode *parseDTD(FILE *file) {
   XMLDTDNode *node = (XMLDTDNode *)initNode(DTD);
 
   /* Next is name of the DTD */
-  const char firstChar = fgetc(file);
+  const char firstChar = (char)fgetc(file);
   if (!isalpha(firstChar) && firstChar != '_') {
     fseek(file, -1, SEEK_CUR);
     printCurrentLineMarked(file);
@@ -71,7 +72,7 @@ XMLDTDNode *parseDTD(FILE *file) {
 
   stringAppendChar(node->name, firstChar);
   char currentChar;
-  while ((currentChar = fgetc(file))) {
+  while ((currentChar = (char)fgetc(file))) {
     if (currentChar == ' ' || currentChar == '>')
       break;
     if (!isValidNameChar(currentChar)) {
@@ -86,7 +87,7 @@ XMLDTDNode *parseDTD(FILE *file) {
 
   fseek(file, -1, SEEK_CUR);
 
-  char nextChar = fgetc(file);
+  char nextChar = (char)fgetc(file);
   if (nextChar == '>')
     return node;
 
@@ -99,10 +100,10 @@ XMLDTDNode *parseDTD(FILE *file) {
     return NULL;
   }
 
-  nextChar = fgetc(file);
+  nextChar = (char)fgetc(file);
   if (nextChar == '[') {
     node->content = stringCreateEmpty();
-    while ((nextChar = fgetc(file)) != ']') {
+    while ((nextChar = (char)fgetc(file)) != ']') {
       stringAppendChar(node->content, nextChar);
     }
 
@@ -117,8 +118,8 @@ XMLDTDNode *parseDTD(FILE *file) {
 
   } else {
     char externalID[6] = {nextChar};
-    for (size_t i = 1; i < 6; i++) {
-      externalID[i] = fgetc(file);
+    for (unsigned short i = 1; i < 6; i++) {
+      externalID[i] = (char)fgetc(file);
     }
 
     bool isSystem = strncmp(externalID, "SYSTEM", 6) == 0;

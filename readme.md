@@ -32,18 +32,9 @@ $ make realease
 $ ./release/cxpq ../examples/bookstore.xml
 ```
 
-## Known issues
-### Sub Queries & nesting
-When running a sub query (`book[...]`) any queries that follow it (`book[...]//...`) seem to be broken and don't return any nodes.
-Example:
-```shell
-$ make debug && ./debug/cxpq -Q xpath --query "book[price[@discount]]//price" ./examples/valid/bookstore.xml
-```
-It seems like the next query after the sub query is not properly nested and is not run on children of the sub query result.
-
 ## Features/non-features
  - [ ] Parsing
-   - [x] Prolog (attributes get skipped)
+   - [x] Prolog
    - [x] DTD
    - [x] \(Root\) Node
      - [x] Attributes
@@ -60,7 +51,7 @@ It seems like the next query after the sub query is not properly nested and is n
    - [ ] Namespaces (currenly they just get included in node name)
    - [ ] Valid document (has prolog & a single root node)
  - [ ] Querying
-   - [ ] XPath?
+   - [x] XPath?
    - [ ] Custom query language (CSS selector like)
  - [ ] Tests
    - [ ] Individual node parsers
@@ -68,3 +59,25 @@ It seems like the next query after the sub query is not properly nested and is n
    - [ ] Validator (after rework)
    - [ ] Query parsing
    - [ ] Query execution
+
+## Example usages
+
+Simply parse and print back xml document
+```sh
+$ cxpq ./examples/valid/bookstore.xml
+```
+
+Query all books anywhere in the xml document:
+```sh
+$ cxpq -Q xpath --query "//book" ./examples/valid/bookstore.xml
+```
+
+Select all tags anywhere in the xml document:
+```sh
+$ cxpq -Q xpath --query "*" ./examples/valid/bookstore.xml
+```
+
+Complex selector with sub query & function filtering, selects titles of books which have more than 2 price tags and are inside bookstore tag.
+```sh
+$ cxpq -Q xpath --query "//bookstore//book[price/position() > 1]/title" ./examples/valid/bookstore.xml
+```

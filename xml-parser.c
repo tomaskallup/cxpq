@@ -1,4 +1,3 @@
-#include <ctype.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -13,18 +12,12 @@ void skipBOM(FILE *file) {
 
   size_t nbytes = fread(c, sizeof(char), sizeof(c), file);
 
-  int to_seek = -1;
+  size_t to_seek = nbytes;
 
   PRINT_DEBUG("BOM: ");
 
   if (nbytes >= 2) {
     if (memcmp(c, "\xFE\xFF", 2) == 0) {
-      PRINT_DEBUG("UTF-16BE\n");
-      to_seek = nbytes - 2;
-    } else if (memcmp(c, "\xFF\xFE", 2) == 0) {
-      PRINT_DEBUG("UTF-16LE\n");
-      to_seek = nbytes - 2;
-    } else if (memcmp(c, "\xFE\xFF", 2) == 0) {
       PRINT_DEBUG("UTF-16BE\n");
       to_seek = nbytes - 2;
     } else if (memcmp(c, "\xFF\xFE", 2) == 0) {
@@ -46,12 +39,11 @@ void skipBOM(FILE *file) {
     }
   }
 
-  if (to_seek == -1) {
+  if (to_seek == nbytes) {
     PRINT_DEBUG("No BOM detected\n");
-    /* Probably not a BOM */
-    rewind(file);
+    fseek(file, 0, SEEK_SET);
   } else if (to_seek > 0)
-    fseek(file, -to_seek, SEEK_CUR);
+    fseek(file, -(long)to_seek, SEEK_CUR);
 }
 
 XMLDocument *parseXML(FILE *file) {
@@ -82,7 +74,7 @@ XMLDocument *parseXML(FILE *file) {
       addNodeToCollection(document->nodes, currentNode);
       if (currentNode == (XMLNode *)root) {
         document->rootIndex = document->nodes->lastIndex;
-        PRINT_DEBUG("Found root element %lu\n", document->rootIndex);
+        PRINT_DEBUG("Found root element %i\n", document->rootIndex);
       }
     }
     if (!currentNode)

@@ -9,7 +9,6 @@ typedef struct NodeCollectionFixtures {
   XMLElementNode test2Node;
 } NodeCollectionFixtures;
 
-
 NodeCollectionFixtures nodeCollectionFixtures = {
     .testString = (String){"test", 4, 4},
     .test2String = (String){"test2", 5, 5},

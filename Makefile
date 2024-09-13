@@ -18,3 +18,9 @@ test: CCFLAGS += -o tests/run-tests -Og -g -fsanitize=address -fno-omit-frame-po
 test: $(TEST_SOURCES) tests/**/*.c
 	$(CC) $(CCFLAGS) tests/tests.c $(TEST_SOURCES)
 	./tests/run-tests
+
+tidy:
+	clang-tidy cxpq.c cli-parser.c $(SOURCES) --
+
+format:
+	clang-format -i cxpq.c cli-parser.c tests/**/*.c $(SOURCES) 

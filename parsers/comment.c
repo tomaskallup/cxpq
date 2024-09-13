@@ -4,7 +4,7 @@
 
 XMLCommentNode *parseComment(FILE *file) {
   XMLCommentNode *commentNode = (XMLCommentNode *)initNode(COMMENT);
-  char firstChar = fgetc(file);
+  char firstChar = (char)fgetc(file);
 
   if (firstChar == '-') {
     printCurrentLineMarked(file);
@@ -17,7 +17,7 @@ XMLCommentNode *parseComment(FILE *file) {
   String *end = stringCreateEmpty();
 
   char currentChar;
-  while ((currentChar = fgetc(file))) {
+  while ((currentChar = (char)fgetc(file))) {
 
     if (currentChar == '-' || currentChar == '>') {
       stringAppendChar(end, currentChar);

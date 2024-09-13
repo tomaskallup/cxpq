@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <stdlib.h>
 
 #include "query.h"
 
@@ -30,7 +31,7 @@ void freeQuery(Query *query) {
     freeQuery(query->next);
 
   if (query->subQueries) {
-    for (size_t i = 0; i < query->subQueryCount; i++)
+    for (unsigned int i = 0; i < query->subQueryCount; i++)
       freeQuery(query->subQueries[i]);
     free(query->subQueries);
   }
@@ -38,9 +39,9 @@ void freeQuery(Query *query) {
   free(query);
 }
 
-void printQuery(Query *query, size_t depth, bool printNext) {
-  for (size_t i = 0; i < depth * 2; i++)
-    fprintf(stderr, " ");
+void printQuery(Query *query, unsigned int depth, bool printNext) {
+  for (unsigned int i = 0; i < depth; i++)
+    fprintf(stderr, "  ");
   if (query->type == ElementName) {
     if (query->nesting == NESTING_DIRECT)
       printf("/");
@@ -48,6 +49,8 @@ void printQuery(Query *query, size_t depth, bool printNext) {
       printf("//");
   } else if (query->type == ElementAttribute)
     printf("@");
+  else if (query->type == FunctionFilter)
+    printf("F:");
 
   if (query->key)
     printf("%s", query->key->value);
@@ -59,9 +62,20 @@ void printQuery(Query *query, size_t depth, bool printNext) {
   printf("\n");
 
   if (query->subQueries)
-    for (size_t i = 0; i < query->subQueryCount; i++)
+    for (unsigned int i = 0; i < query->subQueryCount; i++)
       printQuery(query->subQueries[i], depth + 1, printNext);
 
   if (printNext && query->next)
     printQuery(query->next, depth, printNext);
+}
+
+bool queryIsEmpty(Query *query) {
+  if (query->type == ElementName)
+    return !query->value;
+  if (query->type == ElementAttribute)
+    return !query->key;
+  if (query->type == FunctionFilter)
+    return !query->key || !query->comparator || !query->value;
+
+  return false;
 }

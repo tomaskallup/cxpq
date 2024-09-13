@@ -11,8 +11,7 @@ NodeCollection *cloneNodeCollection(NodeCollection *collection);
 void freeNodeCollection(NodeCollection *collection);
 void addNodeToCollection(NodeCollection *collection, XMLNode *node);
 /** Returns the number of time the node was present (and removed) */
-int removeNodeFromCollection(NodeCollection *collection, XMLNode *node, bool removeAll);
-int deduplicateNodeCollection(NodeCollection *collection);
+unsigned int removeNodeFromCollection(NodeCollection *collection, XMLNode *node, bool removeAll);
 void compactNodeCollection(NodeCollection *collection);
 void concatNodeCollection(NodeCollection *collection, NodeCollection *other);
 

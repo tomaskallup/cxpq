@@ -1,10 +1,13 @@
+#include <assert.h>
+#include <stdlib.h>
+
 #include "processing-instruction.h"
 
 #include "../util.h"
 
 static bool parseAttributeValue(FILE *file, Attribute *attr) {
-  char openQuote = fgetc(file);
-  unsigned long openQuotePos = ftell(file);
+  char openQuote = (char)fgetc(file);
+  long openQuotePos = ftell(file);
 
   if (openQuote != '"' && openQuote != '\'') {
     printCurrentLineMarked(file);
@@ -13,7 +16,7 @@ static bool parseAttributeValue(FILE *file, Attribute *attr) {
   }
 
   char currentChar;
-  while ((currentChar = fgetc(file))) {
+  while ((currentChar = (char)fgetc(file))) {
     if (currentChar == openQuote) {
       return true;
     } else {
@@ -30,8 +33,8 @@ static bool parseAttributeValue(FILE *file, Attribute *attr) {
 static Attribute *parseAttribute(FILE *file) {
   skipWhitespaces(file);
 
-  char firstChar = fgetc(file);
-  char secondChar = fgetc(file);
+  char firstChar = (char)fgetc(file);
+  char secondChar = (char)fgetc(file);
   fseek(file, -2, SEEK_CUR);
   if (firstChar == '?' && secondChar == '>') {
     return NULL;
@@ -40,7 +43,7 @@ static Attribute *parseAttribute(FILE *file) {
   Attribute *attr = initAttribute();
 
   char currentChar;
-  while ((currentChar = fgetc(file))) {
+  while ((currentChar = (char)fgetc(file))) {
     if (currentChar == '=') {
       if (parseAttributeValue(file, attr)) {
         return attr;
@@ -86,7 +89,7 @@ XMLNode *parseProcessingInstruction(FILE *file) {
   // Success
   char currentChar;
   bool parsingName = true;
-  while ((currentChar = fgetc(file))) {
+  while ((currentChar = (char)fgetc(file))) {
     if (parsingName) {
       if (isValidNameChar(currentChar)) {
         stringAppendChar(node->tag, currentChar);
@@ -105,7 +108,7 @@ XMLNode *parseProcessingInstruction(FILE *file) {
       if (currentChar == '\0' || currentChar == -1)
         break;
       // We found the end of instructin
-      if (currentChar == '?' && fgetc(file) == '>')
+      if (currentChar == '?' && (char)fgetc(file) == '>')
         return (XMLNode *)node;
       else if (currentChar == '?') {
         fseek(file, -1, SEEK_CUR);
@@ -129,8 +132,11 @@ XMLNode *parseProcessingInstruction(FILE *file) {
       // Append attributes, extending allocated memory
       node->attributesSize += 1;
 
-      node->attributes =
+      Attribute **newAttributes =
           realloc(node->attributes, node->attributesSize * sizeof(Attribute *));
+      assert(newAttributes && "Failed to allocate new attributes for node");
+
+      node->attributes = newAttributes;
       node->attributes[node->attributesSize - 1] = attr;
     }
   }

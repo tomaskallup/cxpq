@@ -1,3 +1,4 @@
+#include <assert.h>
 #include <stdlib.h>
 #include <string.h>
 
@@ -30,11 +31,14 @@ void addNodeToCollection(NodeCollection *collection, XMLNode *node) {
   if (collection->allocated == 0 ||
       collection->lastIndex >= collection->allocated) {
     collection->allocated += NODE_COLLECTION_ALLOC_SIZE;
-    collection->nodes =
+    XMLNode **newNodes =
         realloc(collection->nodes, collection->allocated * sizeof(XMLNode *));
+    assert(newNodes && "Failed to allocate new nodes for collection");
+    collection->nodes = newNodes;
 
     // Make sure we `NULL` all newly allocated nodes
-    for (size_t i = collection->lastIndex + 1; i < collection->allocated; i++) {
+    for (unsigned int i = collection->lastIndex + 1; i < collection->allocated;
+         i++) {
       collection->nodes[i] = NULL;
     }
   }
@@ -54,10 +58,10 @@ void compactNodeCollection(NodeCollection *collection) {
 
     return;
   }
-  for (size_t i = 0; i <= collection->lastIndex; i++) {
+  for (unsigned int i = 0; i <= collection->lastIndex; i++) {
     if (!collection->nodes[i]) {
-      size_t oldIndex = i;
-      size_t newIndex = i;
+      unsigned int oldIndex = i;
+      unsigned int newIndex = i;
 
       XMLNode *nextNonNull = NULL;
       while (!nextNonNull && ++newIndex <= collection->lastIndex) {
@@ -71,17 +75,19 @@ void compactNodeCollection(NodeCollection *collection) {
     }
   }
 
-  collection->nodes =
-      realloc(collection->nodes, collection->size * sizeof(XMLNode *));
   collection->allocated = collection->size;
+  XMLNode **newNodes =
+      realloc(collection->nodes, collection->allocated * sizeof(XMLNode *));
+  assert(newNodes && "Failed to allocate new nodes for collection");
+  collection->nodes = newNodes;
   collection->lastIndex = collection->allocated - 1;
 }
 
-int removeNodeFromCollection(NodeCollection *collection, XMLNode *node,
-                             bool removeAll) {
-  size_t found = 0;
+unsigned int removeNodeFromCollection(NodeCollection *collection, XMLNode *node,
+                                      bool removeAll) {
+  unsigned int found = 0;
 
-  for (size_t i = 0; i < collection->allocated; i++) {
+  for (unsigned int i = 0; i < collection->allocated; i++) {
     if (collection->nodes[i] == node) {
       found++;
       collection->nodes[i] = NULL;
@@ -99,28 +105,32 @@ void concatNodeCollection(NodeCollection *collection, NodeCollection *other) {
   if (other->size == 0)
     return;
 
-  size_t spaceLeft = collection->allocated > 0
-                         ? collection->allocated - (collection->lastIndex + 1)
-                         : 0;
-  size_t spaceNeeded = other->allocated - spaceLeft;
+  unsigned int spaceLeft =
+      collection->allocated > 0
+          ? collection->allocated - (collection->lastIndex + 1)
+          : 0;
+  unsigned int spaceNeeded = other->allocated - spaceLeft;
   if (spaceNeeded > 0) {
     collection->allocated += spaceNeeded;
 
-    collection->nodes =
+    XMLNode **newNodes =
         realloc(collection->nodes, collection->allocated * sizeof(XMLNode *));
+    assert(newNodes && "Failed to allocate new nodes for collection");
+    collection->nodes = newNodes;
   }
 
-  size_t start = collection->size == 0 && collection->lastIndex == 0
-                     ? 0
-                     : collection->lastIndex + 1;
+  unsigned int start = collection->size == 0 && collection->lastIndex == 0
+                           ? 0
+                           : collection->lastIndex + 1;
 
   // We intentionally copy all allocated nodes (including NULLs)
-  for (size_t i = start; i < collection->allocated; i++) {
+  for (unsigned int i = start; i < collection->allocated; i++) {
     collection->nodes[i] = other->nodes[i - start];
   }
 
   // Make sure to account for two `0` last indexes
-  if (collection->size > 0) collection->lastIndex++;
+  if (collection->size > 0)
+    collection->lastIndex++;
 
   collection->lastIndex += other->lastIndex;
   collection->size += other->size;
@@ -133,12 +143,13 @@ NodeCollection *cloneNodeCollection(NodeCollection *collection) {
   copy->allocated = collection->allocated;
   copy->lastIndex = collection->lastIndex;
 
-  if (copy->allocated == 0) return copy;
+  if (copy->allocated == 0)
+    return copy;
 
   copy->nodes = calloc(copy->allocated, sizeof(XMLNode *));
 
   // We intentionally copy all allocated nodes (including NULLs)
-  for (size_t i = 0; i < copy->allocated; i++) {
+  for (unsigned int i = 0; i < copy->allocated; i++) {
     copy->nodes[i] = collection->nodes[i];
   }
 
@@ -151,7 +162,7 @@ void printNodeCollection(NodeCollection *collection, bool includeNewLine) {
     return;
   }
 
-  for (size_t i = 0; i <= collection->lastIndex; i++) {
+  for (unsigned int i = 0; i <= collection->lastIndex; i++) {
     XMLNode *node = collection->nodes[i];
     if (!node)
       continue;
@@ -160,7 +171,7 @@ void printNodeCollection(NodeCollection *collection, bool includeNewLine) {
       XMLElementNode *elementNode = (XMLElementNode *)node;
       printf("<%s", elementNode->tag->value);
 
-      for (size_t a = 0; a < elementNode->attributesSize; a++) {
+      for (unsigned int a = 0; a < elementNode->attributesSize; a++) {
         struct Attribute *attribute = elementNode->attributes[a];
         printf(" %s=\"%s\"", attribute->name->value, attribute->content->value);
       }
@@ -207,7 +218,8 @@ void printNodeCollection(NodeCollection *collection, bool includeNewLine) {
           (XMLProcessingInstructionNode *)node;
       printf("<?%s", processingInstructionNode->tag->value);
 
-      for (size_t a = 0; a < processingInstructionNode->attributesSize; a++) {
+      for (unsigned int a = 0; a < processingInstructionNode->attributesSize;
+           a++) {
         struct Attribute *attribute = processingInstructionNode->attributes[a];
         printf(" %s=\"%s\"", attribute->name->value, attribute->content->value);
       }

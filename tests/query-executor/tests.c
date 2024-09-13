@@ -1,7 +1,7 @@
 #include "../util.h"
 
-#include "element-name/tests.c"
 #include "attribute/tests.c"
+#include "element-name/tests.c"
 
 int testQueryExecutor() {
   START_TESTS

@@ -163,8 +163,7 @@ void testCloneNodeCollection() {
   ok(copy != NULL, "Copy is not null");
   cmp_ok(copy->size, "==", 3, "Copy size should be 3");
   cmp_ok(copy->allocated, "==", NODE_COLLECTION_ALLOC_SIZE,
-         "Copy should have %i nodes allocated",
-         NODE_COLLECTION_ALLOC_SIZE);
+         "Copy should have %i nodes allocated", NODE_COLLECTION_ALLOC_SIZE);
   ok(copy->nodes != NULL, "Copy nodes should not be null");
   CHECK_NODE_IN_COLLECTION(copy, nodeCollectionFixtures.testNode, 0);
   CHECK_NODE_IN_COLLECTION(copy, nodeCollectionFixtures.testNode2, 1);

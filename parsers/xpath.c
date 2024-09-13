@@ -1,4 +1,4 @@
-#include <ctype.h>
+#include <assert.h>
 
 #include "xpath.h"
 
@@ -12,11 +12,13 @@ char nextToken(ParserCharCurosr *cursor) {
 }
 
 void finalizeQuery(Query *query) {
-  if (query->type == ElementName && !query->value &&
-      query->key) {
+  if (query->type == ElementName && !query->value && query->key) {
     query->value = query->key;
     query->key = NULL;
   }
+
+  if (query->type == FunctionFilter)
+    query->nesting = NESTING_NONE;
 }
 
 Query *parseXpathQuery(ParserCharCurosr *cursor, bool isTopLevel) {
@@ -80,15 +82,18 @@ Query *parseXpathQuery(ParserCharCurosr *cursor, bool isTopLevel) {
       query->type = ElementAttribute;
     } break;
     case '[': {
-      const size_t index = query->subQueryCount;
-      query->subQueryCount++;
-      query->subQueries =
-          realloc(query->subQueries, query->subQueryCount * sizeof(Query *));
+      const unsigned int index = query->subQueryCount;
 
       Query *newSubQuery = parseXpathQuery(cursor, false);
 
       if (!newSubQuery)
         goto parsing_failed;
+
+      query->subQueryCount++;
+      Query **newSubQueries =
+          realloc(query->subQueries, query->subQueryCount * sizeof(Query *));
+      assert(newSubQueries && "Failed to allocate new sub queries for query");
+      query->subQueries = newSubQueries;
 
       query->subQueries[index] = newSubQuery;
     } break;
@@ -96,11 +101,6 @@ Query *parseXpathQuery(ParserCharCurosr *cursor, bool isTopLevel) {
       if (isTopLevel) {
         PRINT_ERROR("Found unexpected \"]\" in xpath query, there was no "
                     "matching \"[\".\n");
-        goto parsing_failed;
-      }
-
-      if (!firstQuery->key) {
-        PRINT_ERROR("Found empty subQuery, empty \"[]\" is is not allowed.");
         goto parsing_failed;
       }
 
@@ -168,14 +168,18 @@ Query *parseXpathQuery(ParserCharCurosr *cursor, bool isTopLevel) {
   }
 
   if (!isTopLevel) {
-    PRINT_ERROR("Missing \"]\" to close subQuery.");
+    PRINT_ERROR("Missing \"]\" to close subQuery.\n");
     goto parsing_failed;
   }
 
 finish:
   finalizeQuery(query);
-  query = firstQuery;
-  return query;
+
+  if (queryIsEmpty(query)) {
+    PRINT_ERROR("Found unfinished query element.\n");
+    goto parsing_failed;
+  }
+  return firstQuery;
 
 parsing_failed:
   PRINT_ERROR("Failed to parse XPath query\n");

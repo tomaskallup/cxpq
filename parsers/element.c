@@ -1,3 +1,4 @@
+#include <assert.h>
 #include <ctype.h>
 #include <stdlib.h>
 
@@ -10,7 +11,7 @@
 
 bool parseCloseTag(FILE *file, XMLElementNode *node) {
   char currentChar;
-  while ((currentChar = fgetc(file))) {
+  while ((currentChar = (char)fgetc(file))) {
     if (currentChar == '>') {
       if (stringEqual(node->tag, node->closeTag)) {
         return true;
@@ -41,19 +42,19 @@ bool parseElementContent(FILE *file, XMLElementNode *node) {
 
   char currentChar;
   XMLNode *lastChild = NULL;
-  while ((currentChar = fgetc(file))) {
+  while ((currentChar = (char)fgetc(file))) {
     if (currentChar == '<') {
-      char nextChar = fgetc(file);
+      char nextChar = (char)fgetc(file);
       if (nextChar == '/') {
         if (!parseCloseTag(file, node))
           return false;
 
         break;
       } else if (nextChar == '!') {
-        nextChar = fgetc(file);
+        nextChar = (char)fgetc(file);
         XMLNode *resultNode = NULL;
         if (nextChar == '-') {
-          nextChar = fgetc(file);
+          nextChar = (char)fgetc(file);
 
           if (nextChar != '-') {
             fseek(file, -1, SEEK_CUR);
@@ -123,8 +124,8 @@ bool parseElementContent(FILE *file, XMLElementNode *node) {
 }
 
 bool parseAttributeValue(FILE *file, Attribute *attr) {
-  char openQuote = fgetc(file);
-  unsigned long openQuotePos = ftell(file);
+  char openQuote = (char)fgetc(file);
+  long openQuotePos = ftell(file);
 
   if (openQuote != '"' && openQuote != '\'') {
     printCurrentLineMarked(file);
@@ -133,7 +134,7 @@ bool parseAttributeValue(FILE *file, Attribute *attr) {
   }
 
   char currentChar;
-  while ((currentChar = fgetc(file))) {
+  while ((currentChar = (char)fgetc(file))) {
     if (currentChar == openQuote) {
       return true;
     } else {
@@ -150,7 +151,7 @@ bool parseAttributeValue(FILE *file, Attribute *attr) {
 Attribute *parseAttribute(FILE *file) {
   skipWhitespaces(file);
 
-  char firstChar = fgetc(file);
+  char firstChar = (char)fgetc(file);
   fseek(file, -1, SEEK_CUR);
   if (firstChar == '>') {
     return NULL;
@@ -159,7 +160,7 @@ Attribute *parseAttribute(FILE *file) {
   Attribute *attr = initAttribute();
 
   char currentChar;
-  while ((currentChar = fgetc(file))) {
+  while ((currentChar = (char)fgetc(file))) {
     if (currentChar == '=') {
       if (parseAttributeValue(file, attr)) {
         return attr;
@@ -197,7 +198,7 @@ Attribute *parseAttribute(FILE *file) {
 }
 
 XMLElementNode *parseElement(FILE *file) {
-  const char firstChar = fgetc(file);
+  const char firstChar = (char)fgetc(file);
   if (!isalpha(firstChar) && firstChar != '_') {
     fseek(file, -1, SEEK_CUR);
     printCurrentLineMarked(file);
@@ -213,7 +214,7 @@ XMLElementNode *parseElement(FILE *file) {
 
   bool parsingName = true;
   char currentChar;
-  while ((currentChar = fgetc(file))) {
+  while ((currentChar = (char)fgetc(file))) {
     if (currentChar != ' ' && currentChar != '>') {
       if (!parsingName) {
         fseek(file, -1, SEEK_CUR);
@@ -257,8 +258,10 @@ XMLElementNode *parseElement(FILE *file) {
       // Append attributes, extending allocated memory
       node->attributesSize += 1;
 
-      node->attributes =
+      Attribute **newAttributes =
           realloc(node->attributes, node->attributesSize * sizeof(Attribute *));
+      assert(newAttributes && "Failed to allocate new attributes for node");
+      node->attributes = newAttributes;
       node->attributes[node->attributesSize - 1] = attr;
     }
   }

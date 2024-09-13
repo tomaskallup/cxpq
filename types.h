@@ -1,5 +1,4 @@
 #include <stdbool.h>
-#include <stdlib.h>
 
 #include "string.h"
 
@@ -28,9 +27,9 @@ typedef struct XMLNode {
 
 typedef struct NodeCollection {
   XMLNode **nodes;
-  size_t size;
-  size_t allocated;
-  size_t lastIndex;
+  unsigned int size;
+  unsigned int allocated;
+  unsigned int lastIndex;
 } NodeCollection;
 
 typedef struct XMLElementNode {
@@ -43,7 +42,7 @@ typedef struct XMLElementNode {
   String *closeTag;
   NodeCollection *children;
   struct Attribute **attributes;
-  size_t attributesSize;
+  unsigned int attributesSize;
   bool hasNamespace;
 } XMLElementNode;
 
@@ -74,7 +73,7 @@ typedef struct XMLProcessingInstructionNode {
   /* Specific attributes */
   String *tag;
   struct Attribute **attributes;
-  size_t attributesSize;
+  unsigned int attributesSize;
 } XMLProcessingInstructionNode;
 
 typedef struct XMLDTDNode {
@@ -90,7 +89,7 @@ typedef struct XMLDTDNode {
 
 typedef struct XMLDocument {
   NodeCollection *nodes;
-  size_t rootIndex;
+  unsigned int rootIndex;
 } XMLDocument;
 
 #endif

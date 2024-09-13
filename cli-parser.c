@@ -97,7 +97,7 @@ void print_help(char *command, const struct CliOptions cliOptions) {
 
     if (option->long_option) {
       // 2 is for `--`, 3 is for `-${short_name} ` and 2 is for `  ` printed
-      optionLength += strlen(option->long_option) + 2;
+      optionLength += (int)strlen(option->long_option) + 2;
     }
 
     // ` ` and `value`
@@ -127,7 +127,7 @@ void print_help(char *command, const struct CliOptions cliOptions) {
         toPad -= 2;
       }
       printf("--%s", option.long_option);
-      toPad -= strlen(option.long_option) + 2;
+      toPad -= (int)strlen(option.long_option) + 2;
     }
 
     if (option.has_arg) {

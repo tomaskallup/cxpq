@@ -25,7 +25,8 @@ char *queryType = NULL;
 const char *rawQuery = NULL;
 
 enum OptionCallbackResult setQueryType(const char *value) {
-  for (size_t i = 0; i < sizeof(queryTypes) / sizeof(queryTypes[0]); i++) {
+  for (unsigned int i = 0; i < sizeof(queryTypes) / sizeof(queryTypes[0]);
+       i++) {
     if (strlen(value) == strlen(queryTypes[i]) &&
         strcmp(value, queryTypes[i]) == 0) {
       queryType = queryTypes[i];
@@ -104,7 +105,7 @@ FILE *redirectStdin(void) {
     fputs(chunk, file);
   }
 
-  rewind(file);
+  fseek(file, 0, SEEK_SET);
 
   return file;
 }
@@ -185,14 +186,14 @@ int main(int argc, char *argv[]) {
   if (!root) {
     freeXMLDocument(document);
     PRINT_ERROR("Failed to parse provided XML file, nodes %p\n",
-                document->nodes->nodes);
+                (void *)document->nodes->nodes);
 
     if (query)
       freeQuery(query);
     return 2;
   } else {
     if (!query) {
-      printf("Root node %s (%lu)\n", root->tag->value, document->rootIndex);
+      printf("Root node %s (%iu)\n", root->tag->value, document->rootIndex);
 
       printXMLDocument(document);
     } else {

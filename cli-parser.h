@@ -10,11 +10,11 @@ enum OptionCallbackResult {
 
 struct OptionDef {
   char *name;
-  char short_option;
   char *long_option;
-  bool has_arg;
   char *description;
   enum OptionCallbackResult (*callback)(const char *value);
+  char short_option;
+  bool has_arg;
 };
 
 struct ParseOptionsResult {

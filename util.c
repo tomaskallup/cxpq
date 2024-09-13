@@ -20,7 +20,7 @@ bool isValidNameChar(const char input) {
 
 void skipWhitespaces(FILE *file) {
   char currentChar;
-  while ((currentChar = fgetc(file))) {
+  while ((currentChar = (char)fgetc(file))) {
     if (!isWhitespace(currentChar))
       break;
   }
@@ -38,7 +38,7 @@ void printCurrentLineMarked(FILE *file) {
   size_t column = 1;
 
   while (ftell(file) < position - 1) {
-    const char currentChar = fgetc(file);
+    const char currentChar = (char)fgetc(file);
     if (currentChar == '\n') {
       lineNumber++;
       column = 1;
@@ -51,21 +51,20 @@ void printCurrentLineMarked(FILE *file) {
   while ((lineLength - column) < ERROR_MAX_LENGTH && fgetc(file) != '\n')
     lineLength++;
 
-  fseek(file, column - lineLength - 1, SEEK_CUR);
+  fseek(file, (long)column - (long)lineLength - 1, SEEK_CUR);
 
-  size_t start =
-      column > ERROR_MAX_LENGTH ? column - ERROR_MAX_LENGTH : 0;
+  size_t start = column > ERROR_MAX_LENGTH ? column - ERROR_MAX_LENGTH : 0;
   size_t end = start + ERROR_MAX_LENGTH;
   if (end >= lineLength)
     end = lineLength - 1;
   size_t offset = column - start - 1;
 
-  fseek(file, -offset, SEEK_CUR);
+  fseek(file, -(long)offset, SEEK_CUR);
 
   fprintf(stderr, "At line %lu, column %lu\n", lineNumber, column);
 
   for (size_t i = 0; i < end - start; i++) {
-    const char character = fgetc(file);
+    const char character = (char)fgetc(file);
     fprintf(stderr, "%c", character);
   }
   fprintf(stderr, "\n");
@@ -155,7 +154,7 @@ void freeXMLNode(XMLNode *node) {
   if (node->type == ELEMENT) {
     XMLElementNode *elementNode = (XMLElementNode *)node;
     if (elementNode->children) {
-      for (size_t i = 0; i < elementNode->children->size; i++)
+      for (unsigned int i = 0; i < elementNode->children->size; i++)
         freeXMLNode(elementNode->children->nodes[i]);
 
       freeNodeCollection(elementNode->children);
@@ -165,7 +164,7 @@ void freeXMLNode(XMLNode *node) {
     freeString(elementNode->closeTag);
 
     if (elementNode->attributesSize > 0) {
-      for (size_t a = 0; a < elementNode->attributesSize; a++) {
+      for (unsigned int a = 0; a < elementNode->attributesSize; a++) {
         freeAttribute(elementNode->attributes[a]);
         free(elementNode->attributes[a]);
       }
@@ -183,7 +182,8 @@ void freeXMLNode(XMLNode *node) {
         (XMLProcessingInstructionNode *)node;
     freeString(processingInstructionNode->tag);
     if (processingInstructionNode->attributesSize > 0) {
-      for (size_t a = 0; a < processingInstructionNode->attributesSize; a++) {
+      for (unsigned int a = 0; a < processingInstructionNode->attributesSize;
+           a++) {
         freeAttribute(processingInstructionNode->attributes[a]);
         free(processingInstructionNode->attributes[a]);
       }
@@ -196,14 +196,14 @@ void freeXMLNode(XMLNode *node) {
     if (dtdNode->content)
       freeString(dtdNode->content);
     if (dtdNode->systemID)
-    freeString(dtdNode->systemID);
+      freeString(dtdNode->systemID);
   }
 
   free(node);
 }
 
 void freeXMLDocument(XMLDocument *document) {
-  for (size_t i = 0; i <= document->nodes->lastIndex; i++) {
+  for (unsigned int i = 0; i <= document->nodes->lastIndex; i++) {
     freeXMLNode(document->nodes->nodes[i]);
   }
 
@@ -213,7 +213,7 @@ void freeXMLDocument(XMLDocument *document) {
 }
 
 void printXMLTree(XMLNode *root, int depth) {
-  for (size_t i = 0; i < depth; i++)
+  for (unsigned int i = 0; i < depth; i++)
     printf("  ");
 
   switch (root->type) {
@@ -221,17 +221,17 @@ void printXMLTree(XMLNode *root, int depth) {
     XMLElementNode *elementNode = (XMLElementNode *)root;
     printf("<%s", elementNode->tag->value);
 
-    for (size_t a = 0; a < elementNode->attributesSize; a++) {
+    for (unsigned int a = 0; a < elementNode->attributesSize; a++) {
       struct Attribute *attribute = elementNode->attributes[a];
       printf(" %s=\"%s\"", attribute->name->value, attribute->content->value);
     }
 
     printf(">\n");
 
-    for (size_t i = 0; i <= elementNode->children->lastIndex; i++)
+    for (unsigned int i = 0; i <= elementNode->children->lastIndex; i++)
       printXMLTree(elementNode->children->nodes[i], depth + 1);
 
-    for (size_t i = 0; i < depth; i++)
+    for (unsigned int i = 0; i < depth; i++)
       printf("  ");
     printf("</%s>\n", elementNode->tag->value);
     break;
@@ -272,7 +272,8 @@ void printXMLTree(XMLNode *root, int depth) {
         (XMLProcessingInstructionNode *)root;
     printf("<?%s", processingInstructionNode->tag->value);
 
-    for (size_t a = 0; a < processingInstructionNode->attributesSize; a++) {
+    for (unsigned int a = 0; a < processingInstructionNode->attributesSize;
+         a++) {
       struct Attribute *attribute = processingInstructionNode->attributes[a];
       printf(" %s=\"%s\"", attribute->name->value, attribute->content->value);
     }
@@ -285,7 +286,7 @@ void printXMLTree(XMLNode *root, int depth) {
 
 void printXMLDocument(XMLDocument *document) {
   NodeCollection *nodes = document->nodes;
-  for (size_t i = 0; i <= nodes->lastIndex; i++) {
+  for (unsigned int i = 0; i <= nodes->lastIndex; i++) {
     printXMLTree(nodes->nodes[i], 0);
   }
 }

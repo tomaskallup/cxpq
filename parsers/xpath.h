@@ -1,3 +1,5 @@
+#include <stdlib.h>
+
 #include "../query.h"
 
 Query *parseXpath(const char *rawQuery);
